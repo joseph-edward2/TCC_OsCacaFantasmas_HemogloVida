@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Hemoglovida | Gestão de Estoque</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Importação da biblioteca de ícones "phosphor"-->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../style/estilo.css">
+</head>
+<body>
+
+<header>
+  <!--Título e logo-->
+  <div class="header-left">
+    <div class="logo">
+      <img src="img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
+      Hemoglovida
+    </div>
+
+    <!--Links da navbar-->
+    <nav>
+      <a href="index.html">Visão Geral</a>
+      <a href="#">Atendimento</a>
+      <a href="#" class="active">Estoque</a>
+      <a href="#">Agendamentos</a>
+      <a href="#">Pedidos</a>
+      <a href="#">Alertas</a>
+    </nav>
+  </div>
+
+  <!--Ícone de usuário-->
+  <div class="user">
+    <i class="ph ph-gear"></i>
+    Bem-vindo, Dr. Walter White
+    <div class="avatar">
+      <img src="img/DrWalterWhite.png" alt="Foto de perfil">
+    </div>
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <!--Cabeçalho da página-->
+  <div class="page-header">
+    <div>
+      <h1>Gestão de Estoque</h1>
+    </div>
+    <div class="page-actions">
+      <div class="filter-bar">
+        <button class="filter-seg"><i class="ph ph-funnel"></i> Filtrar</button>
+        <button class="filter-seg">Tipo</button>
+        <button class="filter-seg">Status</button>
+      </div>
+      <button class="btn btn-primary"><i class="ph ph-plus-square"></i> Registrar Entrada</button>
+    </div>
+  </div>
+
+  <!--Banner de alerta-->
+  <div class="alert-banner">
+    <div class="alert-banner-left">
+      <div class="alert-banner-icon"><i class="ph ph-warning"></i></div>
+      <div>
+        <div class="alert-banner-title">3 tipos sanguíneos estão com estoque crítico</div>
+        <div class="alert-banner-text">Níveis de O-, B+ e AB- estão abaixo da reserva de segurança operacional.</div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Emitir alerta agora</button>
+  </div>
+
+  <!--Cartões de estoque por tipo sanguíneo-->
+  <section class="stock-grid">
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">O-</span>
+        <span class="badge-sq">Crítico</span>
+      </div>
+      <div class="stock-count"><span class="count-value">12</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:15%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 80<br>bolsas</span>
+        <span class="meta-right">15% do<br>ideal</span>
+      </div>
+      <div class="stock-footer is-warning"><i class="ph ph-calendar-x"></i> 5 bolsas vencendo em 7 dias</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">O+</span>
+      </div>
+      <div class="stock-count"><span class="count-value">64</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:64%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 100<br>bolsas</span>
+        <span class="meta-right">64% do<br>ideal</span>
+      </div>
+      <div class="stock-footer"><i class="ph ph-check-circle"></i> Nenhuma expiração próxima</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">A-</span>
+      </div>
+      <div class="stock-count"><span class="count-value">42</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:42%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 100<br>bolsas</span>
+        <span class="meta-right">42% do<br>ideal</span>
+      </div>
+      <div class="stock-footer is-warning"><i class="ph ph-calendar-x"></i> 2 bolsas vencendo em 7 dias</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">A+</span>
+      </div>
+      <div class="stock-count"><span class="count-value">88</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:88%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 100<br>bolsas</span>
+        <span class="meta-right">88% do<br>ideal</span>
+      </div>
+      <div class="stock-footer"><i class="ph ph-check-circle"></i> Nenhuma expiração próxima</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">B-</span>
+      </div>
+      <div class="stock-count"><span class="count-value">24</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:48%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 50<br>bolsas</span>
+        <span class="meta-right">48% do<br>ideal</span>
+      </div>
+      <div class="stock-footer"><i class="ph ph-check-circle"></i> Nenhuma expiração próxima</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">B+</span>
+        <span class="badge-sq">Crítico</span>
+      </div>
+      <div class="stock-count"><span class="count-value">9</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:12%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 75<br>bolsas</span>
+        <span class="meta-right">12% do<br>ideal</span>
+      </div>
+      <div class="stock-footer is-warning"><i class="ph ph-calendar-x"></i> 8 bolsas vencendo em 7 dias</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">AB-</span>
+        <span class="badge-sq">Crítico</span>
+      </div>
+      <div class="stock-count"><span class="count-value">4</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:13%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 30<br>bolsas</span>
+        <span class="meta-right">13% do<br>ideal</span>
+      </div>
+      <div class="stock-footer"><i class="ph ph-check-circle"></i> Nenhuma expiração próxima</div>
+    </div>
+
+    <div class="stock-card">
+      <div class="stock-card-head">
+        <span class="blood-type">AB+</span>
+      </div>
+      <div class="stock-count"><span class="count-value">31</span><span class="count-unit">bolsas</span></div>
+      <div class="progress-track"><div class="progress-fill" style="width:77%"></div></div>
+      <div class="stock-meta">
+        <span class="meta-left">Meta: 40<br>bolsas</span>
+        <span class="meta-right">77% do<br>ideal</span>
+      </div>
+      <div class="stock-footer"><i class="ph ph-check-circle"></i> Nenhuma expiração próxima</div>
+    </div>
+  </section>
+
+  <!--Movimentação e Inventário-->
+  <section class="stock-bottom-grid">
+
+    <!--Movimentação-->
+    <div class="stock-side">
+      <div class="panel">
+        <h2 style="margin:0 0 14px;font-size:19px;">Movimentação</h2>
+        <div class="panel-select">Últimos 30 dias <i class="ph ph-caret-down"></i></div>
+
+        <div class="bar-chart" style="height:150px;">
+          <div class="bar-col"><div class="bar" style="height:62%"></div></div>
+          <div class="bar-col"><div class="bar" style="height:94%"></div></div>
+          <div class="bar-col"><div class="bar" style="height:49%"></div></div>
+          <div class="bar-col"><div class="bar" style="height:100%"></div></div>
+        </div>
+        <div class="bar-labels">
+          <span>Sem 01</span>
+          <span>Sem 02</span>
+          <span>Sem 03</span>
+          <span>Sem 04</span>
+        </div>
+
+        <div class="chart-legend" style="margin-top:16px;">
+          <span class="legend-dot"></span> Entradas
+          <span class="legend-dot" style="margin-left:10px;"></span> Saídas
+        </div>
+
+        <div class="totals-row">
+          <div>
+            <span class="total-label">Total Entradas</span>
+            <span class="total-value">+124</span>
+          </div>
+          <div>
+            <span class="total-label">Total Saídas</span>
+            <span class="total-value">-98</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block"><i class="ph ph-flask"></i> Triagem de Bolsas</button>
+    </div>
+
+    <!--Inventário Detalhado-->
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Inventário Detalhado</h2>
+        <div class="panel-actions">
+          <button class="icon-btn"><i class="ph ph-download-simple"></i></button>
+          <button class="icon-btn"><i class="ph ph-printer"></i></button>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID Bolsa</th>
+            <th>Tipo</th>
+            <th>Coleta</th>
+            <th>Validade</th>
+            <th>Status</th>
+            <th>Origem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hospital-name">#O-88291</td>
+            <td><span class="type-pill"><i class="ph ph-drop"></i> O-</span></td>
+            <td>12/10/2023</td>
+            <td class="date-alert">19/10/2023</td>
+            <td><span class="status-dot"></span>Disponível</td>
+            <td>Hemocentro São Lucas</td>
+          </tr>
+          <tr>
+            <td class="hospital-name">#A+88302</td>
+            <td><span class="type-pill"><i class="ph ph-drop"></i> A+</span></td>
+            <td>15/10/2023</td>
+            <td>22/11/2023</td>
+            <td><span class="status-dot is-alert"></span><span class="status-text is-alert">Reservado</span></td>
+            <td>Hospital Geral GRU</td>
+          </tr>
+          <tr>
+            <td class="hospital-name">#O+88315</td>
+            <td><span class="type-pill"><i class="ph ph-drop"></i> O+</span></td>
+            <td>16/10/2023</td>
+            <td class="date-alert">21/10/2023</td>
+            <td><span class="status-dot"></span>Disponível</td>
+            <td>Hemocentro São Lucas</td>
+          </tr>
+          <tr>
+            <td class="hospital-name">#O+88340</td>
+            <td><span class="type-pill"><i class="ph ph-drop"></i> O+</span></td>
+            <td>17/10/2023</td>
+            <td>24/11/2023</td>
+            <td><span class="status-dot"></span>Enviado</td>
+            <td>Hemocentro Unifesp</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="table-footer">
+        <span>Mostrando 1-10 de 458 bolsas em estoque</span>
+        <div class="pagination">
+          <button class="btn btn-outline" disabled>Anterior</button>
+          <button class="btn btn-outline">Próximo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

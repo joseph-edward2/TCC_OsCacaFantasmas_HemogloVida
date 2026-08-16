@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Hemoglovida | Visão Geral</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Importação da biblioteca de ícones "phosphor"-->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../style/estilo.css">
+</head>
+<body>
+
+<header>
+  <!--Título e logo-->
+  <div class="header-left">
+    <div class="logo">
+      <img src="../style/img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
+      Hemoglovida
+    </div>
+
+    <!--Links da navbar-->
+    <nav>
+      <a href="#" class="active">Visão Geral</a>
+      <a href="#">Atendimento</a>
+      <a href="Hem_Estoque.html">Estoque</a>
+      <a href="#">Agendamentos</a>
+      <a href="#">Pedidos</a>
+      <a href="#">Alertas</a>
+    </nav>
+  </div>
+
+  <!--Ícone de usuário-->
+  <div class="user">
+    <i class="ph ph-gear"></i>
+    Bem-vindo, Dr. Walter White
+    <div class="avatar">
+      <img src="../style/img/WalterWhite.png" alt="Foto de perfil">
+    </div>
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <!--Cabeçalho da página-->
+  <div class="page-header">
+    <div>
+      <h1>Visão Geral</h1>
+      <p class="page-meta">Atualizado agora &bull; 24 de Outubro, 10:30</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-outline"><i class="ph ph-funnel"></i> Filtrar</button>
+      <button class="btn btn-primary"><i class="ph ph-download-simple"></i> Exportar</button>
+    </div>
+  </div>
+
+  <!--Cartões de resumo-->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon"><i class="ph ph-drop"></i></div>
+        <span class="stat-delta">+12%</span>
+      </div>
+      <div class="stat-label">Total em Estoque</div>
+      <div class="stat-value">458 <span>bolsas</span></div>
+      <div class="stat-sub">Tendência semanal de alta</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon"><i class="ph ph-calendar-check"></i></div>
+      </div>
+      <div class="stat-label">Doações Hoje</div>
+      <div class="stat-value">24 <span>agendamentos</span></div>
+      <div class="stat-sub">Capacidade: 30 vagas</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon"><i class="ph ph-warning"></i></div>
+        <span class="badge badge-critico">Crítico</span>
+      </div>
+      <div class="stat-label">Alertas Ativos</div>
+      <div class="stat-value">3 <span>críticos</span></div>
+      <div class="stat-sub">Necessário envio urgente</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-card-top">
+        <div class="stat-icon"><i class="ph ph-clipboard-text"></i></div>
+      </div>
+      <div class="stat-label">Pedidos Pendentes</div>
+      <div class="stat-value">12 <span>solicitações</span></div>
+      <div class="stat-sub">Aguardando separação</div>
+    </div>
+  </section>
+
+  <!--Estoque por tipo sanguíneo-->
+  <div class="section-header">
+    <h2>Estoque por Tipo Sanguíneo</h2>
+    <span class="section-hint">Clique para ver detalhes do histórico</span>
+  </div>
+
+  <section class="blood-grid">
+    <div class="blood-card is-critical">
+      <div class="blood-card-top">
+        <span class="blood-type">O-</span>
+        <span class="badge badge-critico">Crítico</span>
+      </div>
+      <div class="blood-count">12</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:15%"></div></div>
+      <span class="blood-level">Nível 15%</span>
+    </div>
+
+    <div class="blood-card is-critical">
+      <div class="blood-card-top">
+        <span class="blood-type">A-</span>
+        <span class="badge badge-critico">Crítico</span>
+      </div>
+      <div class="blood-count">08</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:10%"></div></div>
+      <span class="blood-level">Nível 10%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">O+</span>
+      </div>
+      <div class="blood-count">112</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:85%"></div></div>
+      <span class="blood-level">Nível 85%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">A+</span>
+      </div>
+      <div class="blood-count">94</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:72%"></div></div>
+      <span class="blood-level">Nível 72%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">B-</span>
+      </div>
+      <div class="blood-count">42</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:55%"></div></div>
+      <span class="blood-level">Nível 55%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">B+</span>
+      </div>
+      <div class="blood-count">68</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:64%"></div></div>
+      <span class="blood-level">Nível 64%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">AB-</span>
+      </div>
+      <div class="blood-count">22</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:45%"></div></div>
+      <span class="blood-level">Nível 45%</span>
+    </div>
+
+    <div class="blood-card">
+      <div class="blood-card-top">
+        <span class="blood-type">AB+</span>
+      </div>
+      <div class="blood-count">100</div>
+      <span class="blood-unit">BOLSAS</span>
+      <div class="progress-track"><div class="progress-fill" style="width:90%"></div></div>
+      <span class="blood-level">Nível 90%</span>
+    </div>
+  </section>
+
+  <!--Alertas e Pedidos-->
+  <section class="panels-grid" style="margin-top:36px;">
+
+    <!--Alertas emitidos-->
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Alertas Emitidos</h2>
+        <a href="#" class="section-link">Ver tudo</a>
+      </div>
+      <div class="alert-list">
+        <div class="alert-item is-active">
+          <div class="alert-icon"><i class="ph ph-megaphone"></i></div>
+          <div class="alert-body">
+            <div class="alert-title">Escassez tipo O-</div>
+            <div class="alert-meta">24 Out | 08:30 &bull; 15 Respostas</div>
+          </div>
+          <span class="alert-status is-ativo">Ativo</span>
+        </div>
+
+        <div class="alert-item">
+          <div class="alert-icon"><i class="ph ph-megaphone"></i></div>
+          <div class="alert-body">
+            <div class="alert-title">Campanha Outubro Rosa</div>
+            <div class="alert-meta">22 Out | 10:00 &bull; 142 Respostas</div>
+          </div>
+          <span class="alert-status is-encerrado">Encerrado</span>
+        </div>
+
+        <div class="alert-item">
+          <div class="alert-icon"><i class="ph ph-megaphone"></i></div>
+          <div class="alert-body">
+            <div class="alert-title">Manutenção Sistema</div>
+            <div class="alert-meta">21 Out | 14:00 &bull; N/A</div>
+          </div>
+          <span class="alert-status is-encerrado">Encerrado</span>
+        </div>
+
+        <div class="alert-item">
+          <div class="alert-icon"><i class="ph ph-megaphone"></i></div>
+          <div class="alert-body">
+            <div class="alert-title">Manutenção Sistema</div>
+            <div class="alert-meta">21 Out | 14:00 &bull; N/A</div>
+          </div>
+          <span class="alert-status is-encerrado">Encerrado</span>
+        </div>
+      </div>
+    </div>
+
+    <!--Pedidos recentes de hospitais-->
+    <div class="panel">
+      <div class="panel-header">
+        <h2>Pedidos Recentes de Hospitais</h2>
+        <a href="#" class="section-link">Gerenciar Pedidos</a>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Hospital</th>
+            <th>Tipo</th>
+            <th>Qtd</th>
+            <th>Urgência</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="hospital-name">Hospital das Clínicas</td>
+            <td class="blood-tag">O-</td>
+            <td>05</td>
+            <td class="urgencia-critica">Crítica</td>
+            <td><span class="pill pill-pendente">Pendente</span></td>
+          </tr>
+          <tr>
+            <td class="hospital-name">Santa Casa SP</td>
+            <td class="blood-tag">A+</td>
+            <td>12</td>
+            <td class="urgencia-normal">Normal</td>
+            <td><span class="pill pill-enviado">Enviado</span></td>
+          </tr>
+          <tr>
+            <td class="hospital-name">Hosp. Albert Einstein</td>
+            <td class="blood-tag">AB-</td>
+            <td>02</td>
+            <td class="urgencia-normal">Normal</td>
+            <td><span class="pill pill-pendente">Pendente</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!--Gráfico de doações-->
+  <section class="chart-panel">
+    <div class="chart-header">
+      <div>
+        <h2>Doações nos últimos 7 dias</h2>
+        <p>Volume de bolsas coletadas por dia</p>
+      </div>
+      <div class="chart-legend"><span class="legend-dot"></span> Coletas</div>
+    </div>
+
+    <div class="bar-chart">
+      <div class="bar-col"><div class="bar" style="height:75%"></div></div>
+      <div class="bar-col"><div class="bar" style="height:68%"></div></div>
+      <div class="bar-col"><div class="bar" style="height:100%"></div></div>
+      <div class="bar-col"><div class="bar" style="height:90%"></div></div>
+      <div class="bar-col"><div class="bar" style="height:57%"></div></div>
+      <div class="bar-col"><div class="bar" style="height:87%"></div></div>
+    </div>
+    <div class="bar-labels">
+      <span>Segunda-feira</span>
+      <span>Terça-feira</span>
+      <span>Quarta-feira</span>
+      <span>Quinta-feira</span>
+      <span>Sexta-feira</span>
+      <span>Sábado</span>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
