@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Hemoglovida | Configurar Agenda de Doações</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Importação da biblioteca de ícones "phosphor"-->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+<header>
+  <!--Título e logo-->
+  <div class="header-left">
+    <div class="logo">
+      <img src="../style/img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
+      Hemoglovida
+    </div>
+
+    <!--Links da navbar-->
+    <nav>
+      <a href="Hem_Tela_Inicial.html">Visão Geral</a>
+      <a href="Hem_Atendimento.html">Atendimento</a>
+      <a href="Hem_Estoque.html">Estoque</a>
+      <a href="Hem_Agendamento.html" class="active">Agendamentos</a>
+      <a href="#">Pedidos</a>
+      <a href="#">Alertas</a>
+    </nav>
+  </div>
+
+  <!--Ícone de usuário-->
+  <div class="user">
+    <i class="ph ph-gear" href="#"></i>
+    Bem-vindo, Dr. Walter White
+    <div class="avatar">
+      <img src="../style/img/WalterWhite.png" alt="Foto de perfil">
+    </div>
+  </div>
+</header>
+
+<main class="dashboard">
+
+  <!--Cabeçalho da página-->
+  <div class="page-header">
+    <div>
+      <h1>Configurar Agenda de Doações</h1>
+      <p class="page-desc">Defina os dias e horários em que seu hemocentro estará disponível para agendamentos</p>
+    </div>
+    <div class="page-actions">
+      <button class="btn btn-primary"><i class="ph ph-floppy-disk"></i> Salvar Alterações</button>
+    </div>
+  </div>
+
+  <!--Calendário + configuração do dia-->
+  <section class="agenda-grid">
+
+    <!--Calendário-->
+    <div class="panel">
+      <div class="toolbar">
+        <button class="btn btn-primary"><i class="ph ph-prohibit"></i> Bloquear dia</button>
+        <button class="btn btn-primary"><i class="ph ph-check-circle"></i> Liberar dia</button>
+        <button class="btn btn-primary"><i class="ph ph-arrows-clockwise"></i> Aplicar padrão semanal</button>
+      </div>
+
+      <div class="calendar-header">
+        <h2>Março 2026</h2>
+        <div class="calendar-nav">
+          <button><i class="ph ph-caret-left"></i></button>
+          <button><i class="ph ph-caret-right"></i></button>
+        </div>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sab</span>
+      </div>
+
+      <div class="calendar-grid">
+        <!-- Semana 1 -->
+        <div class="calendar-day is-outside">25</div>
+        <div class="calendar-day is-outside">26</div>
+        <div class="calendar-day is-outside">27</div>
+        <div class="calendar-day is-outside">28</div>
+        <div class="calendar-day is-outside">29</div>
+        <div class="calendar-day is-selected">01<span class="dot"></span></div>
+        <div class="calendar-day">02<span class="dot"></span></div>
+
+        <!-- Semana 2 -->
+        <div class="calendar-day is-outside">03</div>
+        <div class="calendar-day">04<span class="dot"></span></div>
+        <div class="calendar-day">05<span class="dot"></span></div>
+        <div class="calendar-day">06<span class="dot"></span></div>
+        <div class="calendar-day">07<span class="dot"></span></div>
+        <div class="calendar-day">08<span class="dot"></span></div>
+        <div class="calendar-day">09<span class="dot"></span></div>
+
+        <!-- Semana 3 -->
+        <div class="calendar-day is-outside">10</div>
+        <div class="calendar-day">11<span class="dot"></span></div>
+        <div class="calendar-day">12<span class="dot"></span></div>
+        <div class="calendar-day">13<span class="dot"></span></div>
+        <div class="calendar-day">14<span class="dot"></span></div>
+        <div class="calendar-day">15<span class="dot"></span></div>
+        <div class="calendar-day">16<span class="dot"></span></div>
+
+        <!-- Semana 4 -->
+        <div class="calendar-day is-outside">17</div>
+        <div class="calendar-day">18<span class="dot"></span></div>
+        <div class="calendar-day">19<span class="dot"></span></div>
+        <div class="calendar-day">20<span class="dot"></span></div>
+        <div class="calendar-day">21<span class="dot"></span></div>
+        <div class="calendar-day">22<span class="dot"></span></div>
+        <div class="calendar-day">23<span class="dot"></span></div>
+
+        <!-- Semana 5 -->
+        <div class="calendar-day is-outside">24</div>
+        <div class="calendar-day">25<span class="dot"></span></div>
+        <div class="calendar-day">26<span class="dot"></span></div>
+        <div class="calendar-day">27<span class="dot"></span></div>
+        <div class="calendar-day">28<span class="dot"></span></div>
+        <div class="calendar-day">29<span class="dot"></span></div>
+        <div class="calendar-day">30<span class="dot"></span></div>
+
+        <!-- Semana 6 -->
+        <div class="calendar-day is-outside">31</div>
+        <div class="calendar-day">01<span class="dot"></span></div>
+        <div class="calendar-day">02<span class="dot"></span></div>
+        <div class="calendar-day">03<span class="dot"></span></div>
+        <div class="calendar-day">04<span class="dot"></span></div>
+        <div class="calendar-day">05<span class="dot"></span></div>
+        <div class="calendar-day">06<span class="dot"></span></div>
+      </div>
+
+      <div class="calendar-legend">
+        <span class="legend-item"><span class="legend-swatch"></span> Disponível</span>
+        <span class="legend-item"><span class="legend-swatch is-indisponivel"></span> Indisponível</span>
+        <span class="legend-item"><span class="legend-swatch is-selecionado"></span> selecionado</span>
+      </div>
+    </div>
+
+    <!--Configuração do dia selecionado-->
+    <div class="panel day-config">
+      <div class="day-config-head">
+        <h2>Configurar 06 de Março</h2>
+        <p>Quarta-feira</p>
+      </div>
+
+      <div class="day-config-body">
+        <div class="toggle-box">
+          Hemocentro aberto neste dia
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="track"></span>
+          </label>
+        </div>
+
+        <div class="day-config-subhead">
+          <span class="label">Horários e<br>Vagas</span>
+          <span class="total">Total: 30<br>vagas</span>
+        </div>
+
+        <div class="horario-list">
+          <div class="horario-row">
+            <div class="horario-time">08:00 - 09:00<small>Intervalo de 1 hora</small></div>
+            <input class="horario-vagas" type="text" value="5">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="track"></span>
+            </label>
+          </div>
+          <div class="horario-row">
+            <div class="horario-time">09:00 - 10:00<small>Intervalo de 1 hora</small></div>
+            <input class="horario-vagas" type="text" value="10">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="track"></span>
+            </label>
+          </div>
+          <div class="horario-row">
+            <div class="horario-time">10:00 - 11:00<small>Intervalo de 1 hora</small></div>
+            <input class="horario-vagas" type="text" value="8">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="track"></span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-dashed"><i class="ph ph-plus"></i> Adicionar novo horário</button>
+      </div>
+    </div>
+  </section>
+
+  <!--Configuração padrão semanal-->
+  <section class="panel" style="margin-top:24px;">
+    <div class="panel-header">
+      <div>
+        <h2>Configuração Padrão Semanal</h2>
+        <p class="page-desc" style="margin-top:4px;">Aplica-se automaticamente a todos os dias, a menos que haja bloqueio manual</p>
+      </div>
+      <div class="panel-actions">
+        <button class="icon-btn"><i class="ph ph-calendar-blank"></i></button>
+      </div>
+    </div>
+
+    <table class="weekly-table">
+      <thead>
+        <tr>
+          <th>Dia da Semana</th>
+          <th>Status</th>
+          <th>Início</th>
+          <th>Fim</th>
+          <th>Capacidade (Vagas)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-name">Segunda-feira</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="06:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="120"></td>
+        </tr>
+        <tr>
+          <td class="day-name">Terça-feira</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="06:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="120"></td>
+        </tr>
+        <tr>
+          <td class="day-name">Quarta-feira</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="06:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="120"></td>
+        </tr>
+        <tr>
+          <td class="day-name">Quinta-feira</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="06:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="120"></td>
+        </tr>
+        <tr>
+          <td class="day-name">Sexta-feira</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="06:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="120"></td>
+        </tr>
+        <tr class="is-saturday">
+          <td class="day-name">Sábado</td>
+          <td><span class="status-check is-open"><span class="check-box is-checked"><i class="ph-bold ph-check"></i></span> Aberto</span></td>
+          <td><input class="time-input" type="text" value="08:00 AM"></td>
+          <td><input class="time-input" type="text" value="12:00 PM"></td>
+          <td><input class="capacity-input" type="text" value="60"></td>
+        </tr>
+        <tr class="is-disabled">
+          <td class="day-name">Domingo</td>
+          <td><span class="status-check is-closed"><span class="check-box"></span> Fechado</span></td>
+          <td><input class="time-input" type="text" value="12:00 AM" disabled></td>
+          <td><input class="time-input" type="text" value="12:00 AM" disabled></td>
+          <td><input class="capacity-input" type="text" value="0" disabled></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+</body>
+</html>

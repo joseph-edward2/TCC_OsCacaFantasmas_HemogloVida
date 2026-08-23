@@ -7,38 +7,12 @@
 
   <!--Importação da biblioteca de ícones "phosphor"-->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" href="../style/estilo.css">
+  <script src="../js/telainicial.js"></script>
+  <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
 
-<header>
-  <!--Título e logo-->
-  <div class="header-left">
-    <div class="logo">
-      <img src="../style/img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
-      Hemoglovida
-    </div>
-
-    <!--Links da navbar-->
-    <nav>
-      <a href="#" class="active">Visão Geral</a>
-      <a href="#">Atendimento</a>
-      <a href="Hem_Estoque.html">Estoque</a>
-      <a href="#">Agendamentos</a>
-      <a href="#">Pedidos</a>
-      <a href="#">Alertas</a>
-    </nav>
-  </div>
-
-  <!--Ícone de usuário-->
-  <div class="user">
-    <i class="ph ph-gear"></i>
-    Bem-vindo, Dr. Walter White
-    <div class="avatar">
-      <img src="../style/img/WalterWhite.png" alt="Foto de perfil">
-    </div>
-  </div>
-</header>
+<div id="header-container"></div>
 
 <main class="dashboard">
 
@@ -46,7 +20,7 @@
   <div class="page-header">
     <div>
       <h1>Visão Geral</h1>
-      <p class="page-meta">Atualizado agora &bull; 24 de Outubro, 10:30</p>
+      <p class="page-meta">Atualizado agora | 24 de Outubro, 10:30</p>
     </div>
     <div class="page-actions">
       <button class="btn btn-outline"><i class="ph ph-funnel"></i> Filtrar</button>
@@ -304,7 +278,8 @@
     </div>
   </section>
 
-</main>
 
+</main>
+  <div id="footer-container"></div>
 </body>
 </html>

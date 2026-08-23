@@ -1,35 +1,37 @@
- header{
-    background: var(--brand);
-    color: #fff;
-    display:flex;
-    align-items: center;
-    justify-content:space-between;
-    padding: 18px 40px;
+/*--------Header--------*/
 
-  }
+header{
+  background: var(--brand);
+  color: #fff;
+  display:flex;
+  align-items: center;
+  justify-content:space-between;
+  padding: 18px 40px;
+}
 
-  .header-left {
+.header-left {
   display: flex;
   gap: 40px;
-    }
-    
-  nav{display:flex; gap:34px; font-size:15px; }
+}
+  
+nav{display:flex; gap:34px; font-size:15px; }
 
-  nav a{
-    color: rgba(255,255,255,.85);
-    text-decoration:none;
-    padding-top: 10px;
-    padding-bottom:6px;
-    border-bottom: 3px solid transparent;
-    transition:.2s;
-  }
+nav a{
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+  padding-top: 10px;
+  padding-bottom:6px;
+  border-bottom: 3px solid transparent;
+  transition:.2s;
+}
 
-  nav a.active{ gap:12px; color:#fff; font-weight:bold; border-color:#fff; }
-  nav a:hover{ color:#fff; }
-  .user{
-    display:flex; align-items:center; gap:12px;
-    font-size:15px; font-weight:600;
-  }
+nav a.active{ gap:12px; color:#fff; font-weight:bold; border-color:#fff; }
+nav a:hover{ color:#fff; }
+
+.user{
+  display:flex; align-items:center; gap:12px;
+  font-size:15px; font-weight:600;
+}
 
 .logo {
   display: flex;

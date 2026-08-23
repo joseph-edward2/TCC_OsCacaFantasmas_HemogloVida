@@ -7,14 +7,28 @@
     --line: #E6E3E1;
     --bg: #F6F4F2;
     --card: #FFFFFF;
+    --input-bg: #ECEAE8;
     --disabled: #C9C6C3;
+    --success: #1E9D5B;
+    --success-bg: #DCF7E6;
+    --pending-bg: #FFDCDC;
+    --shadow: 0 1px 2px rgba(43,43,46,.04), 0 1px 10px rgba(43,43,46,.05);
   }
+  
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
+  html,body{margin:0;padding:0;height:100%;}
   body{
     font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
     color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a{
+    color: inherit;
+    text-decoration: none;
   }
   
   /*--------Header--------*/
@@ -139,15 +153,6 @@ footer {
   display: block;
 }
 
-/*--------Extra tokens (dashboard)--------*/
-
-:root{
-  --success: #1E9D5B;
-  --success-bg: #DCF7E6;
-  --pending-bg: #FFDCDC;
-  --shadow: 0 1px 2px rgba(43,43,46,.04), 0 1px 10px rgba(43,43,46,.05);
-}
-
 /*--------Layout--------*/
 
 .dashboard{
@@ -199,6 +204,7 @@ footer {
   text-decoration:none;
   transition:.2s;
 }
+.btn:active{ transform:scale(0.98); }
 
 .btn-outline{
   background:var(--card);
@@ -970,4 +976,859 @@ footer {
   .filter-bar{ flex-wrap:wrap; }
 }
 
+/*==========================================
+  Configurar Agenda de Doações (schedule page)
+==========================================*/
 
+.page-desc{
+  margin:0;
+  color:var(--ink-soft);
+  font-size:14px;
+  line-height:1.5;
+  max-width:520px;
+}
+
+/*--------Toggle switch--------*/
+
+.switch{
+  position:relative;
+  display:inline-block;
+  width:40px;
+  height:22px;
+  min-width:40px;
+  flex-shrink:0;
+}
+.switch input{ display:none; }
+.switch .track{
+  position:absolute;
+  inset:0;
+  background:var(--disabled);
+  border-radius:100px;
+  transition:.2s;
+}
+.switch .track::before{
+  content:"";
+  position:absolute;
+  width:16px; height:16px;
+  left:3px; top:3px;
+  background:#fff;
+  border-radius:50%;
+  transition:.2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.25);
+}
+.switch input:checked + .track{ background:var(--brand); }
+.switch input:checked + .track::before{ transform:translateX(18px); }
+
+/*--------Toolbar buttons (calendar actions)--------*/
+
+.toolbar{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.toolbar .btn-primary{ padding:10px 16px; }
+.toolbar .btn-gap{ margin-left:auto; }
+
+/*--------Agenda layout--------*/
+
+.agenda-grid{
+  display:grid;
+  grid-template-columns: 1fr 300px;
+  gap:20px;
+  align-items:start;
+}
+
+/*--------Calendar--------*/
+
+.calendar-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+.calendar-header h2{ margin:0; font-size:18px; }
+.calendar-nav{ display:flex; gap:8px; }
+.calendar-nav button{
+  width:28px; height:28px;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:6px;
+  color:var(--ink-soft);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.calendar-weekdays{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  margin-bottom:8px;
+}
+.calendar-weekdays span{
+  text-align:center;
+  font-size:12px;
+  font-weight:600;
+  color:var(--ink-soft);
+  padding-bottom:6px;
+}
+
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7, 1fr);
+  gap:6px;
+}
+
+.calendar-day{
+  position:relative;
+  aspect-ratio:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:8px;
+  border:1px solid var(--line);
+  font-size:13px;
+  font-weight:700;
+  color:var(--brand);
+  background:var(--card);
+}
+.calendar-day .dot{
+  width:4px; height:4px;
+  border-radius:50%;
+  background:var(--brand);
+}
+.calendar-day.is-outside{
+  color:var(--disabled);
+  border-color:transparent;
+  background:transparent;
+}
+.calendar-day.is-outside .dot{ background:var(--disabled); }
+.calendar-day.is-selected{
+  border-color:var(--brand);
+  border-width:2px;
+  box-shadow:0 0 0 1px var(--brand-light);
+}
+
+.calendar-legend{
+  display:flex;
+  gap:22px;
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  font-size:12.5px;
+  color:var(--ink-soft);
+}
+.calendar-legend .legend-item{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.legend-swatch{
+  width:14px; height:14px;
+  border-radius:4px;
+  border:1px solid var(--line);
+  background:var(--card);
+}
+.legend-swatch.is-indisponivel{ background:var(--disabled); border-color:var(--disabled); }
+.legend-swatch.is-selecionado{ border:2px solid var(--brand); background:var(--card); }
+
+/*--------Day config sidebar--------*/
+
+.day-config{
+  padding:0;
+  overflow:hidden;
+}
+.day-config-head{
+  background:var(--pending-bg);
+  padding:20px 22px;
+}
+.day-config-head h2{
+  margin:0 0 4px;
+  font-size:19px;
+  line-height:1.25;
+}
+.day-config-head p{
+  margin:0;
+  font-size:13px;
+  color:var(--brand-dark);
+  opacity:.75;
+}
+.day-config-body{ padding:20px 22px 22px; }
+
+.toggle-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:var(--pending-bg);
+  border-radius:10px;
+  padding:14px 16px;
+  font-weight:700;
+  font-size:14px;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+
+.day-config-subhead{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+.day-config-subhead .label{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  line-height:1.4;
+}
+.day-config-subhead .total{
+  font-size:12px;
+  font-weight:700;
+  color:var(--brand);
+  text-align:right;
+  line-height:1.4;
+}
+
+.horario-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.horario-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:var(--bg);
+  border-radius:10px;
+  padding:12px 14px;
+}
+.horario-time{
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.3;
+}
+.horario-time small{
+  display:block;
+  font-size:11px;
+  font-weight:500;
+  color:var(--ink-soft);
+  margin-top:2px;
+}
+.horario-vagas{
+  width:52px;
+  padding:8px 10px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--card);
+  font-size:14px;
+  color:var(--ink);
+  text-align:center;
+}
+
+.btn-dashed{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px;
+  border:1.5px dashed var(--line);
+  border-radius:10px;
+  background:none;
+  color:var(--ink-soft);
+  font-size:13.5px;
+  font-weight:600;
+  cursor:pointer;
+  font-family:inherit;
+}
+.btn-dashed:hover{ background:var(--bg); }
+
+/*--------Weekly config table--------*/
+
+.weekly-table{ width:100%; border-collapse:collapse; font-size:14px; }
+.weekly-table th{
+  text-align:left;
+  font-size:11px;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  padding:0 12px 12px;
+}
+.weekly-table td{
+  padding:16px 12px;
+  border-top:1px solid var(--line);
+  vertical-align:middle;
+}
+.weekly-table tr.is-saturday td{ background:#FDF7F2; }
+.weekly-table tr.is-saturday .day-name{ color:var(--brand); }
+.weekly-table tr.is-disabled .day-name{ color:var(--disabled); }
+
+.day-name{ font-weight:700; color:var(--ink); }
+
+.status-check{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  font-size:13.5px;
+}
+.check-box{
+  width:18px; height:18px;
+  border-radius:5px;
+  border:1.5px solid var(--line);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:11px;
+}
+.check-box.is-checked{
+  background:var(--brand);
+  border-color:var(--brand);
+}
+.status-check.is-open{ color:var(--brand); }
+.status-check.is-closed{ color:var(--ink-soft); font-weight:600; }
+
+.time-input, .capacity-input{
+  width:100%;
+  max-width:130px;
+  padding:9px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:var(--card);
+  color:var(--ink);
+  font-size:13.5px;
+  font-family:inherit;
+}
+.capacity-input{ max-width:80px; }
+.time-input:disabled, .capacity-input:disabled{
+  background:var(--bg);
+  color:var(--disabled);
+}
+
+@media (max-width: 1080px){
+  .agenda-grid{ grid-template-columns:1fr; }
+}
+
+@media (max-width: 620px){
+  .toolbar{ flex-direction:column; }
+  .toolbar button{ width:100%; justify-content:center; }
+  .weekly-table{ font-size:12.5px; }
+  .time-input, .capacity-input{ max-width:100%; }
+}
+
+
+
+/*==========================================
+  Atendimento (patient service page)
+==========================================*/
+
+.layout{
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.layout__col{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/*--------Cartões--------*/
+
+.card{
+  background-color: var(--card);
+  border: 1px solid #e2e0de;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card__title{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card__link{
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.card__link:hover{ text-decoration: underline; }
+
+.card--atendimento{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+}
+
+.card--observacoes{ padding: 14px 20px; }
+.card--observacoes .card__header{ margin-bottom: 10px; }
+.card--observacoes .alerta{ padding: 10px 12px; }
+
+.card--agenda{
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+/*--------Selo de horário--------*/
+
+.badge-time{
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/*--------Paciente--------*/
+
+.paciente{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.paciente__foto{
+  width: 64px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.paciente__info{ flex: 1; }
+
+.paciente__nome{
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.paciente__dados{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.tag{
+  display: inline-block;
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/*--------Stepper--------*/
+
+.stepper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 18px;
+}
+
+.step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step__circle{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #c6c4c1;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+.step__circle--done{
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+.step__circle--current{ border-color: var(--brand); }
+
+.step__label{
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.step__label--current{
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.step__line{
+  width: 44px;
+  height: 2px;
+  background-color: #c6c4c1;
+  margin: 0 8px;
+}
+
+.step__line--done{ background-color: var(--brand); }
+
+/*--------Ações do cartão--------*/
+/* .btn / .btn-primary / .btn-outline já existem mais acima (compartilhados
+   com Estoque). Aqui só garantimos que os dois botões dividam a largura. */
+
+.card__actions{
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.card__actions .btn{
+  flex: 1;
+  justify-content: center;
+}
+
+/*--------Alerta de observações--------*/
+
+.alerta{
+  background-color: var(--brand-light);
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/*--------Agendamentos--------*/
+
+.agenda{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 0 24px;
+}
+
+.agenda__item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.agenda__iniciais{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  flex-shrink: 0;
+  border: 1px solid var(--brand);
+}
+
+.agenda__nome{
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agenda__horario{
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.badge-status{
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-status--agendado{
+  background-color: #e7e5e3;
+  color: #5a5a5f;
+}
+
+.badge-status--em-andamento{
+  background-color: #fff3cc;
+  color: #9a6a00;
+}
+
+.badge-status--atrasado{
+  background-color: var(--brand);
+  color: #fff;
+}
+
+.badge-status--finalizado{
+  background-color: #e1f2e1;
+  color: #2e7d32;
+}
+
+/*--------Paginação da agenda--------*/
+
+.paginacao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+.paginacao__botao{
+  min-width: 30px;
+  height: 30px;
+  border: 1px solid #d8d5d2;
+  background-color: var(--card);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.paginacao__botao:hover{ background-color: var(--input-bg); }
+
+.paginacao__botao--ativo{
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.paginacao__botao:disabled{
+  opacity: 0.4;
+  cursor: default;
+}
+
+.agenda__todos{
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+.agenda__todos:hover{ color: var(--brand); }
+
+/*--------Responsivo--------*/
+
+@media (max-width: 900px){
+  .layout{ grid-template-columns: 1fr; }
+}
+
+/*==========================================
+  Login (Hemocentro access page)
+==========================================*/
+
+.page{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 56px;
+}
+
+/*--------Bloco de identidade--------*/
+
+.hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__row{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero__badge{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__logo{
+  width: 65px;
+  height: 65px;
+  padding: 8px;
+  object-fit: fill;
+}
+
+.hero__name{
+  margin: 0;
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--brand);
+  line-height: 1;
+}
+
+.hero__subtitle{
+  margin: 10px 0 0;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/*--------Cartão de login--------*/
+/* Nome próprio (login-card) para não colidir com o .card do Atendimento */
+
+.login-card{
+  width: 100%;
+  max-width: 340px;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px -6px rgba(30, 20, 20, 0.15);
+  padding: 22px;
+  margin-top: 28px;
+}
+
+/* Botão de envio reaproveita .btn/.btn-primary; aqui só o deixamos full-width */
+.login-card .btn{
+  width: 100%;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/*--------Campos--------*/
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field + .field{ margin-top: 18px; }
+
+.field__label{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field__input{
+  width: 100%;
+  background: var(--input-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.field__input::placeholder{
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.field__input:focus{
+  box-shadow: 0 0 0 2px var(--brand);
+}
+
+/* Campo de senha com ícone */
+.field__wrapper{ position: relative; }
+
+.field__input--password{ padding-right: 40px; }
+
+.field__toggle{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  line-height: 0;
+}
+
+.field__toggle:hover{ color: var(--ink); }
+
+/*--------Mensagem de erro/sucesso--------*/
+
+.msg{
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.msg--error{
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.msg--success{
+  background: #e6f9ed;
+  color: #1a7a3a;
+}
+
+/*--------Responsivo--------*/
+
+@media (max-width: 420px){
+  .page{ padding-top: 36px; }
+  .login-card{ margin: 28px 16px 0; }
+}
