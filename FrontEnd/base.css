@@ -1,0 +1,393 @@
+/* ======================================================
+   HEMOGLOVIDA — CSS BASE
+   ======================================================
+   Este arquivo reúne tudo que se REPETE em várias páginas
+   do sistema (Hemocentro e Hospital): as cores do site, o
+   reset básico, o cabeçalho (header) e o rodapé (footer).
+
+   Como usar: importe este arquivo SEMPRE ANTES do CSS
+   específico de cada página, assim:
+
+   <link rel="stylesheet" href="base.css">
+   <link rel="stylesheet" href="atendimento.css">
+
+   A ordem importa! O CSS que vier depois "ganha" quando
+   houver conflito de regras.
+   ====================================================== */
+
+
+/* ------------------------------------------------------
+   1. VARIÁVEIS (paleta de cores)
+   ------------------------------------------------------
+   Variáveis CSS (--nome) guardam um valor que pode ser
+   reaproveitado em qualquer lugar com var(--nome).
+   Vantagem: se quiser trocar a cor da marca, muda em UM
+   lugar só e o site inteiro atualiza.
+   ------------------------------------------------------ */
+:root {
+  --brand: #a10023;        /* cor principal (vermelho Hemoglovida) */
+  --brand-dark: #7A1526;   /* usada em hover de botões */
+  --brand-light: #FDEBEF;  /* fundo claro para badges/alertas */
+  --ink: #2B2B2E;          /* cor do texto principal */
+  --ink-soft: #6B6B70;     /* cor de texto secundário (mais apagado) */
+  --bg: #F6F4F2;           /* fundo geral da página */
+  --card: #FFFFFF;         /* fundo dos cartões */
+  --input-bg: #ECEAE8;     /* fundo de inputs e áreas neutras */
+}
+
+
+/* ------------------------------------------------------
+   2. RESET BÁSICO
+   ------------------------------------------------------
+   Navegadores diferentes aplicam margens/paddings padrão
+   diferentes. Zerando tudo, garantimos que o layout fique
+   igual em qualquer navegador.
+   ------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding/borda não aumentam o tamanho do elemento */
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  min-height: 100vh; /* garante que o fundo cubra a tela inteira */
+}
+
+a {
+  color: inherit;        /* o link herda a cor do texto ao redor */
+  text-decoration: none; /* remove o sublinhado padrão */
+}
+
+
+/* ------------------------------------------------------
+   3. HEADER (cabeçalho com logo, menu e usuário)
+   ------------------------------------------------------ */
+header {
+  background: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo/menu de um lado, usuário do outro */
+  padding: 18px 40px;
+}
+
+.header-left {
+  display: flex;
+  gap: 40px;
+}
+
+nav {
+  display: flex;
+  gap: 34px;
+  font-size: 15px;
+}
+
+nav a {
+  color: rgba(255, 255, 255, .85);
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent; /* espaço reservado pro sublinhado do item ativo */
+  transition: .2s;
+}
+
+/* Classe aplicada no link da página em que o usuário está agora */
+nav a.active {
+  gap: 12px;
+  color: #fff;
+  font-weight: bold;
+  border-color: #fff;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+/* Força o tamanho do ícone/imagem da logo, mesmo que a
+   imagem original seja maior ou menor que isso */
+.logo img,
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0; /* impede que o flexbox espreme a logo */
+}
+
+/* Ícone/foto do usuário em formato circular */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  overflow: hidden; /* corta a imagem no formato do círculo */
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Força a foto de perfil a preencher exatamente os 42px do círculo */
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+/* ------------------------------------------------------
+   5. BOTÕES (altura padronizada)
+   ------------------------------------------------------
+   Cada página tinha ficado com uma altura de botão
+   ligeiramente diferente (padding 11px, 12px, 10px...).
+   Aqui a altura fica FIXA pra tudo alinhar visualmente —
+   quem muda de página pra página é só a LARGURA (isso o
+   CSS de cada página continua controlando, com width,
+   flex, ou o modificador .btn--full abaixo).
+
+   Cobri os nomes que já existem no projeto (.btn,
+   .btn-primary, .btn--primary) pra tudo herdar a mesma
+   altura sem precisar mudar nada no HTML já pronto.
+   ------------------------------------------------------ */
+.btn,
+.btn-primary,
+.btn--primary,
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  background-color: var(--brand);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn:hover,
+.btn-primary:hover,
+.btn--primary:hover,
+.btn-pill:hover {
+  background-color: var(--brand-dark);
+}
+
+.btn:active,
+.btn-primary:active,
+.btn--primary:active {
+  transform: scale(0.98);
+}
+
+/* Formato "pílula" (cantos bem arredondados) usado em alguns
+   botões — mesma altura, só muda o border-radius */
+.btn-pill {
+  border-radius: 999px;
+}
+
+/* Versão com contorno (ação secundária) */
+.btn-outline,
+.btn--outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 24px;
+  background-color: transparent;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14px;
+  font-family: inherit;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-outline:hover,
+.btn--outline:hover {
+  background-color: var(--input-bg);
+}
+
+/* Modificador: botão ocupa 100% da largura do card/container
+   (ex: botão "Entrar" no login, "Cadastrar" no cadastro) */
+.btn--full {
+  width: 100%;
+}
+
+/* Botões pequenos usados dentro de tabelas/cards (ex: "Ver PDF",
+   "Exportar"). Ficam menores de propósito — não usam a altura
+   padrão de 46px, que é só pros botões de ação principal. */
+.btn-outline-sm,
+.doc-btn,
+.table-action-btn {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+
+/* ------------------------------------------------------
+   6. CAMPOS DE FORMULÁRIO (altura padronizada)
+   ------------------------------------------------------
+   Mesma ideia dos botões: a altura de inputs, selects e
+   campos de texto fica igual em qualquer página. A LARGURA
+   continua sendo 100% do container (isso não muda —
+   quem define o tamanho do container é o layout de cada
+   página).
+
+   Cobri os dois "estilos de nome" que já existem no
+   projeto: .field__input (padrão do Login/Cadastro) e
+   .form-input (padrão de Alertas/Pedidos).
+   ------------------------------------------------------ */
+.field__input,
+.form-input,
+.form-select,
+.field__select {
+  height: 46px;
+  width: 100%;
+  background-color: var(--input-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+/* Textarea é a única exceção: ela PRECISA crescer, então
+   não recebe altura fixa, só uma altura mínima */
+.form-textarea {
+  width: 100%;
+  min-height: 90px;
+  background-color: var(--input-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+}
+
+.field__input::placeholder,
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.form-select,
+.field__select {
+  cursor: pointer;
+}
+
+/* Brilho ao focar em qualquer campo — mesmo efeito em
+   todas as páginas */
+.field__input:focus,
+.form-input:focus,
+.form-select:focus,
+.field__select:focus,
+.form-textarea:focus {
+  box-shadow: 0 0 0 2px var(--brand);
+}
+
+
+/* ------------------------------------------------------
+   7. PAGINAÇÃO
+   ------------------------------------------------------
+   Estava quase idêntica em atendimento.css e estoque.css,
+   só com tamanhos levemente diferentes — trouxe pra cá com
+   uma altura única (36px) pra ficar igual nas duas.
+   ------------------------------------------------------ */
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.paginacao__botao {
+  min-width: 36px;
+  height: 36px;
+  border: 1px solid #d8d5d2;
+  background-color: var(--card);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  transition: background-color 0.2s;
+}
+
+.paginacao__botao:hover {
+  background-color: var(--input-bg);
+}
+
+/* Botão da página em que o usuário está agora */
+.paginacao__botao--ativo {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.paginacao__botao:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+
+/* ------------------------------------------------------
+   8. CAIXA DE ALERTA / OBSERVAÇÃO
+   ------------------------------------------------------
+   Caixinha destacada com borda colorida na esquerda —
+   usada pra observações, avisos e notas em geral.
+   ------------------------------------------------------ */
+.alerta {
+  background-color: var(--brand-light);
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}

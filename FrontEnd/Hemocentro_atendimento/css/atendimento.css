@@ -1,0 +1,357 @@
+/* ======================================================
+   HEMOGLOVIDA — TELA DE ATENDIMENTO
+   ======================================================
+   Importe DEPOIS do base.css:
+
+   <link rel="stylesheet" href="base.css">
+   <link rel="stylesheet" href="atendimento.css">
+
+   Esta página mostra o paciente sendo atendido no momento
+   (coluna da esquerda) e a agenda do dia (coluna da direita).
+   ====================================================== */
+
+/* ------------------------------------------------------
+   1. LAYOUT EM DUAS COLUNAS
+   ------------------------------------------------------
+   O CSS Grid divide a área em colunas. "1.7fr 1fr" quer
+   dizer: a 1ª coluna (atendimento) fica 1.7x mais larga
+   que a 2ª (agenda).
+   ------------------------------------------------------ */
+.content {
+  padding: 70px 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  align-items: start; /* cada coluna cresce só o quanto precisa, sem esticar igual */
+}
+
+.layout__col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+
+/* ------------------------------------------------------
+   2. CARTÕES (CARDS)
+   ------------------------------------------------------ */
+.card {
+  background-color: var(--card);
+  border: 1px solid #e2e0de;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card__title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card__link {
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+/* Variações de altura: garantem que o card de atendimento e
+   o card de agenda fiquem com a mesma altura mínima, mesmo
+   tendo quantidades de conteúdo diferentes */
+.card--atendimento {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+}
+
+.card--observacoes {
+  padding: 14px 20px;
+}
+
+.card--observacoes .card__header {
+  margin-bottom: 10px;
+}
+
+.card--observacoes .alerta {
+  padding: 10px 12px;
+}
+
+.card--agenda {
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+
+/* ------------------------------------------------------
+   3. SELO DE HORÁRIO
+   ------------------------------------------------------ */
+.badge-time {
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px; /* número bem alto = formato "pílula" arredondada */
+}
+
+
+/* ------------------------------------------------------
+   4. DADOS DO PACIENTE
+   ------------------------------------------------------ */
+.paciente {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.paciente__foto {
+  width: 64px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.paciente__info {
+  flex: 1;
+}
+
+.paciente__nome {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.paciente__dados {
+  display: flex;
+  flex-wrap: wrap; /* quebra linha se não couber tudo (ex: em telas menores) */
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+
+/* ------------------------------------------------------
+   5. STEPPER (indicador de etapas do atendimento)
+   ------------------------------------------------------ */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 18px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step__circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #c6c4c1;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+/* Etapa já concluída: círculo preenchido */
+.step__circle--done {
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Etapa atual: só a borda fica destacada */
+.step__circle--current {
+  border-color: var(--brand);
+}
+
+.step__label {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.step__label--current {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.step__line {
+  width: 44px;
+  height: 2px;
+  background-color: #c6c4c1;
+  margin: 0 8px;
+}
+
+.step__line--done {
+  background-color: var(--brand);
+}
+
+
+/* ------------------------------------------------------
+   6. BOTÕES DE AÇÃO DO ATENDIMENTO
+   ------------------------------------------------------ */
+.card__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* A cor, altura e hover dos botões já vêm do base.css
+   (.btn, .btn--primary, .btn--outline) — aqui só precisamos
+   que os dois dividam o espaço disponível igualmente. */
+.btn {
+  flex: 1;
+}
+
+/* A caixa de alerta (.alerta) também já vem pronta do
+   base.css — nenhum ajuste extra precisa aqui. */
+
+
+/* ------------------------------------------------------
+   8. LISTA DE AGENDAMENTOS DO DIA
+   ------------------------------------------------------ */
+.agenda {
+  list-style: none; /* remove as bolinhas de lista padrão */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.agenda__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.agenda__iniciais {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #a10023;
+  flex-shrink: 0;
+  border: 1px solid #a10023;
+}
+
+.agenda__nome {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;      /* impede que o nome quebre linha... */
+  overflow: hidden;         /* ...esconde o que passar da largura... */
+  text-overflow: ellipsis;  /* ...e mostra "..." no final */
+}
+
+.agenda__horario {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ---- Selos de status do agendamento ---- */
+.badge-status {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-status--agendado {
+  background-color: #e7e5e3;
+  color: #5a5a5f;
+}
+
+.badge-status--em-andamento {
+  background-color: #fff3cc;
+  color: #9a6a00;
+}
+
+.badge-status--atrasado {
+  background-color: var(--brand);
+  color: #fff;
+}
+
+.badge-status--finalizado {
+  background-color: #e1f2e1;
+  color: #2e7d32;
+}
+
+
+/* ------------------------------------------------------
+   9. PAGINAÇÃO DA LISTA DE AGENDAMENTOS
+   ------------------------------------------------------
+   O visual dos botões de página (.paginacao, .paginacao__botao)
+   já vem pronto do base.css — como aqui a paginação fica
+   dentro do card de agenda, só adicionamos uma margem acima. */
+.paginacao {
+  margin-top: 14px;
+}
+
+.agenda__todos {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+.agenda__todos:hover {
+  color: var(--brand);
+}
+
+
+/* ------------------------------------------------------
+   10. RESPONSIVO (telas menores)
+   ------------------------------------------------------
+   Abaixo de 900px de largura, as duas colunas do .layout
+   passam a ficar uma embaixo da outra em vez de lado a lado.
+   ------------------------------------------------------ */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

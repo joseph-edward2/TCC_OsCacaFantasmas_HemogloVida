@@ -1,0 +1,570 @@
+/* ======================================================
+   HEMOGLOVIDA — TELA DE PEDIDOS (HOSPITAL)
+   ======================================================
+   Importe DEPOIS do base.css:
+
+   <link rel="stylesheet" href="../base.css">
+   <link rel="stylesheet" href="css/pedidos.css">
+   ====================================================== */
+
+
+/* ------------------------------------------------------
+   1. ÁREA PRINCIPAL / CABEÇALHO DA PÁGINA
+   ------------------------------------------------------ */
+.page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 32px 60px;
+}
+
+.page-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-top h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Botão genérico usado no topo e no formulário */
+/* O visual do botão (.btn) já vem pronto do base.css —
+   nada específico pra ajustar aqui nesta página. */
+
+
+/* ------------------------------------------------------
+   2. FAIXA DE RESUMO (4 cartões com números)
+   ------------------------------------------------------ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.summary-card {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-card__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.summary-card__value {
+  font-size: 34px;
+  font-weight: 800;
+}
+
+/* O cartão de "Pedidos Críticos" fica destacado com fundo
+   colorido, pra chamar mais atenção que os outros */
+.summary-card--critical {
+  background-color: var(--brand);
+}
+
+.summary-card--critical .summary-card__label,
+.summary-card--critical .summary-card__value {
+  color: #fff;
+}
+
+
+/* ------------------------------------------------------
+   3. LAYOUT EM DUAS COLUNAS
+   ------------------------------------------------------
+   Coluna da esquerda = formulário de nova requisição
+   Coluna da direita  = tabela de monitoramento
+   ------------------------------------------------------ */
+.pedidos-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 24px;
+  align-items: start;
+}
+
+
+/* ------------------------------------------------------
+   4. CARTÃO "SOLICITAR BOLSAS" (formulário)
+   ------------------------------------------------------ */
+.request-card {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 32px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.request-card__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-section__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+/* ---- Seleção de tipo sanguíneo (botões tipo "caixinha") ---- */
+.blood-select {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.blood-select__btn {
+  min-width: 74px;
+  padding: 12px 16px;
+  border: 2px solid #d8d5d2;
+  border-radius: 8px;
+  background-color: #fff;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.blood-select__btn:hover {
+  border-color: var(--brand);
+}
+
+/* Classe ligada via JS quando o usuário clica no tipo desejado */
+.blood-select__btn--active {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+/* ---- Quantidade de bolsas (stepper com - e +) ---- */
+.qty-stepper {
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  border: 2px solid #d8d5d2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-stepper__btn {
+  width: 48px;
+  background-color: var(--input-bg);
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.qty-stepper__btn:hover {
+  background-color: #e2dfdc;
+}
+
+.qty-stepper__input {
+  width: 64px;
+  border: none;
+  border-left: 2px solid #d8d5d2;
+  border-right: 2px solid #d8d5d2;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--ink);
+  /* Remove as setinhas nativas do input number em alguns navegadores */
+  -moz-appearance: textfield;
+}
+
+.qty-stepper__input::-webkit-outer-spin-button,
+.qty-stepper__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* ---- Linha com dois campos lado a lado (Quantidade + Urgência) ---- */
+.form-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.form-row > .form-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* ---- Campos de texto e select genéricos ---- */
+/* A altura, cor de fundo, borda e efeito de foco de
+   .form-input / .form-select já vêm prontos do base.css. */
+
+/* ---- Lista de hemocentros de destino (rádio) ---- */
+.hemo-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.hemo-option:last-child {
+  margin-bottom: 0;
+}
+
+/* Quando o rádio dentro da opção está marcado, destaca a caixinha toda.
+   Isso funciona porque o <input> vem ANTES do resto no HTML. */
+.hemo-option:has(input:checked) {
+  border-color: var(--brand);
+  background-color: var(--brand-light);
+}
+
+.hemo-option__radio {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand); /* pinta o próprio rádio nativo com a cor da marca */
+  flex-shrink: 0;
+}
+
+.hemo-option__name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.hemo-option__status {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hemo-option__status--disponivel {
+  color: #2e7d32;
+}
+
+.hemo-option__status--baixo {
+  color: var(--brand);
+}
+
+/* ---- Upload do documento assinado ---- */
+.upload-box {
+  border: 2px dashed #d8d5d2;
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.upload-box__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--brand-light);
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.upload-box__info {
+  flex: 1;
+}
+
+.upload-box__name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.upload-box__meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.upload-box__btn {
+  background: none;
+  border: 1px solid #d8d5d2;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.upload-box__btn:hover {
+  background-color: var(--input-bg);
+}
+
+/* .btn--full (largura 100%) já vem do base.css — aqui só
+   adicionamos uma margem acima, já que ele é o último
+   elemento do formulário. */
+.btn--full {
+  margin-top: 8px;
+}
+
+
+/* ------------------------------------------------------
+   5. CARTÃO "MONITORAMENTO EM TEMPO REAL" (tabela)
+   ------------------------------------------------------ */
+.monitor-card {
+  background-color: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.monitor-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 24px 28px;
+  border-bottom: 1px solid #eee;
+}
+
+.monitor-card__head h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.status-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e1f2e1;
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.status-online__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2e7d32;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.requests-table thead th {
+  background-color: var(--input-bg);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 14px 16px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.requests-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.requests-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.blood-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ---- Selo de urgência ---- */
+.urgencia-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+}
+
+.urgencia-tag--critica {
+  background-color: var(--brand);
+  color: #fff;
+}
+
+.urgencia-tag--urgente {
+  background-color: #fff3cc;
+  color: #9a6a00;
+}
+
+.urgencia-tag--rotina {
+  background-color: #e7e5e3;
+  color: #5a5a5f;
+}
+
+/* ---- Linha do tempo (status da requisição) ---- */
+.timeline {
+  display: flex;
+  align-items: center;
+}
+
+.timeline__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d8d5d2; /* etapa ainda não alcançada */
+  flex-shrink: 0;
+}
+
+.timeline__dot--done {
+  background-color: var(--brand);
+}
+
+/* Etapa atual: um anel em volta do ponto */
+.timeline__dot--current {
+  background-color: var(--brand);
+  box-shadow: 0 0 0 3px var(--brand-light);
+}
+
+.timeline__line {
+  flex: 1;
+  height: 3px;
+  background-color: #d8d5d2;
+  margin: 0 4px;
+  min-width: 12px;
+}
+
+.timeline__line--done {
+  background-color: var(--brand);
+}
+
+.timeline__label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.doc-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.doc-btn:hover {
+  background-color: var(--brand-light);
+  color: var(--brand);
+  border-color: var(--brand-light);
+}
+
+
+/* ------------------------------------------------------
+   6. BANNER INFORMATIVO
+   ------------------------------------------------------ */
+.info-banner {
+  background-color: var(--brand-light);
+  border-radius: 10px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.info-banner__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.info-banner__text h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.info-banner__text p {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+
+/* ------------------------------------------------------
+   7. RESPONSIVO
+   ------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .pedidos-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
