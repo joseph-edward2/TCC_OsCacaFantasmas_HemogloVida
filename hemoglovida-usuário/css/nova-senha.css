@@ -1,0 +1,40 @@
+/* ===================================================
+   PÁGINA NOVA SENHA
+   Estilo exclusivo desta página: a lista de requisitos
+   de segurança que muda de cor em tempo real. O resto
+   (layout de duas colunas, card, campos) vem do
+   css/auth.css, compartilhado com as outras telas.
+=================================================== */
+
+.password-requirements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: var(--space-sm) 0 var(--space-lg);
+}
+
+.requirement-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.85rem;
+  /* Cor neutra: estado inicial, antes do usuário digitar */
+  color: var(--color-gray-text);
+  transition: color 0.2s ease;
+}
+
+.requirement-item svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* O ícone usa stroke="currentColor" no HTML, então ele muda de cor
+   junto com o texto só trocando a classe do item (ver js/nova-senha.js) */
+.requirement-item--valid {
+  color: var(--color-success);
+}
+
+.requirement-item--invalid {
+  color: var(--color-primary);
+}

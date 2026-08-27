@@ -1,0 +1,84 @@
+/* ===================================================
+   PÁGINA CÓDIGO DE CONFIRMAÇÃO
+   Estilos exclusivos desta página. O layout de duas
+   colunas e o card genérico vêm de css/auth.css
+   (compartilhado com Login e Cadastro).
+=================================================== */
+
+/* Envolve o link "Voltar" + o card, mantendo os dois
+   alinhados à esquerda com a mesma largura do card
+   (no Figma o "Voltar" fica acima do card, não centralizado). */
+.confirm-wrapper {
+  width: 100%;
+  max-width: 460px;
+}
+
+.auth__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-gray-text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+}
+
+.auth__back-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+.auth__back-link:hover {
+  color: var(--color-black);
+}
+
+/* ---------- INPUTS DO CÓDIGO (6 dígitos) ---------- */
+.code-inputs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.code-input {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 84 / 96; /* mesma proporção do Figma (mais alto que largo) */
+  text-align: center;
+  font-family: var(--font-main);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-black);
+  background-color: var(--color-card-bg);
+  border: 1.5px solid var(--color-drop-light);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(161, 0, 35, 0.12);
+}
+
+/* Botão "Confirmar": no Figma ele é 100% arredondado (pill),
+   diferente do botão padrão do projeto (que usa --radius-lg).
+   Sobrescrevemos só aqui, sem mexer na regra geral do .btn. */
+.btn-pill {
+  border-radius: var(--radius-pill);
+}
+
+/* "Reenviar código" é um <button>, mas deve parecer um link
+   (mesmo estilo do link dentro de .auth-card__footer) */
+.auth-card__footer .link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-card__footer .link-button:hover {
+  text-decoration: underline;
+}

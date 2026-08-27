@@ -1,0 +1,324 @@
+/* ===================================================
+   PÁGINA PEDIDOS DE DOAÇÃO
+   Estilos exclusivos desta página.
+=================================================== */
+
+.pedidos-main {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* ---------- CABEÇALHO ---------- */
+.pedidos-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.pedidos-header__title {
+  font-size: 2.6rem;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-xs);
+}
+
+.pedidos-header__subtitle {
+  color: var(--color-gray-text);
+  font-size: 1rem;
+  max-width: 640px;
+}
+
+.pedidos-header__filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  min-width: 260px;
+}
+
+.pedidos-header__filter label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gray-text);
+}
+
+.location-select {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 0.7rem 1.2rem;
+}
+
+.location-select svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.location-select span {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.location-select .chevron {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+}
+
+/* ---------- BARRA DE ESTATÍSTICAS ---------- */
+.pedidos-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.pedidos-stats .stat-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.pedidos-stats .stat-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-drop-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pedidos-stats .stat-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pedidos-stats .stat-card__label {
+  margin-bottom: 2px;
+}
+
+.pedidos-stats .stat-card__value {
+  font-size: 1.6rem;
+}
+
+/* ---------- GRID DE PEDIDOS ---------- */
+.pedidos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.pedido-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(75, 35, 43, 0.05);
+  padding: var(--space-lg);
+}
+
+.pedido-card__critical-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+}
+
+.pedido-card__top {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.pedido-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pedido-card__icon--neutral {
+  background-color: var(--color-card-bg);
+}
+
+.pedido-card__icon--neutral svg {
+  width: 26px;
+  height: 26px;
+}
+
+.pedido-card__info {
+  min-width: 0;
+}
+
+.pedido-card__title {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+.pedido-card__subtitle {
+  color: var(--color-gray-text);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-sm);
+}
+
+.pedido-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.pedido-card__tag {
+  background-color: var(--color-card-bg);
+  color: var(--color-gray-text);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+}
+
+.pedido-card__progress {
+  margin-bottom: var(--space-md);
+}
+
+.pedido-card__progress-labels {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+}
+
+.pedido-card__progress-labels span:first-child {
+  color: var(--color-gray-text);
+  font-size: 0.85rem;
+}
+
+.pedido-card__progress-fraction {
+  font-size: 0.85rem;
+}
+
+.pedido-card__progress-fraction strong {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.pedido-card__progress-fraction .total {
+  color: var(--color-gray-text);
+  font-size: 1rem;
+}
+
+.pedido-card__progress-bar {
+  height: 10px;
+  background-color: var(--color-drop-light);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.pedido-card__progress-fill {
+  height: 100%;
+  width: 0%; /* preenchido via JS, ver js/pedidos.js */
+  background-color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transition: width 1s ease;
+}
+
+.pedido-card__actions {
+  display: flex;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  border-top: 1.5px solid var(--color-card-bg);
+}
+
+.pedido-card__actions .btn-primary {
+  flex: 1;
+  justify-content: center;
+  text-transform: none;
+  font-size: 0.95rem;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+}
+
+.pedido-card__actions .btn-primary svg {
+  width: 16px;
+  height: 16px;
+}
+
+.pedido-card__share {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-black);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pedido-card__share svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- CARREGAR MAIS ---------- */
+.pedidos-load-more {
+  display: flex;
+  justify-content: center;
+}
+
+.pedidos-load-more button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-black);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-pill);
+  padding: 0.9rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.pedidos-load-more svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 900px) {
+  .pedidos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pedidos-header__filter {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .pedidos-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .pedido-card__top {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Seu sangue salva vidas</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- O navbar é injetado aqui via JS (js/components.js) -->
+  <div id="navbar-placeholder" data-variant="public"></div>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Seu <span>sangue</span><br />
+            salva <span>vidas</span>
+          </h1>
+          <p class="hero__text">
+            Uma única doação pode salvar até quatro vidas. Milhares de pessoas
+            dependem deste gesto hoje. Seja o herói de alguém.
+          </p>
+          <div class="hero__actions">
+            <a href="cadastro.html" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C7 21 3 17.5 3 13c0-4 4.5-8.5 9-13 4.5 4.5 9 9 9 13 0 4.5-4 8-9 8Z" fill="#fff"/></svg>
+              Quero Doar
+            </a>
+            <a href="#" class="btn btn-outline">Saiba Mais</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ESTOQUE ===================== -->
+    <section class="stock" id="estoque">
+      <div class="container">
+        <div class="stock__header">
+          <div>
+            <h2 class="stock__title">Estoque atualizado semanalmente</h2>
+            <p class="stock__subtitle">Hemocentro: Hospital Geral</p>
+          </div>
+          <span class="stock__badge">
+            <span class="stock__badge-dot"></span>
+            Atualizado agora
+          </span>
+        </div>
+
+        <div class="stock__grid">
+          <!-- Cada card já vem com data-percent, usado pelo JS pra
+               preencher a gota e pra animar a entrada -->
+          <article class="stock-card" data-percent="35">
+            <div class="stock-card__icon">
+              <div class="stock-card__icon-bg"></div>
+              <div class="stock-card__icon-fill"></div>
+            </div>
+            <p class="stock-card__type">O-</p>
+            <span class="stock-card__status">crítico</span>
+            <p class="stock-card__percent">35%</p>
+          </article>
+
+          <article class="stock-card" data-percent="75">
+            <div class="stock-card__icon">
+              <div class="stock-card__icon-bg"></div>
+              <div class="stock-card__icon-fill"></div>
+            </div>
+            <p class="stock-card__type">A+</p>
+            <span class="stock-card__status">estável</span>
+            <p class="stock-card__percent">75%</p>
+          </article>
+
+          <article class="stock-card" data-percent="65">
+            <div class="stock-card__icon">
+              <div class="stock-card__icon-bg"></div>
+              <div class="stock-card__icon-fill"></div>
+            </div>
+            <p class="stock-card__type">AB+</p>
+            <span class="stock-card__status">estável</span>
+            <p class="stock-card__percent">65%</p>
+          </article>
+
+          <article class="stock-card" data-percent="35">
+            <div class="stock-card__icon">
+              <div class="stock-card__icon-bg"></div>
+              <div class="stock-card__icon-fill"></div>
+            </div>
+            <p class="stock-card__type">B-</p>
+            <span class="stock-card__status">crítico</span>
+            <p class="stock-card__percent">35%</p>
+          </article>
+
+          <article class="stock-card" data-percent="85">
+            <div class="stock-card__icon">
+              <div class="stock-card__icon-bg"></div>
+              <div class="stock-card__icon-fill"></div>
+            </div>
+            <p class="stock-card__type">O+</p>
+            <span class="stock-card__status">estável</span>
+            <p class="stock-card__percent">85%</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HEMOCENTROS DISPONÍVEIS ===================== -->
+    <section class="centers">
+      <div class="container">
+        <h2 class="section-title">Hemocentros Disponíveis</h2>
+
+        <div class="centers__grid">
+          <div class="centers__list">
+            <div class="center-item">
+              <div class="center-item__left">
+                <span class="center-item__icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                </span>
+                <div>
+                  <p class="center-item__name">Hemocentro Central - São Paulo</p>
+                  <p class="center-item__address">Av. Enéas de Carvalho Aguiar, 155</p>
+                  <p class="center-item__distance">2.4 km</p>
+                </div>
+              </div>
+              <div class="center-item__right">
+                <p class="center-item__status center-item__status--open">Aberto</p>
+                <p class="center-item__hours">Fecha às 18:00</p>
+              </div>
+            </div>
+
+            <div class="center-item center-item--active">
+              <div class="center-item__left">
+                <span class="center-item__icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                </span>
+                <div>
+                  <p class="center-item__name">Banco de Sangue Paulista</p>
+                  <p class="center-item__address">R. Dr. Dante Pazzanese, 500</p>
+                  <p class="center-item__distance">5.1 km</p>
+                </div>
+              </div>
+              <div class="center-item__right">
+                <p class="center-item__status center-item__status--open">Aberto</p>
+                <p class="center-item__hours">Fecha às 19:30</p>
+              </div>
+            </div>
+
+            <div class="center-item">
+              <div class="center-item__left">
+                <span class="center-item__icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                </span>
+                <div>
+                  <p class="center-item__name">Posto de Coleta - Clínicas</p>
+                  <p class="center-item__address">Rua Dr. Ovídio Pires de Campos, 225</p>
+                  <p class="center-item__distance">6.8 km</p>
+                </div>
+              </div>
+              <div class="center-item__right">
+                <p class="center-item__status center-item__status--closed">Fechado</p>
+                <p class="center-item__hours">Abre amanhã às 07:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="centers__map">
+            <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARROSSEL "VOCÊ SABIA?" ===================== -->
+    <section class="info-banner">
+      <div class="info-carousel">
+        <div class="info-carousel__decoration"></div>
+        <h2 class="info-carousel__title">Você sabia?</h2>
+
+        <div class="info-carousel__viewport">
+          <div class="info-carousel__track">
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"/></svg>
+              </span>
+              <h3 class="info-card__title">Uma doação, várias vidas</h3>
+              <p class="info-card__text">
+                Uma única bolsa de sangue pode ser separada em diferentes
+                componentes (hemácias, plaquetas e plasma) e ajudar até
+                quatro pessoas diferentes.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3Z"/></svg>
+              </span>
+              <h3 class="info-card__title">Quem pode doar</h3>
+              <p class="info-card__text">
+                É preciso ter entre 16 e 69 anos (menores de 18 precisam de
+                consentimento do responsável), pesar no mínimo 50 kg, estar
+                bem alimentado e ter dormido pelo menos 6 horas nas últimas
+                24 horas.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill="none" stroke-width="2"/></svg>
+              </span>
+              <h3 class="info-card__title">É rápido e seguro</h3>
+              <p class="info-card__text">
+                A coleta retira cerca de 450 ml de sangue e leva poucos
+                minutos. Todo o material usado é descartável e o corpo repõe
+                o volume doado em até 24 horas.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5h-2v6l5.2 3.1 1-1.7-4.2-2.5V7Z"/></svg>
+              </span>
+              <h3 class="info-card__title">Com que frequência posso doar</h3>
+              <p class="info-card__text">
+                Homens podem doar até 4 vezes por ano, com intervalo mínimo
+                de 2 meses entre doações. Mulheres podem doar até 3 vezes
+                por ano, com intervalo mínimo de 3 meses.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+              </span>
+              <h3 class="info-card__title">Depois de doar</h3>
+              <p class="info-card__text">
+                Recomenda-se fazer um lanche, manter o curativo por pelo
+                menos 4 horas e evitar esforço físico intenso ou dirigir
+                veículos pesados nas 12 horas seguintes à doação.
+              </p>
+            </div>
+
+            <div class="info-card">
+              <span class="info-card__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5.2 3.8 9.9 9 11 5.2-1.1 9-5.8 9-11V6l-9-4Zm-1 14-4-4 1.4-1.4L11 13.2l4.6-4.6L17 10l-6 6Z"/></svg>
+              </span>
+              <h3 class="info-card__title">Novas regras ampliam quem pode doar</h3>
+              <p class="info-card__text">
+                Desde 2026, novas diretrizes do Ministério da Saúde reduziram
+                prazos de espera para tatuagens e outros procedimentos, além
+                de permitirem que doadores com mais de 70 anos continuem
+                doando, se já tiverem histórico de doações regulares.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="info-carousel__controls">
+          <button class="info-carousel__arrow" data-carousel-btn="prev" aria-label="Card anterior">
+            <svg viewBox="0 0 24 24"><path d="M15 18 9 12l6-6" fill="none" stroke="#a10023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="info-carousel__dots"></div>
+          <button class="info-carousel__arrow" data-carousel-btn="next" aria-label="Próximo card">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" fill="none" stroke="#a10023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- O footer é injetado aqui via JS (js/components.js) -->
+  <div id="footer-placeholder"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+/* ===================================================
+   AUTH.CSS
+   Estilos compartilhados por TODAS as páginas de
+   autenticação (Login, Cadastro, Código de confirmação).
+   Cada página específica só adiciona o que for exclusivo
+   dela no próprio arquivo CSS (ex: cadastro.css cuida do
+   segmented control de gênero, que só existe lá).
+=================================================== */
+
+/* ---------- LAYOUT DE DUAS COLUNAS ---------- */
+.auth {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr;
+  min-height: 620px;
+}
+
+.auth__illustration {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.auth__illustration-img {
+  flex: 1;
+  background-image: url("https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1200&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+}
+
+.auth__illustration-quote {
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.auth__form-side {
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+/* ---------- CARD DO FORMULÁRIO ---------- */
+.auth-card {
+  background-color: var(--color-white);
+  border: 1.5px solid rgba(237, 237, 237, 0.6);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 460px;
+}
+
+.auth-card__title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.auth-card__subtitle {
+  color: var(--color-gray-text);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-lg);
+}
+
+.auth-card__footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-gray-text);
+  margin-top: var(--space-md);
+}
+
+.auth-card__footer a {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.auth-card .btn-primary {
+  width: 100%;
+  justify-content: center;
+  text-transform: none;
+  font-size: 1rem;
+}
+
+/* ---------- CAMPOS DE FORMULÁRIO ---------- */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-gray-text);
+  margin-bottom: var(--space-xs);
+}
+
+/* Usado quando o label vem acompanhado de um link ao lado
+   (ex: "Senha" + "Esqueci minha senha") */
+.form-label__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-label__row .form-label {
+  margin-bottom: 0;
+}
+
+.form-link {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}
+
+.form-input-wrapper {
+  position: relative;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem 0.85rem 2.6rem;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  color: var(--color-black);
+  transition: border-color 0.15s ease;
+}
+
+.form-input::placeholder {
+  color: var(--color-gray-text);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.form-input-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Botão de mostrar/ocultar senha (comportamento em js/password-toggle.js) */
+.form-toggle-visibility {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+}
+
+.form-toggle-visibility svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 900px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  .auth__illustration {
+    min-height: 260px;
+  }
+}

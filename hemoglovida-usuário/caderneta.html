@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Caderneta de Doação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/caderneta.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "app", com "Carteirinha" marcado como link ativo -->
+  <div id="navbar-placeholder" data-variant="app" data-active="carteirinha"></div>
+
+  <main class="caderneta-main">
+    <div class="container">
+
+      <!-- ===================== CABEÇALHO ===================== -->
+      <div class="caderneta-header">
+        <h1 class="caderneta-header__title">Caderneta de Doação</h1>
+        <p class="caderneta-header__subtitle">
+          Sua carteirinha oficial do Hemoglovida. Use este QR Code nos hemocentros parceiros.
+        </p>
+      </div>
+
+      <!-- ===================== CARTEIRINHA ===================== -->
+      <div class="id-card-section">
+        <div class="id-card">
+          <span class="id-card__decoration id-card__decoration--top"></span>
+          <span class="id-card__decoration id-card__decoration--bottom"></span>
+
+          <!-- Topo: logo + tipo sanguíneo -->
+          <div class="id-card__top">
+            <div class="id-card__brand">
+              <span class="id-card__logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z" fill="#a10023"/>
+                </svg>
+              </span>
+              <div>
+                <p class="id-card__brand-name">Hemoglovida</p>
+                <p class="id-card__brand-sub">Caderneta de doador</p>
+              </div>
+            </div>
+
+            <div class="id-card__blood">
+              <div class="id-card__blood-row">
+                <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"/></svg>
+                <span class="id-card__blood-type">O-</span>
+              </div>
+              <p class="id-card__blood-label">Tipo sanguíneo</p>
+            </div>
+          </div>
+
+          <!-- Meio: foto + dados do doador -->
+          <div class="id-card__middle">
+            <img
+              class="id-card__avatar"
+              src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=300&auto=format&fit=crop"
+              alt="Foto de Jesse Pinkman"
+            />
+            <div>
+              <p class="id-card__name">Jesse Pinkman</p>
+              <div class="id-card__info-row">
+                <div>
+                  <p class="id-card__info-label">Gênero</p>
+                  <p class="id-card__info-value">Masculino</p>
+                </div>
+                <div>
+                  <p class="id-card__info-label">Nascimento</p>
+                  <p class="id-card__info-value">24/09/1984</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Base: estatísticas + QR Code -->
+          <div class="id-card__bottom">
+            <div class="id-card__stats">
+              <div class="id-card__stat">
+                <p class="id-card__stat-value">12</p>
+                <p class="id-card__stat-label">Doações</p>
+              </div>
+              <span class="id-card__stats-divider"></span>
+              <div class="id-card__stat">
+                <p class="id-card__stat-value">45</p>
+                <p class="id-card__stat-label">Dias desde a última</p>
+              </div>
+            </div>
+
+            <div class="id-card__qr">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=HEMOGLOVIDA-DOADOR-JESSE-PINKMAN" alt="QR Code da carteirinha de doador" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Botões de ação -->
+        <div class="id-card-actions">
+          <button type="button" class="btn btn-primary" data-action="Baixar carteirinha em PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            Baixar em PDF
+          </button>
+          <button type="button" class="btn btn-light" data-action="Compartilhar carteirinha">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            Compartilhar
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/caderneta.js"></script>
+</body>
+</html>

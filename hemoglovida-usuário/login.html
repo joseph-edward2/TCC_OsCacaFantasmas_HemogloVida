@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Entrar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
+  <div id="navbar-placeholder" data-variant="auth"></div>
+
+  <main class="auth">
+
+    <!-- ===================== COLUNA ESQUERDA ===================== -->
+    <div class="auth__illustration">
+      <div class="auth__illustration-img"></div>
+      <p class="auth__illustration-quote">Seu sangue salva vidas</p>
+    </div>
+
+    <!-- ===================== COLUNA DIREITA (FORMULÁRIO) ===================== -->
+    <div class="auth__form-side">
+      <div class="auth-card">
+        <h1 class="auth-card__title">Bem-vindo de volta</h1>
+        <p class="auth-card__subtitle">
+          Acesse sua conta para gerenciar suas doações.
+        </p>
+
+        <form id="login-form" novalidate>
+
+          <!-- CPF ou telefone -->
+          <div class="form-group">
+            <label class="form-label" for="cpf-telefone">CPF ou telefone</label>
+            <div class="form-input-wrapper">
+              <input class="form-input form-input--icon-right" type="text" id="cpf-telefone" name="cpf-telefone" placeholder="000.000.000-00" inputmode="numeric" required />
+              <span class="form-decorative-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Senha -->
+          <div class="form-group">
+            <div class="form-label__row">
+              <label class="form-label" for="senha">Senha</label>
+              <a href="#" class="form-link">Esqueci minha senha</a>
+            </div>
+            <div class="form-input-wrapper">
+              <input class="form-input form-input--icon-right" type="password" id="senha" name="senha" placeholder="••••••••" required />
+              <button type="button" class="form-toggle-visibility" data-target="senha" aria-label="Mostrar ou ocultar senha">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Botão -->
+
+          <button type="submit" class="btn btn-primary" >
+            Entrar
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+
+        <p class="auth-card__footer">
+          Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
+        </p>
+      </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/masks.js"></script>
+  <script src="js/password-toggle.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

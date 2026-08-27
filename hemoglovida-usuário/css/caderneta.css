@@ -1,0 +1,300 @@
+/* ===================================================
+   PÁGINA CADERNETA DE DOAÇÃO
+   Estilos exclusivos desta página.
+=================================================== */
+
+.caderneta-main {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.caderneta-header {
+  margin-bottom: var(--space-xl);
+}
+
+.caderneta-header__title {
+  font-size: 1.9rem;
+  margin-bottom: var(--space-xs);
+}
+
+.caderneta-header__subtitle {
+  color: var(--color-gray-text);
+  font-size: 1rem;
+}
+
+/* ---------- SEÇÃO DA CARTEIRINHA ---------- */
+.id-card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+/* ---------- CARTEIRINHA (cartão premium) ---------- */
+.id-card {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 1.586 / 1;
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  background: linear-gradient(137deg, #cd0b31 0%, #4b232b 100%);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Círculos decorativos desfocados, só um detalhe visual (igual ao Figma) */
+.id-card__decoration {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.id-card__decoration--top {
+  width: 220px;
+  height: 220px;
+  top: -80px;
+  right: -80px;
+  background-color: rgba(255, 255, 255, 0.05);
+  filter: blur(30px);
+}
+
+.id-card__decoration--bottom {
+  width: 170px;
+  height: 170px;
+  bottom: -40px;
+  left: -40px;
+  background-color: rgba(205, 11, 49, 0.2);
+  filter: blur(20px);
+}
+
+/* ---------- TOPO: LOGO + TIPO SANGUÍNEO ---------- */
+.id-card__top {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.id-card__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.id-card__logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.id-card__logo svg {
+  width: 18px;
+  height: 18px;
+}
+
+.id-card__brand-name {
+  color: var(--color-white);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.id-card__brand-sub {
+  color: var(--color-white);
+  opacity: 0.6;
+  font-size: 0.7rem;
+}
+
+.id-card__blood {
+  text-align: right;
+}
+
+.id-card__blood-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+.id-card__blood-row svg {
+  width: 14px;
+  height: 14px;
+}
+
+.id-card__blood-type {
+  color: var(--color-white);
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.id-card__blood-label {
+  color: var(--color-drop-light);
+  font-size: 0.7rem;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ---------- MEIO: FOTO + DADOS DO DOADOR ---------- */
+.id-card__middle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.id-card__avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.id-card__name {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.id-card__info-row {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.id-card__info-label {
+  color: rgba(255, 218, 217, 0.8);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.id-card__info-value {
+  color: var(--color-white);
+  font-size: 0.95rem;
+}
+
+/* ---------- BASE: ESTATÍSTICAS + QR CODE ---------- */
+.id-card__bottom {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.id-card__stats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+.id-card__stat {
+  text-align: center;
+}
+
+.id-card__stat-value {
+  color: var(--color-white);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.id-card__stat-label {
+  color: var(--color-white);
+  opacity: 0.7;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.id-card__stats-divider {
+  width: 1.5px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.id-card__qr {
+  background-color: var(--color-white);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.id-card__qr img {
+  display: block;
+  width: 64px;
+  height: 64px;
+}
+
+/* ---------- BOTÕES DE AÇÃO ---------- */
+.id-card-actions {
+  display: flex;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 640px;
+}
+
+.id-card-actions button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.id-card-actions .btn-primary {
+  box-shadow: var(--shadow-md);
+}
+
+.id-card-actions svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 640px) {
+  .id-card {
+    aspect-ratio: auto;
+    padding: var(--space-md);
+  }
+
+  .id-card__middle {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .id-card__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .id-card-actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Redefinir senha</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/recuperar-senha.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
+  <div id="navbar-placeholder" data-variant="auth"></div>
+
+  <main class="auth">
+
+    <!-- ===================== COLUNA ESQUERDA ===================== -->
+    <div class="auth__illustration">
+      <div class="auth__illustration-img"></div>
+      <p class="auth__illustration-quote">Seu sangue salva vidas</p>
+    </div>
+
+    <!-- ===================== COLUNA DIREITA (FORMULÁRIO) ===================== -->
+    <div class="auth__form-side">
+      <div class="auth-card">
+        <h1 class="auth-card__title">Redefinir senha</h1>
+        <p class="auth-card__subtitle">
+          Informe o e-mail cadastrado e enviaremos as instruções para
+          redefinir sua senha.
+        </p>
+
+        <form id="recuperar-senha-form" novalidate>
+
+          <!-- E-mail (mesmo padrão de ícone à esquerda usado no Cadastro) -->
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail</label>
+            <div class="form-input-wrapper">
+              <span class="form-input-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="M3 6l9 7 9-7"/></svg>
+              </span>
+              <input class="form-input" type="email" id="email" name="email" placeholder="exemplo@email.com" required />
+            </div>
+          </div>
+
+          <!-- Botão -->
+          <button type="submit" id="submit-button" class="btn btn-primary">
+            Enviar instruções
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+
+        <!-- Timer + botão de reenvio: ficam escondidos até o primeiro envio -->
+        <div id="resend-section" class="resend-section" hidden>
+          <p id="resend-timer" class="resend-timer">
+            Você pode reenviar em <strong id="resend-countdown">60</strong>s
+          </p>
+          <button type="button" id="resend-button" class="btn btn-light" disabled>
+            Reenviar e-mail
+          </button>
+        </div>
+
+        <p class="auth-card__footer">
+          Lembrou a senha? <a href="login.html">Voltar para o login</a>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/recuperar-senha.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* ===================================================
+   PÁGINA CADASTRO
+   Estilos exclusivos desta página. O layout de duas
+   colunas, o card e os campos de formulário genéricos
+   estão em css/auth.css (compartilhado com o Login).
+=================================================== */
+
+/* Dois campos lado a lado (Senha / Confirmar Senha) */
+.form-group--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* Select de tipo sanguíneo (usa <select> nativo estilizado) */
+.form-select {
+  padding-left: 2.6rem;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+}
+
+/* ---------- GÊNERO: segmented control ---------- */
+.segmented {
+  display: flex;
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 4px;
+}
+
+.segmented__option {
+  flex: 1;
+  text-align: center;
+  padding: 0.7rem 0.5rem;
+  border-radius: 9px;
+  font-size: 0.9rem;
+  color: var(--color-gray-text);
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.segmented__option.is-active {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---------- TERMOS ---------- */
+.form-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.form-terms input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.form-terms label {
+  font-size: 0.85rem;
+  color: var(--color-gray-text);
+  line-height: 1.4;
+}
+
+.form-terms a {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 900px) {
+  .form-group--split {
+    grid-template-columns: 1fr;
+  }
+}

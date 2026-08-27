@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Confirmação de código</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/confirmacao.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
+  <div id="navbar-placeholder" data-variant="auth"></div>
+
+  <main class="auth">
+
+    <!-- ===================== COLUNA ESQUERDA ===================== -->
+    <div class="auth__illustration">
+      <div class="auth__illustration-img"></div>
+      <p class="auth__illustration-quote">Seu sangue salva vidas</p>
+    </div>
+
+    <!-- ===================== COLUNA DIREITA (CÓDIGO) ===================== -->
+    <div class="auth__form-side">
+      <div class="confirm-wrapper">
+
+        <a href="#" id="voltar-link" class="auth__back-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Voltar
+        </a>
+
+        <div class="auth-card">
+          <h1 class="auth-card__title">Confirmação de código</h1>
+          <p class="auth-card__subtitle">
+            Insira o código de 6 dígitos enviado para seu celular ou e-mail
+            cadastrado para prosseguir.
+          </p>
+
+          <form id="confirmacao-form" novalidate>
+
+            <div class="code-inputs">
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 1" />
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 2" />
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 3" />
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 4" />
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 5" />
+              <input class="code-input" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-pill">Confirmar</button>
+          </form>
+
+          <p class="auth-card__footer">
+            Não recebeu o código?
+            <button type="button" id="resend-code" class="link-button">Reenviar código</button>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/confirmacao.js"></script>
+</body>
+</html>

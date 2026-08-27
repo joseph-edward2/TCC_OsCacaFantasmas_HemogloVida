@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Pedidos de Doação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pedidos.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "app", com "Pedidos" marcado como link ativo -->
+  <div id="navbar-placeholder" data-variant="app" data-active="pedidos"></div>
+
+  <main class="pedidos-main">
+    <div class="container">
+
+      <!-- ===================== CABEÇALHO ===================== -->
+      <div class="pedidos-header">
+        <div>
+          <h1 class="pedidos-header__title">Pedidos de Doação</h1>
+          <p class="pedidos-header__subtitle">
+            Encontre pessoas e instituições que precisam de ajuda urgente.
+            Sua doação pode salvar até quatro vidas hoje.
+          </p>
+        </div>
+
+        <div class="pedidos-header__filter">
+          <label for="localizacao">Localização</label>
+          <div class="location-select">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Z"/></svg>
+            <span id="localizacao">Guarulhos - SP</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== ESTATÍSTICAS ===================== -->
+      <div class="pedidos-stats">
+        <div class="stat-card">
+          <span class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"/></svg>
+          </span>
+          <div>
+            <p class="stat-card__label">Total Pedidos</p>
+            <p class="stat-card__value">124</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+          </span>
+          <div>
+            <p class="stat-card__label">Críticos</p>
+            <p class="stat-card__value">18</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== GRID DE PEDIDOS ===================== -->
+      <div class="pedidos-grid">
+
+        <!-- Pedido 1: crítico -->
+        <article class="pedido-card">
+          <span class="pedido-card__critical-badge">Crítico</span>
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">O-</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hospital Geral de Guarulhos</h3>
+              <p class="pedido-card__subtitle">Doação Urgente</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Cirurgia Cardíaca</span>
+                <span class="pedido-card__tag">Urgente</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>8</strong><span class="total">/15</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="53"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hospital Geral de Guarulhos">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hospital Geral de Guarulhos" aria-label="Compartilhar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 2: estável -->
+        <article class="pedido-card">
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">AB+</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hemocentro Regional</h3>
+              <p class="pedido-card__subtitle">Reposição de Estoque Geral</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Estoque Baixo</span>
+                <span class="pedido-card__tag">Rotina</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>12</strong><span class="total">/20</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="60"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hemocentro Regional">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hemocentro Regional" aria-label="Compartilhar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 3: crítico -->
+        <article class="pedido-card">
+          <span class="pedido-card__critical-badge">Crítico</span>
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">A-</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Santa Casa de Misericórdia</h3>
+              <p class="pedido-card__subtitle">Doação Urgente</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Anemia Falciforme</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>2</strong><span class="total">/10</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="20"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar a Santa Casa de Misericórdia">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido da Santa Casa de Misericórdia" aria-label="Compartilhar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 4: todos os tipos -->
+        <article class="pedido-card">
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon pedido-card__icon--neutral">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hemocentro Unifesp</h3>
+              <p class="pedido-card__subtitle">Campanha de Doação Local</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Todos os tipos</span>
+                <span class="pedido-card__tag">Hoje</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>45</strong><span class="total">/100</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="45"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hemocentro Unifesp">
+              <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hemocentro Unifesp" aria-label="Compartilhar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ===================== CARREGAR MAIS ===================== -->
+      <div class="pedidos-load-more">
+        <button type="button" id="load-more">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+          Carregar mais pedidos
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/pedidos.js"></script>
+</body>
+</html>

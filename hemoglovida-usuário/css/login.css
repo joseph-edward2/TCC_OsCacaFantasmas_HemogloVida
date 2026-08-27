@@ -1,0 +1,30 @@
+/* ===================================================
+   PÁGINA LOGIN
+   Estilos exclusivos desta página. O layout de duas
+   colunas, o card e os campos de formulário genéricos
+   estão em css/auth.css (compartilhado com o Cadastro).
+=================================================== */
+
+/* Nesta página os campos têm o ícone à DIREITA (padrão diferente do
+   Cadastro, que usa ícone à esquerda) — então ajustamos o padding aqui
+   em vez de mexer no auth.css, que é compartilhado. */
+.form-input--icon-right {
+  padding-left: 1rem;
+  padding-right: 2.6rem;
+}
+
+/* Ícone parado (não é um botão), usado no campo "CPF ou telefone" */
+.form-decorative-icon {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.35;
+}
+
+.form-decorative-icon svg {
+  width: 100%;
+  height: 100%;
+}

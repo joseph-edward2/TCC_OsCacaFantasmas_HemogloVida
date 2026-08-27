@@ -1,0 +1,47 @@
+/* ===================================================
+   VARIÁVEIS GLOBAIS (design tokens)
+   Esse arquivo centraliza cores, fontes e espaçamentos
+   pra gente não ficar repetindo valores soltos no CSS.
+=================================================== */
+
+:root {
+  /* Cores da marca */
+  --color-primary: #a10023;
+  --color-accent: #cd0b31;
+  --color-bg: #f2f2f2;
+  --color-card-bg: #ededed;
+  --color-drop-light: #ffdad9;
+  --color-success: #15803d;
+  --color-success-bg: #bbf7d0;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-text: #6b6b6b;
+
+  /* Tipografia */
+  --font-main: "Inter", sans-serif;
+
+  /* Escala de espaçamento (em rem, base 14px)
+     Reduzimos a escala geral da página aqui: como tudo
+     usa essas variáveis, dá pra ajustar o "tamanho" do
+     site inteiro só mexendo nesses valores. */
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.2rem;
+  --space-lg: 2rem;
+  --space-xl: 3.2rem;
+  --space-2xl: 4.8rem;
+
+  /* Raios de borda */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Largura máxima do conteúdo (antes era baseado em 1920px,
+     reduzimos pra deixar a página mais compacta) */
+  --container-width: 1280px;
+
+  /* Sombras */
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
