@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estoque — Hospital | Hemoglovida</title>
+
+  <!-- Lembrete: confira a profundidade das pastas antes de
+       colar isso no seu projeto (quantos "../" precisa) -->
+  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="css/estoque.css">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+</head>
+<body>
+
+  <!-- ======================================================
+       HEADER (classes vindas do base.css)
+       ====================================================== -->
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <div class="logo-icon"> <img src="../assets/logo.png" alt="Logo Hemoglovida"></div>
+        Hemoglovida
+      </div>
+      <nav>
+        <a href="#" class="active">Estoque</a>
+        <a href="#">Pedidos</a>
+      </nav>
+    </div>
+    <div class="user">
+      <span>Bem-vindo, Dr. Gus Fring</span>
+      <div class="avatar"><img src="../assets/avatar.jpg" alt="Foto do usuário"></div>
+    </div>
+  </header>
+
+
+  <main class="page-content">
+
+    <!-- ====================================================
+         TÍTULO DA PÁGINA
+         ==================================================== -->
+    <div class="page-top">
+      <h1>Estoque do Hospital — Santa Casa SP</h1>
+      <div class="updated-tag">
+        <span class="updated-dot"></span>
+        Atualizado agora
+      </div>
+    </div>
+
+    <!-- ====================================================
+         BANNER DE ALERTA
+         ==================================================== -->
+    <div class="alert-banner">
+      <div class="alert-banner__content">
+        <div class="alert-banner__icon">!</div>
+        <div class="alert-banner__text">
+          <h2>Estoque Crítico Detectado</h2>
+          <p>2 tipos sanguíneos estão abaixo do estoque mínimo de segurança.</p>
+        </div>
+      </div>
+      <button class="btn" id="btnRequisicao">Fazer Requisição Agora</button>
+    </div>
+
+    <!-- ====================================================
+         CARTÕES POR TIPO SANGUÍNEO
+         Cada .stock-card representa um tipo. A classe extra
+         "stock-card--critical" só entra quando o estoque
+         está abaixo do mínimo (aí também aparece o badge).
+         ==================================================== -->
+    <div class="stock-grid">
+
+      <!-- O- (crítico) -->
+      <div class="stock-card stock-card--critical">
+        <div class="stock-card__head">
+          <span class="stock-card__type">O-</span>
+          <span class="stock-card__badge">CRÍTICO</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>12</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 15%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 80 bolsas</span>
+          <span>15% do ideal</span>
+        </div>
+        <div class="stock-card__expiry stock-card__expiry--warning">
+          5 bolsas vencendo em 7 dias
+        </div>
+      </div>
+
+      <!-- O+ -->
+      <div class="stock-card">
+        <div class="stock-card__head">
+          <span class="stock-card__type">O+</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>64</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 64%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 100 bolsas</span>
+          <span>64% do ideal</span>
+        </div>
+        <div class="stock-card__expiry">
+          Nenhuma expiração próxima
+        </div>
+      </div>
+
+      <!-- A- -->
+      <div class="stock-card">
+        <div class="stock-card__head">
+          <span class="stock-card__type">A-</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>42</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 42%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 100 bolsas</span>
+          <span>42% do ideal</span>
+        </div>
+        <div class="stock-card__expiry stock-card__expiry--warning">
+          2 bolsas vencendo em 7 dias
+        </div>
+      </div>
+
+      <!-- A+ -->
+      <div class="stock-card">
+        <div class="stock-card__head">
+          <span class="stock-card__type">A+</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>88</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 88%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 100 bolsas</span>
+          <span>88% do ideal</span>
+        </div>
+        <div class="stock-card__expiry">
+          Nenhuma expiração próxima
+        </div>
+      </div>
+
+      <!-- B- -->
+      <div class="stock-card">
+        <div class="stock-card__head">
+          <span class="stock-card__type">B-</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>24</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 48%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 50 bolsas</span>
+          <span>48% do ideal</span>
+        </div>
+        <div class="stock-card__expiry">
+          Nenhuma expiração próxima
+        </div>
+      </div>
+
+      <!-- B+ (crítico) -->
+      <div class="stock-card stock-card--critical">
+        <div class="stock-card__head">
+          <span class="stock-card__type">B+</span>
+          <span class="stock-card__badge">CRÍTICO</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>9</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 12%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 75 bolsas</span>
+          <span>12% do ideal</span>
+        </div>
+        <div class="stock-card__expiry stock-card__expiry--warning">
+          8 bolsas vencendo em 7 dias
+        </div>
+      </div>
+
+      <!-- AB- (crítico) -->
+      <div class="stock-card stock-card--critical">
+        <div class="stock-card__head">
+          <span class="stock-card__type">AB-</span>
+          <span class="stock-card__badge">CRÍTICO</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>4</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 13%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 30 bolsas</span>
+          <span>13% do ideal</span>
+        </div>
+        <div class="stock-card__expiry">
+          Nenhuma expiração próxima
+        </div>
+      </div>
+
+      <!-- AB+ -->
+      <div class="stock-card">
+        <div class="stock-card__head">
+          <span class="stock-card__type">AB+</span>
+        </div>
+        <div class="stock-card__count">
+          <strong>31</strong>
+          <span>bolsas</span>
+        </div>
+        <div class="stock-card__bar">
+          <div class="stock-card__bar-fill" style="width: 77%;"></div>
+        </div>
+        <div class="stock-card__meta">
+          <span>Meta: 40 bolsas</span>
+          <span>77% do ideal</span>
+        </div>
+        <div class="stock-card__expiry">
+          Nenhuma expiração próxima
+        </div>
+      </div>
+
+    </div><!-- /.stock-grid -->
+
+    <!-- ====================================================
+         GRÁFICO DE CONSUMO (mock estático, sem JS)
+         ==================================================== -->
+    <div class="chart-card">
+      <div class="chart-card__head">
+        <h2>Consumo de Estoque</h2>
+        <div class="chart-legend">
+          <span class="chart-legend__item">
+            <span class="chart-legend__dot chart-legend__dot--saidas"></span>
+            Saídas
+          </span>
+          <span class="chart-legend__item">
+            <span class="chart-legend__dot chart-legend__dot--entradas"></span>
+            Entradas
+          </span>
+          <span class="chart-period">Últimos 30 dias</span>
+        </div>
+      </div>
+
+      <!-- As alturas abaixo são fixas só pra representar o
+           visual do gráfico. Em um projeto real, essas
+           alturas viriam do banco de dados via JS/PHP. -->
+      <div class="bar-chart">
+        <div class="bar-chart__week">
+          <div class="bar-chart__bars">
+            <div class="bar-chart__bar bar-chart__bar--saidas" style="height: 80px;"></div>
+            <div class="bar-chart__bar bar-chart__bar--entradas" style="height: 108px;"></div>
+          </div>
+          <span class="bar-chart__label">SEMANA 1</span>
+        </div>
+        <div class="bar-chart__week">
+          <div class="bar-chart__bars">
+            <div class="bar-chart__bar bar-chart__bar--saidas" style="height: 126px;"></div>
+            <div class="bar-chart__bar bar-chart__bar--entradas" style="height: 99px;"></div>
+          </div>
+          <span class="bar-chart__label">SEMANA 2</span>
+        </div>
+        <div class="bar-chart__week">
+          <div class="bar-chart__bars">
+            <div class="bar-chart__bar bar-chart__bar--saidas" style="height: 54px;"></div>
+            <div class="bar-chart__bar bar-chart__bar--entradas" style="height: 153px;"></div>
+          </div>
+          <span class="bar-chart__label">SEMANA 3</span>
+        </div>
+        <div class="bar-chart__week">
+          <div class="bar-chart__bars">
+            <div class="bar-chart__bar bar-chart__bar--saidas" style="height: 117px;"></div>
+            <div class="bar-chart__bar bar-chart__bar--entradas" style="height: 130px;"></div>
+          </div>
+          <span class="bar-chart__label">SEMANA 4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================
+         TABELA DE INVENTÁRIO DETALHADO
+         ==================================================== -->
+    <div class="table-card">
+      <div class="table-card__head">
+        <h2>Inventário Detalhado</h2>
+        <div class="table-card__actions">
+          <button class="btn-outline-sm" id="btnExportar">Exportar</button>
+          <button class="btn-outline-sm" id="btnImprimir">Imprimir</button>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="inventory-table">
+          <thead>
+            <tr>
+              <th>ID Bolsa/Lote</th>
+              <th>Tipo Sanguíneo</th>
+              <th>Origem</th>
+              <th>Recebimento</th>
+              <th>Validade</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#H-1234</td>
+              <td><span class="blood-tag">O-</span></td>
+              <td>Hemocentro Central</td>
+              <td>12/10/2023</td>
+              <td>19/10/2023</td>
+              <td><span class="status-tag status-tag--disponivel">Disponível</span></td>
+              <td><button class="table-action-btn">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#H-1235</td>
+              <td><span class="blood-tag">A+</span></td>
+              <td>Hemocentro Leste</td>
+              <td>14/10/2023</td>
+              <td>14/11/2023</td>
+              <td><span class="status-tag status-tag--reservado">Reservado</span></td>
+              <td><button class="table-action-btn">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#H-1236</td>
+              <td><span class="blood-tag">O-</span></td>
+              <td>Hemocentro Central</td>
+              <td>15/10/2023</td>
+              <td>22/10/2023</td>
+              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
+              <td><button class="table-action-btn">Ver</button></td>
+            </tr>
+            <tr>
+              <td>#H-1237</td>
+              <td><span class="blood-tag">B-</span></td>
+              <td>Hospital Santa Casa</td>
+              <td>10/10/2023</td>
+              <td>15/10/2023</td>
+              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
+              <td><button class="table-action-btn">Ver</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <span class="table-footer__info">Mostrando 1-10 de 156 bolsas</span>
+        <div class="paginacao" id="paginacao">
+          <button class="paginacao__botao" data-pagina="anterior">‹</button>
+          <button class="paginacao__botao paginacao__botao--ativo" data-pagina="1">1</button>
+          <button class="paginacao__botao" data-pagina="2">2</button>
+          <button class="paginacao__botao" data-pagina="3">3</button>
+          <button class="paginacao__botao" data-pagina="proxima">›</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+
+  <script src="../base.js"></script>
+  <script src="js/estoque.js"></script>
+</body>
+</html>
