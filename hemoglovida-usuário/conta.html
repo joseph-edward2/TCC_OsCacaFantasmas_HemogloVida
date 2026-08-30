@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Minha Conta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/conta.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "app". Nenhum link do menu principal fica ativo
+       aqui — assim como no design original, "Minha Conta" é acessada
+       clicando no avatar, não por um item do menu. -->
+  <div id="navbar-placeholder" data-variant="app"></div>
+
+  <main class="conta-main">
+    <div class="conta-container">
+
+      <div class="profile-head">
+        <div class="profile-photo">
+          <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=160&q=60" alt="Foto de perfil" id="profileImg">
+          <button class="photo-edit" id="photoEditBtn">📷</button>
+        </div>
+        <div>
+          <h1>Minha Conta</h1>
+          <p class="profile-name">Jesse Pinkman</p>
+          <a href="#" class="edit-photo-link" id="editPhotoLink">Editar Foto</a>
+        </div>
+      </div>
+
+      <!-- DADOS PESSOAIS -->
+      <section class="panel">
+        <h2>Dados Pessoais</h2>
+        <div class="grid-2">
+          <div class="field">
+            <label>Nome Completo</label>
+            <input type="text" id="fullName" value="Jesse Pinkman" disabled>
+          </div>
+          <div class="field">
+            <label>Tipo Sanguíneo</label>
+            <div class="blood-row">
+              <span class="blood-badge">O-</span>
+              <span class="verified">Informação verificada pelo hemocentro</span>
+            </div>
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <div class="input-with-btn">
+              <span class="ic">✉️</span>
+              <input type="email" id="emailField" value="jessypink@email.com" disabled>
+              <button class="btn-alterar" data-target="emailField">Alterar</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Telefone</label>
+            <div class="input-with-btn">
+              <span class="ic">📞</span>
+              <input type="text" id="phoneField" value="(11) 98765-4321" disabled>
+              <button class="btn-alterar" data-target="phoneField">Alterar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SENHA -->
+      <section class="panel">
+        <h2>Senha</h2>
+        <div class="field">
+          <label>Senha</label>
+          <div class="input-with-btn">
+            <input type="password" value="senha1234" id="passwordField" disabled>
+            <span class="hint">Última alteração há 45 dias</span>
+            <button class="btn-solid" id="changePasswordBtn">Alterar Senha</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTIFICAÇÕES -->
+      <section class="panel">
+        <h2>Notificações</h2>
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <strong>Alertas de hemocentros próximos</strong>
+            <span>Saiba quando um posto de coleta perto de você precisar do seu tipo sanguíneo.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked data-key="alertas">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <strong>Lembretes de agendamento</strong>
+            <span>Receba notificações 24h antes da sua doação marcada.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked data-key="lembretes">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div class="toggle-text">
+            <strong>Campanhas urgentes na minha região</strong>
+            <span>Fique por dentro de mobilizações emergenciais.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" data-key="campanhas">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row last">
+          <div class="toggle-text">
+            <strong>Novidades e conteúdo educativo</strong>
+            <span>Dicas de saúde e novidades sobre o impacto das suas doações.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked data-key="novidades">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <div class="bottom-actions">
+        <button class="btn-solid" id="saveBtn">Salvar Alterações</button>
+        <button class="btn-outline-danger" id="deleteAccountBtn">⚠ Encerrar Conta</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- MODAL ALTERAR SENHA -->
+  <div class="overlay" id="passwordOverlay">
+    <div class="modal">
+      <button class="close" id="passwordClose">✕</button>
+      <h2>Alterar Senha</h2>
+      <div class="field">
+        <label>Senha atual</label>
+        <input type="password" id="currentPass" placeholder="Digite sua senha atual">
+      </div>
+      <div class="field">
+        <label>Nova senha</label>
+        <input type="password" id="newPass" placeholder="Digite a nova senha">
+      </div>
+      <div class="field">
+        <label>Confirmar nova senha</label>
+        <input type="password" id="confirmPass" placeholder="Repita a nova senha">
+      </div>
+      <button class="btn-solid full" id="savePasswordBtn">Salvar Nova Senha</button>
+    </div>
+  </div>
+
+  <!-- MODAL ENCERRAR CONTA -->
+  <div class="overlay" id="deleteOverlay">
+    <div class="modal">
+      <button class="close" id="deleteClose">✕</button>
+      <div class="modal-icon">⚠️</div>
+      <h2>Encerrar Conta</h2>
+      <p class="modal-text">Essa ação é permanente. Todos os seus dados, histórico de doações e agendamentos serão removidos. Tem certeza que deseja continuar?</p>
+      <div class="modal-actions">
+        <button class="btn-outline" id="cancelDelete">Cancelar</button>
+        <button class="btn-danger" id="confirmDelete">Sim, encerrar conta</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/conta.js"></script>
+</body>
+</html>

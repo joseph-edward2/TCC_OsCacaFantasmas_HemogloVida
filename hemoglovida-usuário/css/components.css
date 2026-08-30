@@ -45,6 +45,12 @@
   gap: var(--space-lg);
 }
 
+/* A equipe do hemocentro tem 6 links (em vez de 4), então usamos um
+   espaçamento menor pra tudo continuar cabendo nos mesmos 1280px */
+.navbar__links--compact {
+  gap: var(--space-md);
+}
+
 .navbar__link {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
@@ -63,11 +69,18 @@
   border-bottom-color: var(--color-white);
 }
 
-/* Saudação + avatar do usuário logado (variante "app") */
+/* Saudação + avatar do usuário logado (variantes "app" e "staff").
+   Agora é um link (leva pra "Minha Conta"), mas mantém a mesma aparência. */
 .navbar__user {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  text-decoration: none;
+}
+
+.navbar__gear {
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 .navbar__welcome {

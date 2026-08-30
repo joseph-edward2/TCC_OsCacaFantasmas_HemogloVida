@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Minha Conta (Equipe)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/conta.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "staff" (equipe do hemocentro). Igual à tela de
+       Minha Conta do doador, o acesso aqui é pelo avatar/engrenagem, sem
+       nenhum item do menu principal marcado como ativo. -->
+  <div id="navbar-placeholder" data-variant="staff"></div>
+
+  <main class="conta-main">
+    <div class="conta-container">
+
+      <div class="profile-head">
+        <div class="profile-photo">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=160&q=60" alt="Foto de perfil" id="profileImg">
+          <button class="photo-edit" id="photoEditBtn">📷</button>
+        </div>
+        <div>
+          <h1>Minha Conta</h1>
+          <p class="profile-name">Walter White</p>
+          <a href="#" class="edit-photo-link" id="editPhotoLink">Editar Foto</a>
+        </div>
+      </div>
+
+      <!-- DADOS PESSOAIS -->
+      <section class="panel">
+        <h2>Dados Pessoais</h2>
+        <div class="grid-2">
+          <div class="field">
+            <label>Nome Completo</label>
+            <input type="text" id="fullName" value="Walter White" disabled>
+          </div>
+          <div class="field">
+            <label>Código de Registro</label>
+            <input type="text" id="registrationCode" value="76489-SP" disabled>
+          </div>
+          <div class="field">
+            <label>Cargo</label>
+            <input type="text" id="role" value="Auxiliar de Enfermagem" disabled>
+          </div>
+          <div></div>
+          <div class="field">
+            <label>E-mail</label>
+            <div class="input-with-btn">
+              <span class="ic">✉️</span>
+              <input type="email" id="emailField" value="waltwhite@email.com" disabled>
+              <button class="btn-alterar" data-target="emailField">Alterar</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Telefone</label>
+            <div class="input-with-btn">
+              <span class="ic">📞</span>
+              <input type="text" id="phoneField" value="(11) 96753-2015" disabled>
+              <button class="btn-alterar" data-target="phoneField">Alterar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SENHA -->
+      <section class="panel">
+        <h2>Senha</h2>
+        <div class="field">
+          <label>Senha</label>
+          <div class="input-with-btn">
+            <input type="password" value="senha1234" id="passwordField" disabled>
+            <span class="hint">Última alteração há 45 dias</span>
+            <button class="btn-solid" id="changePasswordBtn">Alterar Senha</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-actions">
+        <button class="btn-solid" id="saveBtn">Salvar Alterações</button>
+        <button class="btn-outline-danger" id="deleteAccountBtn">⊘ Encerrar Conta</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <!-- MODAL ALTERAR SENHA -->
+  <div class="overlay" id="passwordOverlay">
+    <div class="modal">
+      <button class="close" id="passwordClose">✕</button>
+      <h2>Alterar Senha</h2>
+      <div class="field">
+        <label>Senha atual</label>
+        <input type="password" id="currentPass" placeholder="Digite sua senha atual">
+      </div>
+      <div class="field">
+        <label>Nova senha</label>
+        <input type="password" id="newPass" placeholder="Digite a nova senha">
+      </div>
+      <div class="field">
+        <label>Confirmar nova senha</label>
+        <input type="password" id="confirmPass" placeholder="Repita a nova senha">
+      </div>
+      <button class="btn-solid full" id="savePasswordBtn">Salvar Nova Senha</button>
+    </div>
+  </div>
+
+  <!-- MODAL ENCERRAR CONTA -->
+  <div class="overlay" id="deleteOverlay">
+    <div class="modal">
+      <button class="close" id="deleteClose">✕</button>
+      <div class="modal-icon">⚠️</div>
+      <h2>Encerrar Conta</h2>
+      <p class="modal-text">Essa ação é permanente e removerá seu acesso ao painel do hemocentro. Tem certeza que deseja continuar?</p>
+      <div class="modal-actions">
+        <button class="btn-outline" id="cancelDelete">Cancelar</button>
+        <button class="btn-danger" id="confirmDelete">Sim, encerrar conta</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/equipe-conta.js"></script>
+</body>
+</html>

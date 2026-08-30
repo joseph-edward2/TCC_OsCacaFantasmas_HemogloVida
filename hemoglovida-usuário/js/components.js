@@ -25,20 +25,23 @@
 
 /**
  * Devolve o HTML do navbar.
- * @param {"public"|"auth"|"app"} variant
+ * @param {"public"|"auth"|"app"|"staff"} variant
  *   - "public": logo + botão "Doar Agora" (Home e outras páginas de marketing)
  *   - "auth": só a logo, sem botão (Login, Cadastro, Confirmação de código)
- *   - "app": logo + links de navegação + saudação/avatar do usuário
- *     (Dashboard, Pedidos, Agendamentos, Carteirinha)
- * @param {string} activeLink - chave do link ativo na variante "app"
- *   ("inicio" | "pedidos" | "agendamentos" | "carteirinha")
+ *   - "app": logo + links de navegação + saudação/avatar do doador
+ *     (Dashboard, Pedidos, Agendamentos, Caderneta, Minha Conta)
+ *   - "staff": logo + links de navegação + saudação/avatar da equipe do
+ *     hemocentro (Minha Conta da equipe)
+ * @param {string} activeLink - chave do link ativo nas variantes "app"/"staff"
  */
 function getNavbarHTML(variant = "public", activeLink = "") {
-  const brandHref = variant === "app" ? "dashboard.html" : "index.html";
+  const isApp = variant === "app";
+  const isStaff = variant === "staff";
 
-  const navLinks =
-    variant === "app"
-      ? `
+  const brandHref = isApp ? "dashboard.html" : isStaff ? "#" : "index.html";
+
+  const navLinks = isApp
+    ? `
         <div class="navbar__links">
           ${buildNavLink("dashboard.html", "Início", "inicio", activeLink)}
           ${buildNavLink("pedidos.html", "Pedidos", "pedidos", activeLink)}
@@ -46,17 +49,36 @@ function getNavbarHTML(variant = "public", activeLink = "") {
           ${buildNavLink("caderneta.html", "Caderneta", "caderneta", activeLink)}
         </div>
       `
-      : "";
+    : isStaff
+    ? `
+        <div class="navbar__links navbar__links--compact">
+          ${buildNavLink("#", "Visão Geral", "visao-geral", activeLink)}
+          ${buildNavLink("#", "Atendimento", "atendimento", activeLink)}
+          ${buildNavLink("#", "Estoque", "estoque", activeLink)}
+          ${buildNavLink("#", "Agendamentos", "agendamentos-staff", activeLink)}
+          ${buildNavLink("#", "Pedidos", "pedidos-staff", activeLink)}
+          ${buildNavLink("#", "Alertas", "alertas", activeLink)}
+        </div>
+      `
+    : "";
 
   const rightContent =
     variant === "public"
       ? `<a href="cadastro.html" class="btn btn-light">Doar Agora</a>`
-      : variant === "app"
+      : isApp
       ? `
-        <div class="navbar__user">
+        <a href="conta.html" class="navbar__user" aria-label="Minha Conta">
           <span class="navbar__welcome">Bem vindo, Jesse</span>
           <img class="navbar__avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop" alt="Foto de perfil de Jesse" />
-        </div>
+        </a>
+      `
+      : isStaff
+      ? `
+        <a href="equipe-conta.html" class="navbar__user" aria-label="Minha Conta">
+          <span class="navbar__gear">⚙️</span>
+          <span class="navbar__welcome">Bem vindo, Dr. Walter White</span>
+          <img class="navbar__avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&q=60" alt="Foto de perfil de Walter White" />
+        </a>
       `
       : "";
 
@@ -81,7 +103,7 @@ function getNavbarHTML(variant = "public", activeLink = "") {
   `;
 }
 
-/** Monta um link do navbar da variante "app", marcando o ativo. */
+/** Monta um link do navbar das variantes "app"/"staff", marcando o ativo. */
 function buildNavLink(href, label, key, activeLink) {
   const activeClass = key === activeLink ? " navbar__link--active" : "";
   return `<a href="${href}" class="navbar__link${activeClass}">${label}</a>`;

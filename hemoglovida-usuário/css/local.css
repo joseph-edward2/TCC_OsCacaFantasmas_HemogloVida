@@ -1,0 +1,312 @@
+/* ===================================================
+   PÁGINA ENCONTRAR HEMOCENTRO (local.html)
+   Adaptada da tela feita pelo colega de grupo — mesma
+   estrutura e comportamento, usando as variáveis do
+   projeto e container de 1280px.
+=================================================== */
+
+.local-main {
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* ---------- BARRA DE BUSCA ---------- */
+.search-bar {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 220px;
+}
+
+.search-input .ic {
+  font-size: 1.1rem;
+  color: var(--color-gray-text);
+}
+
+.search-input input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+  background: transparent;
+  color: var(--color-black);
+  font-family: var(--font-main);
+}
+
+.search-input input::placeholder {
+  color: var(--color-gray-text);
+}
+
+#bloodFilter {
+  appearance: none;
+  background: var(--color-white)
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path d="M1 1l5 5 5-5" stroke="%236B6B70" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    no-repeat right 14px center;
+  border: 1.5px solid var(--color-card-bg);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 2.2rem 0.7rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-black);
+  font-family: var(--font-main);
+  cursor: pointer;
+}
+
+/* ---------- GRID: LISTA + MAPA ---------- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.list-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hc-card {
+  background: var(--color-white);
+  border: 2px solid var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  transition: 0.15s;
+}
+
+.hc-card.selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-drop-light);
+}
+
+.hc-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.hc-pin {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.hc-info {
+  flex: 1;
+}
+
+.hc-info h3 {
+  margin: 0 0 2px 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.hc-info p {
+  margin: 0;
+  color: var(--color-gray-text);
+  font-size: 0.85rem;
+}
+
+.hc-status {
+  text-align: right;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.hc-status .open {
+  color: var(--color-success);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: flex-end;
+}
+
+.hc-status .open::before {
+  content: "⏱";
+  font-size: 0.8rem;
+}
+
+.hc-status .closes {
+  color: var(--color-gray-text);
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.agendar-btn {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.agendar-btn:hover,
+.agendar-btn.selected {
+  filter: brightness(0.92);
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  color: var(--color-gray-text);
+  background: var(--color-white);
+  border: 1.5px dashed var(--color-card-bg);
+  border-radius: var(--radius-md);
+}
+
+/* ---------- MAPA (ilustrativo, em SVG) ---------- */
+.map-col {
+  position: sticky;
+  top: var(--space-md);
+}
+
+.map-frame {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 560px;
+  border: 1.5px solid var(--color-card-bg);
+  background: #eef1ea;
+}
+
+.map-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.map-pins {
+  position: absolute;
+  inset: 0;
+}
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--color-primary);
+  border: 3px solid var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transform-origin: center bottom;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.pin-inner {
+  transform: rotate(45deg);
+  color: var(--color-white);
+  font-size: 0.85rem;
+}
+
+.pin.selected {
+  background: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 5px var(--color-drop-light);
+}
+
+.pin.selected .pin-inner {
+  color: var(--color-primary);
+}
+
+.pin:hover {
+  filter: brightness(1.08);
+}
+
+.pin-label {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.15s;
+}
+
+.pin:hover .pin-label {
+  opacity: 1;
+}
+
+/* ---------- TOAST ---------- */
+.toast {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 1080px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-col {
+    position: static;
+  }
+
+  .map-frame {
+    height: 380px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
