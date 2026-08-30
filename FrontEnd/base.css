@@ -33,9 +33,13 @@
   --bg: #F6F4F2;           /* fundo geral da página */
   --card: #FFFFFF;         /* fundo dos cartões */
   --input-bg: #ECEAE8;     /* fundo de inputs e áreas neutras */
+
+
+  /* Largura máxima do conteúdo (antes era baseado em 1920px,
+     reduzimos pra deixar a página mais compacta) */
+  --container-width: 1280px;
+
 }
-
-
 /* ------------------------------------------------------
    2. RESET BÁSICO
    ------------------------------------------------------
@@ -169,10 +173,7 @@ nav a:hover {
    .btn-primary, .btn--primary) pra tudo herdar a mesma
    altura sem precisar mudar nada no HTML já pronto.
    ------------------------------------------------------ */
-.btn,
-.btn-primary,
-.btn--primary,
-.btn-pill {
+.btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -191,28 +192,17 @@ nav a:hover {
   transition: background-color 0.2s;
 }
 
-.btn:hover,
-.btn-primary:hover,
-.btn--primary:hover,
-.btn-pill:hover {
+.btn:hover {
   background-color: var(--brand-dark);
 }
 
-.btn:active,
-.btn-primary:active,
-.btn--primary:active {
+.btn:active {
   transform: scale(0.98);
 }
 
-/* Formato "pílula" (cantos bem arredondados) usado em alguns
-   botões — mesma altura, só muda o border-radius */
-.btn-pill {
-  border-radius: 999px;
-}
 
 /* Versão com contorno (ação secundária) */
-.btn-outline,
-.btn--outline {
+.btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -231,31 +221,31 @@ nav a:hover {
   transition: background-color 0.2s;
 }
 
-.btn-outline:hover,
-.btn--outline:hover {
+.btn-outline:hover {
   background-color: var(--input-bg);
 }
 
-/* Modificador: botão ocupa 100% da largura do card/container
-   (ex: botão "Entrar" no login, "Cadastrar" no cadastro) */
-.btn--full {
-  width: 100%;
-}
 
-/* Botões pequenos usados dentro de tabelas/cards (ex: "Ver PDF",
-   "Exportar"). Ficam menores de propósito — não usam a altura
-   padrão de 46px, que é só pros botões de ação principal. */
-.btn-outline-sm,
-.doc-btn,
-.table-action-btn {
-  height: 32px;
+
+   
+.btn-outline-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 30px;
+  width: 120px;
   padding: 0 12px;
-  border-radius: 6px;
+  background-color: transparent;
+  color: var(--ink-soft);
   font-family: inherit;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+  border: 1px solid var(--ink-soft);
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
 
 
@@ -328,13 +318,7 @@ nav a:hover {
 }
 
 
-/* ------------------------------------------------------
-   7. PAGINAÇÃO
-   ------------------------------------------------------
-   Estava quase idêntica em atendimento.css e estoque.css,
-   só com tamanhos levemente diferentes — trouxe pra cá com
-   uma altura única (36px) pra ficar igual nas duas.
-   ------------------------------------------------------ */
+
 .paginacao {
   display: flex;
   align-items: center;
@@ -345,7 +329,7 @@ nav a:hover {
 .paginacao__botao {
   min-width: 36px;
   height: 36px;
-  border: 1px solid #d8d5d2;
+  border: 1px solid var(--input-bg);
   background-color: var(--card);
   color: var(--ink);
   font-family: inherit;
@@ -390,4 +374,23 @@ nav a:hover {
   padding: 12px 14px;
   font-size: 14px;
   line-height: 1.5;
+}
+
+.msg {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.msg--error {
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.msg--success {
+  background: #e6f9ed;
+  color: #1a7a3a;
 }

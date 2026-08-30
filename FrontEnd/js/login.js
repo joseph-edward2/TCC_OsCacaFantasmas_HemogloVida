@@ -13,6 +13,11 @@ const toggleSenhaBtn = document.getElementById('toggleSenha');
 const form = document.getElementById('loginForm');
 const msgEl = document.getElementById('msg');
 
+// Se algum elemento essencial não existir na página, para antes de registrar
+// qualquer listener (mesmo padrão defensivo dos outros scripts).
+if (!loginInput || !senhaInput || !form || !msgEl) {
+  console.warn('Elementos do formulário de login não encontrados.');
+} else {
 
 // ------------------------------------------------------
 // 1. Máscara automática de CPF/CNPJ
@@ -90,3 +95,5 @@ form.addEventListener('submit', async function (e) {
     restaurar();
   }
 });
+
+} // fim do else (elementos presentes)

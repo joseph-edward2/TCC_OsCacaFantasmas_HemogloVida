@@ -6,7 +6,7 @@
   <title>Pedidos — Hospital | Hemoglovida</title>
 
 
-  <link rel="stylesheet" href="../base.css">
+  <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="css/pedidos.css">
 </head>
 <body>
@@ -18,18 +18,20 @@
     <div class="header-left">
       <div class="logo">
         <div class="logo-icon">
-          <img src="../assets/logo.png" alt="Logo Hemoglovida">
+          <img src="assets/logo.png" alt="Logo Hemoglovida">
         </div>
         Hemoglovida
       </div>
       <nav>
-        <a href="#">Estoque</a>
-        <a href="#" class="active">Pedidos</a>
+        <a href="Hospital_estoque.html">Estoque</a>
+        <a href="Hospital_Pedidos.html" class="active">Pedidos</a>
       </nav>
     </div>
     <div class="user">
       <span>Bem-vindo, Dr. Gus Fring</span>
-      <div class="avatar"><img src="../assets/avatar.jpg" alt="Foto do usuário"></div>
+      <a href="Hospital_usuario.html">
+      <div class="avatar"><img src="assets/avatar.jpg" alt="Foto do usuário"></div>
+      </a>
     </div>
   </header>
 
@@ -161,13 +163,15 @@
                 <div class="upload-box__name" id="nomeArquivo">Nenhum arquivo selecionado</div>
                 <div class="upload-box__meta" id="metaArquivo">Envie o PDF assinado da requisição</div>
               </div>
-              <button type="button" class="upload-box__btn" id="btnTrocarArquivo">Escolher arquivo</button>
+              <button type="button" class="btn-outline-sm" id="btnTrocarArquivo">Escolher arquivo</button>
               <input type="file" id="inputArquivo" accept=".pdf" hidden>
             </div>
           </div>
 
-          <button type="submit" class="btn btn--full">Enviar Requisição</button>
+          <button type="submit" class="btn">Enviar Requisição</button>
         </form>
+
+        <p class="msg" id="msg" hidden></p>
       </div>
 
       <!-- ---------- COLUNA DIREITA: TABELA + BANNER ---------- -->
@@ -210,7 +214,7 @@
                     </div>
                     <span class="timeline__label">Em Separação</span>
                   </td>
-                  <td><button class="doc-btn">Ver PDF</button></td>
+                  <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
 
                 <!-- Linha normal: já concluída ("Entregue") -->
@@ -228,7 +232,7 @@
                     </div>
                     <span class="timeline__label">Entregue</span>
                   </td>
-                  <td><button class="doc-btn">Ver PDF</button></td>
+                  <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
 
                 <!-- Linha urgente: estágio atual = "Enviado" (2ª etapa) -->
@@ -246,7 +250,7 @@
                     </div>
                     <span class="timeline__label">Enviado</span>
                   </td>
-                  <td><button class="doc-btn">Ver PDF</button></td>
+                  <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
               </tbody>
             </table>

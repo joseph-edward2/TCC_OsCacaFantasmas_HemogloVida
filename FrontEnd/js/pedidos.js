@@ -1,11 +1,4 @@
-/* ======================================================
-   HEMOGLOVIDA — PEDIDOS (HOSPITAL)
-   ======================================================
-   Importe DEPOIS do base.js:
 
-   <script src="../base.js"></script>
-   <script src="js/pedidos.js"></script>
-   ====================================================== */
 
 const btnNovaRequisicao = document.getElementById('btnNovaRequisicao');
 const formNovaRequisicao = document.getElementById('formNovaRequisicao');
@@ -23,6 +16,7 @@ const nomeArquivo = document.getElementById('nomeArquivo');
 const metaArquivo = document.getElementById('metaArquivo');
 
 const formRequisicao = document.getElementById('formRequisicao');
+const msgEl = document.getElementById('msg');
 
 
 // ------------------------------------------------------
@@ -95,14 +89,18 @@ if (inputArquivo) {
 
 // ------------------------------------------------------
 // 5. Envio do formulário
-// (usa enviarParaAPI e iniciarCarregamento do base.js)
+// (usa enviarParaAPI, iniciarCarregamento e
+// mostrarMensagem do base.js)
 // ------------------------------------------------------
 if (formRequisicao) {
   formRequisicao.addEventListener('submit', async function (e) {
     e.preventDefault();
 
+    // Esconde mensagem antiga antes de revalidar
+    if (msgEl) msgEl.hidden = true;
+
     if (!tipoSanguineoValor.value) {
-      alert('Selecione o tipo sanguíneo requerido.');
+      if (msgEl) mostrarMensagem(msgEl, 'Selecione o tipo sanguíneo requerido.', 'error');
       return;
     }
 
@@ -120,10 +118,10 @@ if (formRequisicao) {
         hemocentro: this.querySelector('input[name="hemocentro"]:checked').value
       });
 
-      alert('Requisição enviada com sucesso!');
+      if (msgEl) mostrarMensagem(msgEl, 'Requisição enviada com sucesso!', 'success');
       this.reset();
     } catch (erro) {
-      alert(erro.message);
+      if (msgEl) mostrarMensagem(msgEl, erro.message, 'error');
     } finally {
       restaurar();
     }

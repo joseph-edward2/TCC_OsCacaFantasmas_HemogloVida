@@ -21,15 +21,17 @@ body {
   min-height: 100vh;
 }
 
+/*header não tem elementos que o fazem crescer então precisa de altura mínima pra n ficar 
+discrepante*/
 header {
-  min-height: 79px;
+  min-height: 78px;
 }
 
 /* ------------------------------------------------------
    1. ÁREA CENTRAL DA PÁGINA
    ------------------------------------------------------ */
 .page {
-  flex: 1; /* ocupa todo o espaço disponível, empurrando o footer pra baixo */
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,6 +100,7 @@ header {
 }
 
 /* ---- Campos de formulário (label + input) ---- */
+
 .field {
   display: flex;
   flex-direction: column;
@@ -168,24 +171,7 @@ header {
    Use .msg.msg--error para "senha incorreta", por exemplo,
    ou .msg.msg--success para "login realizado com sucesso".
    ------------------------------------------------------ */
-.msg {
-  margin-top: 14px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  text-align: center;
-}
 
-.msg--error {
-  background: var(--brand-light);
-  color: var(--brand);
-}
-
-.msg--success {
-  background: #e6f9ed;
-  color: #1a7a3a;
-}
 
 
 /* ------------------------------------------------------

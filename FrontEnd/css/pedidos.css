@@ -4,7 +4,7 @@
    1. ÁREA PRINCIPAL / CABEÇALHO DA PÁGINA
    ------------------------------------------------------ */
 .page-content {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 40px 32px 60px;
 }
@@ -132,7 +132,7 @@
 .blood-select__btn {
   min-width: 74px;
   padding: 12px 16px;
-  border: 2px solid #d8d5d2;
+  border: 2px solid var(--input-bg);
   border-radius: 8px;
   background-color: #fff;
   color: var(--ink);
@@ -159,7 +159,7 @@
   display: flex;
   align-items: stretch;
   width: fit-content;
-  border: 2px solid #d8d5d2;
+  border: 2px solid var(--input-bg);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -176,14 +176,14 @@
 }
 
 .qty-stepper__btn:hover {
-  background-color: #e2dfdc;
+  background-color: var(--input-bg);
 }
 
 .qty-stepper__input {
   width: 64px;
   border: none;
-  border-left: 2px solid #d8d5d2;
-  border-right: 2px solid #d8d5d2;
+  border-left: 2px solid var(--input-bg);
+  border-right: 2px solid var(--input-bg);
   text-align: center;
   font-size: 18px;
   font-weight: 700;
@@ -221,7 +221,7 @@
   align-items: center;
   gap: 14px;
   padding: 16px;
-  border: 2px solid #eee;
+  border: 2px solid var(--input-bg);
   border-radius: 8px;
   cursor: pointer;
   margin-bottom: 12px;
@@ -267,7 +267,7 @@
 
 /* ---- Upload do documento assinado ---- */
 .upload-box {
-  border: 2px dashed #d8d5d2;
+  border: 2px dashed var(--input-bg);
   border-radius: 10px;
   padding: 24px;
   display: flex;
@@ -304,7 +304,7 @@
 
 .upload-box__btn {
   background: none;
-  border: 1px solid #d8d5d2;
+  border: 1px solid var(--input-bg);
   border-radius: 6px;
   padding: 8px 16px;
   font-size: 13px;
@@ -317,12 +317,7 @@
   background-color: var(--input-bg);
 }
 
-/* .btn--full (largura 100%) já vem do base.css — aqui só
-   adicionamos uma margem acima, já que ele é o último
-   elemento do formulário. */
-.btn--full {
-  margin-top: 8px;
-}
+
 
 
 /* ------------------------------------------------------
@@ -343,7 +338,7 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 24px 28px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--input-bg);
 }
 
 .monitor-card__head h2 {
@@ -393,7 +388,7 @@
 
 .requests-table tbody td {
   padding: 16px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--input-bg);
   vertical-align: middle;
 }
 
@@ -449,7 +444,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #d8d5d2; /* etapa ainda não alcançada */
+  background-color: var(--input-bg); /* etapa ainda não alcançada */
   flex-shrink: 0;
 }
 
@@ -466,7 +461,7 @@
 .timeline__line {
   flex: 1;
   height: 3px;
-  background-color: #d8d5d2;
+  background-color: var(--input-bg);
   margin: 0 4px;
   min-width: 12px;
 }
@@ -482,19 +477,17 @@
   margin-top: 8px;
 }
 
-.doc-btn {
+/* Altura, raio, fonte e cursor do .doc-btn já vêm do base.css
+   (grupo .btn-outline-sm, .doc-btn, .table-action-btn) — aqui
+   fica só o visual de "contorno" específico deste botão. */
+.btn-outline.sm{
   background: none;
   border: 1px solid #ddd;
-  border-radius: 6px;
   padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  font-family: inherit;
   color: var(--ink-soft);
-  cursor: pointer;
 }
 
-.doc-btn:hover {
+.btn-outline.sm:hover {
   background-color: var(--brand-light);
   color: var(--brand);
   border-color: var(--brand-light);

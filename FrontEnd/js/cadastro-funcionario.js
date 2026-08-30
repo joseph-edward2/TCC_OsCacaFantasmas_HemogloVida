@@ -12,12 +12,14 @@
 
 
 // Seleciona os elementos do formulário que precisam de JS
-var toggleBtn = document.getElementById('toggleSenha');
-var senhaInput = document.getElementById('senha_funcionario');
+const toggleBtn = document.getElementById('toggleSenha');
+const senhaInput = document.getElementById('senha_funcionario');
 
 
 // ------------------------------------------------------
 // 1. Mostrar / ocultar senha
 // (a função ativarToggleSenha vem do base.js)
 // ------------------------------------------------------
+// A função ativarToggleSenha já verifica se os elementos existem
+// antes de registrar o listener, então não precisa de guarda aqui.
 ativarToggleSenha(toggleBtn, senhaInput);
