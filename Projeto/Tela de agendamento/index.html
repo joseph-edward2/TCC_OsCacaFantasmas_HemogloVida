@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemoglovida — Agende sua Doação</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="drop"></span> Hemoglovida</div>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#">Pedidos</a>
+    <a href="#" class="active">Agendamentos</a>
+    <a href="#">Carteirinha</a>
+  </nav>
+  <div class="user">
+    Bem-vindo, Jesse
+    <div class="avatar">J</div>
+  </div>
+</header>
+
+<main>
+  <h1 class="page-title">Agende sua Doação</h1>
+  <p class="page-sub">Selecione uma data disponível abaixo para salvar vidas.</p>
+
+  <div class="location-card">
+    <div class="location-icon">📍</div>
+    <div class="location-info">
+      <h3>Hemocentro Regional SP</h3>
+      <p>Av. Dr. Enéas Carvalho de Aguiar, 155 - Cerqueira César</p>
+    </div>
+    <button class="trocar-btn">↺ Trocar</button>
+  </div>
+
+  <div class="layout">
+    <div class="left-col">
+
+      <!-- CALENDAR PANEL -->
+      <div class="panel">
+        <div class="cal-head">
+          <h2 id="calTitle">Março 2026</h2>
+          <div class="cal-nav">
+            <button id="prevMonth">‹</button>
+            <button id="nextMonth">›</button>
+          </div>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="legend">
+          <span><i class="swatch"></i> Disponível</span>
+          <span><i class="swatch" style="background:#f2f1ef;border-color:#e6e3e1;"></i> Indisponível</span>
+          <span><i class="swatch selected" style="background:#FDEBEF;"></i> selecionado</span>
+        </div>
+      </div>
+
+      <!-- SLOTS PANEL -->
+      <div class="panel">
+        <h3 class="section-title">Horários Disponíveis</h3>
+        <div class="slots" id="slotsGrid"></div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="panel summary-card">
+        <h3><span class="ic">🗒️</span> Resumo</h3>
+        <div class="summary-row">
+          <div class="label">Hemocentro</div>
+          <div class="value">Hemocentro Regional SP</div>
+        </div>
+        <div class="summary-row">
+          <div class="label">Data</div>
+          <div class="value" id="summaryDate">01 de Março de 2026</div>
+        </div>
+        <div class="summary-row">
+          <div class="label">Horário</div>
+          <div class="value" id="summaryTime">09:30</div>
+        </div>
+        <div class="notice">
+          <span class="ic">ⓘ</span>
+          <span>Lembre-se de estar bem alimentado e levar um documento oficial com foto.</span>
+        </div>
+        <button class="confirm-btn" id="confirmBtn">Confirmar Agendamento</button>
+      </div>
+
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=600&q=60" alt="Doação de sangue">
+        <div class="promo-text">
+          <strong>Cada doação pode salvar até 4 vidas.</strong>
+          <span>Obrigado por sua solidariedade.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-brand">Hemoglovida</div>
+      <p>© 2026 Hemoglovida.</p>
+    </div>
+    <div>
+      <h4>INSTITUCIONAL</h4>
+      <a href="#">Sobre Nós</a>
+      <a href="#">Como Funciona</a>
+      <a href="#">Hemocentros</a>
+    </div>
+    <div>
+      <h4>SUPORTE</h4>
+      <a href="#">Privacidade</a>
+      <a href="#">Contato</a>
+      <a href="#">Dúvidas Frequentes</a>
+    </div>
+    <div>
+      <h4>SOCIAL</h4>
+      <div class="socials"><span>🌐</span><span>🔗</span><span>📣</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- RESULT MODAL (conteúdo trocado dinamicamente via JS) -->
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <button class="close" id="modalClose">✕</button>
+    <div class="modal-icon" id="modalIcon">🗓️</div>
+    <h2 id="modalTitle">Aguarde um pouco mais</h2>
+    <p id="modalText">Notamos que sua última doação foi recente. Para sua segurança, o intervalo mínimo entre doações é de 60 dias para homens e 90 dias para mulheres.</p>
+    <button class="modal-btn" id="modalOk">Entendido</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

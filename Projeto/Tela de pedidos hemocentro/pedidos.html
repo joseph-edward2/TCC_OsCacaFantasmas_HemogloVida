@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemoglovida — Pedidos de Hospitais</title>
+<link rel="stylesheet" href="pedidos.css">
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="drop"></span> Hemoglovida</div>
+  <nav>
+    <a href="#">Visão Geral</a>
+    <a href="#">Atendimento</a>
+    <a href="#">Estoque</a>
+    <a href="#">Agendamentos</a>
+    <a href="#" class="active">Pedidos</a>
+    <a href="#">Alertas</a>
+  </nav>
+  <div class="user">
+    <span class="gear">⚙️</span>
+    Bem-vindo, Dr. Walter White
+    <div class="avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&q=60" alt=""></div>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div>
+      <h1 class="page-title">Pedidos de Hospitais</h1>
+      <p class="page-sub">Gerencie e priorize o envio de bolsas de sangue para unidades de saúde.</p>
+    </div>
+    <div class="filters">
+      <select id="filterStatus">
+        <option>Status: Todos</option>
+        <option>Recebido</option>
+        <option>Em Separação</option>
+        <option>Enviado</option>
+        <option>Entregue</option>
+      </select>
+      <select id="filterBlood">
+        <option>Tipo Sanguíneo</option>
+        <option>O-</option>
+        <option>O+</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+      </select>
+      <select id="filterUrgency">
+        <option>Urgência: Todas</option>
+        <option>Crítico</option>
+        <option>Urgente</option>
+        <option>Rotina</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-info">
+        <span class="stat-label">PEDIDOS<br>PENDENTES</span>
+        <span class="stat-value" id="statPending">12</span>
+      </div>
+      <span class="stat-ic">🗓️</span>
+    </div>
+    <div class="stat-card">
+      <div class="stat-info">
+        <span class="stat-label">EM SEPARAÇÃO</span>
+        <span class="stat-value" id="statSeparating">05</span>
+      </div>
+      <span class="stat-ic">📋</span>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-info">
+        <span class="stat-label">ENVIADOS HOJE</span>
+        <span class="stat-value" id="statSentToday">08</span>
+      </div>
+      <span class="stat-ic">🚚</span>
+    </div>
+    <div class="stat-card critical">
+      <div class="stat-info">
+        <span class="stat-label">PEDIDOS CRÍTICOS</span>
+        <span class="stat-value" id="statCritical">03</span>
+      </div>
+      <span class="stat-ic">⚠️</span>
+    </div>
+  </div>
+
+  <!-- CRITICAL ORDERS -->
+  <h2 class="section-title"><span class="warn-ic">⚠️</span> Pedidos Críticos</h2>
+  <div class="critical-list" id="criticalList"></div>
+
+  <!-- RECENT ORDERS -->
+  <h2 class="section-title">Pedidos Recentes</h2>
+  <div class="recent-list" id="recentList"></div>
+
+  <div class="load-more-wrap">
+    <button id="loadMoreBtn" class="load-more">Carregar mais pedidos ⌄</button>
+  </div>
+</main>
+
+<!-- ORDER DETAILS MODAL -->
+<div class="overlay" id="detailsOverlay">
+  <div class="modal">
+    <button class="close" id="detailsClose">✕</button>
+    <h2 id="detailsTitle">Detalhes do Pedido</h2>
+    <div class="details-body" id="detailsBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="pedidos.js"></script>
+</body>
+</html>
