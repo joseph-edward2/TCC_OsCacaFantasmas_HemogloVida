@@ -1,0 +1,333 @@
+.layout{
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.layout__col{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/*--------Cartões--------*/
+
+.card{
+  background-color: var(--card);
+  border: 1px solid #e2e0de;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.card__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.card__title{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.card__link{
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.card__link:hover{ text-decoration: underline; }
+
+.card--atendimento{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+}
+
+.card--observacoes{ padding: 14px 20px; }
+.card--observacoes .card__header{ margin-bottom: 10px; }
+.card--observacoes .alerta{ padding: 10px 12px; }
+
+.card--agenda{
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+/*--------Selo de horário--------*/
+
+.badge-time{
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/*--------Paciente--------*/
+
+.paciente{
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.paciente__foto{
+  width: 64px;
+  height: 84px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.paciente__info{ flex: 1; }
+
+.paciente__nome{
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.paciente__dados{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.tag{
+  display: inline-block;
+  background-color: var(--brand-light);
+  color: var(--brand);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/*--------Stepper--------*/
+
+.stepper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 18px;
+}
+
+.step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.step__circle{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #c6c4c1;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #fff;
+}
+
+.step__circle--done{
+  background-color: var(--brand);
+  border-color: var(--brand);
+}
+
+.step__circle--current{ border-color: var(--brand); }
+
+.step__label{
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.step__label--current{
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.step__line{
+  width: 44px;
+  height: 2px;
+  background-color: #c6c4c1;
+  margin: 0 8px;
+}
+
+.step__line--done{ background-color: var(--brand); }
+
+/*--------Ações do cartão--------*/
+/* .btn / .btn-primary / .btn-outline já existem mais acima (compartilhados
+   com Estoque). Aqui só garantimos que os dois botões dividam a largura. */
+
+.card__actions{
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.card__actions .btn{
+  flex: 1;
+  justify-content: center;
+}
+
+/*--------Alerta de observações--------*/
+
+.alerta{
+  background-color: var(--brand-light);
+  border-left: 4px solid var(--brand);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/*--------Agendamentos--------*/
+
+.agenda{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 0 24px;
+  min-width: 0;
+}
+
+.agenda__item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--input-bg);
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+.agenda__iniciais{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  flex-shrink: 0;
+  border: 1px solid var(--brand);
+}
+
+.agenda__nome{
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.agenda__horario{
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.badge-status{
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-status--agendado{
+  background-color: #e7e5e3;
+  color: #5a5a5f;
+}
+
+.badge-status--em-andamento{
+  background-color: #fff3cc;
+  color: #9a6a00;
+}
+
+.badge-status--atrasado{
+  background-color: var(--brand);
+  color: #fff;
+}
+
+.badge-status--finalizado{
+  background-color: #e1f2e1;
+  color: #2e7d32;
+}
+
+/*--------Paginação da agenda--------*/
+
+.paginacao{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+.paginacao__botao{
+  min-width: 30px;
+  height: 30px;
+  border: 1px solid #d8d5d2;
+  background-color: var(--card);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.paginacao__botao:hover{ background-color: var(--input-bg); }
+
+.paginacao__botao--ativo{
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 700;
+}
+
+.paginacao__botao:disabled{
+  opacity: 0.4;
+  cursor: default;
+}
+
+.agenda__todos{
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+.agenda__todos:hover{ color: var(--brand); }
+
+/*--------Responsivo--------*/
+
+@media (max-width: 900px){
+  .layout{ grid-template-columns: 1fr; }
+}

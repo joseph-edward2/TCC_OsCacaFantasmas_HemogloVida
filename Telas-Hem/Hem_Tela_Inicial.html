@@ -12,7 +12,34 @@
 </head>
 <body>
 
-<div id="header-container"></div>
+<header>
+  <!--Título e logo-->
+  <div class="header-left">
+    <div class="logo">
+      <img src="../assets/img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
+      Hemoglovida
+    </div>
+
+    <!--Links da navbar-->
+    <nav>
+      <a href="Hem_Tela_Inicial.html" class="active">Visão Geral</a>
+      <a href="Hem_Atendimento.html">Atendimento</a>
+      <a href="Hem_Estoque.html">Estoque</a>
+      <a href="Hem_Agendamento.html">Agendamentos</a>
+      <a href="Hem_Pedidos.html">Pedidos</a>
+      <a href="Hem_Alertas.html">Alertas</a>
+    </nav>
+  </div>
+
+  <!--Ícone de usuário-->
+  <div class="user">
+    <i class="ph ph-gear" href="#"></i>
+    Bem-vindo, Dr. Walter White
+    <div class="avatar">
+      <img src="../assets/img/WalterWhite.png" alt="Foto de perfil">
+    </div>
+  </div>
+</header>
 
 <main class="dashboard">
 
@@ -23,7 +50,6 @@
       <p class="page-meta">Atualizado agora | 24 de Outubro, 10:30</p>
     </div>
     <div class="page-actions">
-      <button class="btn btn-outline"><i class="ph ph-funnel"></i> Filtrar</button>
       <button class="btn btn-primary"><i class="ph ph-download-simple"></i> Exportar</button>
     </div>
   </div>
@@ -280,6 +306,5 @@
 
 
 </main>
-  <div id="footer-container"></div>
 </body>
 </html>
