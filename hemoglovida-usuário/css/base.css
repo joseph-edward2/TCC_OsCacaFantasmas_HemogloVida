@@ -51,6 +51,19 @@ h1, h2, h3, h4 {
   line-height: 1.15;
 }
 
+.page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-black);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.page-sub_title {
+  color: var(--color-gray-text);
+  font-size: 1rem;
+  margin: 0 0 var(--space-lg) 0;
+}
+
 /* Container central usado em quase todas as seções */
 .container {
   width: 100%;

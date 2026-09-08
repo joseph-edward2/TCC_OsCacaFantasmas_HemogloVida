@@ -10,19 +10,6 @@
   padding: var(--space-xl) 0 var(--space-2xl);
 }
 
-.page-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-black);
-  margin: 0 0 var(--space-xs) 0;
-}
-
-.page-sub {
-  color: var(--color-gray-text);
-  font-size: 1rem;
-  margin: 0 0 var(--space-lg) 0;
-}
-
 /* ---------- CARD DO LOCAL SELECIONADO ---------- */
 .location-card {
   background: var(--color-white);

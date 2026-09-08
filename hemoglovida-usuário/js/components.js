@@ -49,17 +49,6 @@ function getNavbarHTML(variant = "public", activeLink = "") {
           ${buildNavLink("caderneta.html", "Caderneta", "caderneta", activeLink)}
         </div>
       `
-    : isStaff
-    ? `
-        <div class="navbar__links navbar__links--compact">
-          ${buildNavLink("#", "Visão Geral", "visao-geral", activeLink)}
-          ${buildNavLink("#", "Atendimento", "atendimento", activeLink)}
-          ${buildNavLink("#", "Estoque", "estoque", activeLink)}
-          ${buildNavLink("#", "Agendamentos", "agendamentos-staff", activeLink)}
-          ${buildNavLink("#", "Pedidos", "pedidos-staff", activeLink)}
-          ${buildNavLink("#", "Alertas", "alertas", activeLink)}
-        </div>
-      `
     : "";
 
   const rightContent =
@@ -70,14 +59,6 @@ function getNavbarHTML(variant = "public", activeLink = "") {
         <a href="conta.html" class="navbar__user" aria-label="Minha Conta">
           <span class="navbar__welcome">Bem vindo, Jesse</span>
           <img class="navbar__avatar" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200&auto=format&fit=crop" alt="Foto de perfil de Jesse" />
-        </a>
-      `
-      : isStaff
-      ? `
-        <a href="equipe-conta.html" class="navbar__user" aria-label="Minha Conta">
-          <span class="navbar__gear">⚙️</span>
-          <span class="navbar__welcome">Bem vindo, Dr. Walter White</span>
-          <img class="navbar__avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=80&q=60" alt="Foto de perfil de Walter White" />
         </a>
       `
       : "";

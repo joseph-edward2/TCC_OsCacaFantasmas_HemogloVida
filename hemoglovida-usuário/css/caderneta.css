@@ -11,15 +11,6 @@
   margin-bottom: var(--space-xl);
 }
 
-.caderneta-header__title {
-  font-size: 1.9rem;
-  margin-bottom: var(--space-xs);
-}
-
-.caderneta-header__subtitle {
-  color: var(--color-gray-text);
-  font-size: 1rem;
-}
 
 /* ---------- SEÇÃO DA CARTEIRINHA ---------- */
 .id-card-section {

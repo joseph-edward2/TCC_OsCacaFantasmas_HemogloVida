@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const action = button.dataset.action;
       alert(`${action}`);
+      window.location.href = "agendamentos.html";
     });
   });
 });
