@@ -62,9 +62,8 @@
   flex-wrap: wrap;
 }
 
-.hero__actions .btn svg {
-  width: 18px;
-  height: 18px;
+.hero__actions .btn i {
+  font-size: 18px;
 }
 
 /* ---------- ESTOQUE ---------- */
@@ -256,10 +255,9 @@
   flex-shrink: 0;
 }
 
-.center-item__icon svg {
-  width: 18px;
-  height: 18px;
-  fill: var(--color-white);
+.center-item__icon i {
+  font-size: 18px;
+  color: var(--color-white);
 }
 
 .center-item__name {
@@ -389,10 +387,9 @@
   justify-content: center;
 }
 
-.info-card__icon svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-primary);
+.info-card__icon i {
+  font-size: 20px;
+  color: var(--color-primary);
 }
 
 .info-card__title {
@@ -430,9 +427,9 @@
   transform: scale(1.08);
 }
 
-.info-carousel__arrow svg {
-  width: 16px;
-  height: 16px;
+.info-carousel__arrow i {
+  font-size: 16px;
+  color: var(--color-primary);
 }
 
 .info-carousel__dots {

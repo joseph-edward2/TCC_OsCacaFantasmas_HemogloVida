@@ -6,10 +6,6 @@
    vez de valores soltos, e container de 1280px.
 =================================================== */
 
-.agendamento-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 /* ---------- CARD DO LOCAL SELECIONADO ---------- */
 .location-card {
   background: var(--color-white);
@@ -78,12 +74,7 @@
   gap: var(--space-lg);
 }
 
-.panel {
-  background: var(--color-white);
-  border: 1.5px solid var(--color-card-bg);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-}
+/* .panel (cartão branco com borda) agora vem de css/components.css */
 
 /* ---------- CALENDÁRIO ---------- */
 .cal-head {
@@ -378,54 +369,13 @@
   opacity: 0.9;
 }
 
-/* ---------- MODAL DE RESULTADO ---------- */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(30, 20, 22, 0.35);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  backdrop-filter: blur(2px);
-}
-
-.overlay.show {
-  display: flex;
-}
-
+/* ---------- MODAL DE RESULTADO ----------
+   Estrutura base (.overlay, .modal, .modal .close, @keyframes pop) vem
+   de css/components.css. Aqui só o que é DIFERENTE nesta tela: texto
+   centralizado e mais espaço no topo por causa do ícone grande. */
 .modal {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  width: 420px;
-  max-width: 92vw;
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
   text-align: center;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  animation: pop 0.25s ease;
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.92);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.modal .close {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  border: none;
-  background: none;
-  font-size: 1.2rem;
-  color: var(--color-gray-text);
-  cursor: pointer;
 }
 
 .modal .modal-icon {

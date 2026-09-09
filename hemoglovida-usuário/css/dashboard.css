@@ -3,10 +3,6 @@
    Estilos exclusivos desta página.
 =================================================== */
 
-.dashboard-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 /* ---------- CABEÇALHO DE BOAS-VINDAS ---------- */
 .dash-header {
   display: flex;
@@ -46,10 +42,10 @@
   margin-bottom: var(--space-xl);
 }
 
-.dash-alert svg {
-  width: 22px;
-  height: 22px;
+.dash-alert i {
+  font-size: 22px;
   flex-shrink: 0;
+  color: var(--color-primary);
 }
 
 .dash-alert p {
@@ -105,13 +101,13 @@
   color: var(--color-white);
 }
 
-.stat-card--highlight svg {
+.stat-card--highlight i {
   position: absolute;
   right: -10px;
   bottom: -10px;
-  width: 64px;
-  height: 64px;
+  font-size: 64px;
   opacity: 0.25;
+  color: var(--color-white);
 }
 
 /* ---------- GRID PRINCIPAL (2 colunas) ---------- */
@@ -210,9 +206,8 @@
   color: var(--color-gray-text);
 }
 
-.campaign-card__meta svg {
-  width: 13px;
-  height: 13px;
+.campaign-card__meta i {
+  font-size: 13px;
 }
 
 .campaign-card__progress {
@@ -303,9 +298,9 @@
   flex-shrink: 0;
 }
 
-.visited-item__icon svg {
-  width: 20px;
-  height: 20px;
+.visited-item__icon i {
+  font-size: 20px;
+  color: var(--color-primary);
 }
 
 .visited-item__name {
@@ -326,9 +321,8 @@
   border-radius: var(--radius-sm);
 }
 
-.visited-item .btn-primary svg {
-  width: 14px;
-  height: 14px;
+.visited-item .btn-primary i {
+  font-size: 14px;
 }
 
 /* ---------- ALERTAS CRÍTICOS ---------- */
@@ -369,10 +363,10 @@
   margin-bottom: var(--space-xs);
 }
 
-.alert-item__title svg {
-  width: 16px;
-  height: 16px;
+.alert-item__title i {
+  font-size: 16px;
   flex-shrink: 0;
+  color: var(--color-primary);
 }
 
 .alert-item__text {
@@ -438,9 +432,8 @@
   margin-bottom: var(--space-md);
 }
 
-.schedule-card__date svg {
-  width: 15px;
-  height: 15px;
+.schedule-card__date i {
+  font-size: 15px;
 }
 
 .schedule-card__actions {

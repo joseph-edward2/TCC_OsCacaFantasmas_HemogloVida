@@ -23,9 +23,8 @@
   transition: color 0.2s ease;
 }
 
-.requirement-item svg {
-  width: 15px;
-  height: 15px;
+.requirement-item i {
+  font-size: 15px;
   flex-shrink: 0;
 }
 

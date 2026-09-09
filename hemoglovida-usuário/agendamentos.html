@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -18,19 +21,19 @@
   <!-- Navbar na variante "app", com "Agendamentos" marcado como link ativo -->
   <div id="navbar-placeholder" data-variant="app" data-active="agendamentos"></div>
 
-  <main class="agendamento-main">
+  <main class="page-main agendamento-main">
     <div class="container">
 
-      <h1 class="page-title">Agende sua Doação</h1>
-      <p class="page-sub_title">Selecione uma data disponível abaixo para salvar vidas.</p>
+      <h1 class="section-title">Agende sua Doação</h1>
+      <p class="section-subtitle">Selecione uma data disponível abaixo para salvar vidas.</p>
 
       <div class="location-card">
-        <div class="location-icon">📍</div>
+        <div class="location-icon"><i class="ph-fill ph-map-pin"></i></div>
         <div class="location-info">
           <h3>Hemocentro Regional SP</h3>
           <p>Av. Dr. Enéas Carvalho de Aguiar, 155 - Cerqueira César</p>
         </div>
-        <button class="trocar-btn">↺ Trocar</button>
+        <button class="trocar-btn"><i class="ph ph-arrow-counter-clockwise"></i> Trocar</button>
       </div>
 
       <div class="layout">
@@ -41,8 +44,8 @@
             <div class="cal-head">
               <h2 id="calTitle">Março 2026</h2>
               <div class="cal-nav">
-                <button id="prevMonth">‹</button>
-                <button id="nextMonth">›</button>
+                <button id="prevMonth"><i class="ph ph-caret-left"></i></button>
+                <button id="nextMonth"><i class="ph ph-caret-right"></i></button>
               </div>
             </div>
             <div class="cal-grid" id="calGrid"></div>
@@ -62,7 +65,7 @@
 
         <div class="right-col">
           <div class="panel summary-card">
-            <h3><span class="ic">🗒️</span> Resumo</h3>
+            <h3><span class="ic"><i class="ph ph-clipboard-text"></i></span> Resumo</h3>
             <div class="summary-row">
               <div class="label">Hemocentro</div>
               <div class="value">Hemocentro Regional SP</div>
@@ -76,7 +79,7 @@
               <div class="value" id="summaryTime">09:30</div>
             </div>
             <div class="notice">
-              <span class="ic">ⓘ</span>
+              <span class="ic"><i class="ph ph-info"></i></span>
               <span>Lembre-se de estar bem alimentado e levar um documento oficial com foto.</span>
             </div>
             <button class="confirm-btn" id="confirmBtn">Confirmar Agendamento</button>
@@ -99,8 +102,8 @@
   <!-- MODAL DE RESULTADO (conteúdo trocado dinamicamente via JS) -->
   <div class="overlay" id="overlay">
     <div class="modal">
-      <button class="close" id="modalClose">✕</button>
-      <div class="modal-icon" id="modalIcon">🗓️</div>
+      <button class="close" id="modalClose"><i class="ph ph-x"></i></button>
+      <div class="modal-icon" id="modalIcon"><i class="ph ph-calendar-x"></i></div>
       <h2 id="modalTitle">Aguarde um pouco mais</h2>
       <p id="modalText">Notamos que sua última doação foi recente. Para sua segurança, o intervalo mínimo entre doações é de 60 dias para homens e 90 dias para mulheres.</p>
       <button class="modal-btn" id="modalOk">Entendido</button>

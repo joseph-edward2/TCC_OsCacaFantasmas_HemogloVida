@@ -36,9 +36,8 @@
  */
 function getNavbarHTML(variant = "public", activeLink = "") {
   const isApp = variant === "app";
-  const isStaff = variant === "staff";
 
-  const brandHref = isApp ? "dashboard.html" : isStaff ? "#" : "index.html";
+  const brandHref = isApp ? "dashboard.html": "index.html";
 
   const navLinks = isApp
     ? `
@@ -68,11 +67,9 @@ function getNavbarHTML(variant = "public", activeLink = "") {
       <div class="navbar__container">
         <div class="navbar__left">
           <a href="${brandHref}" class="navbar__brand">
-            <span class="navbar__logo">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z" fill="#a10023"/>
-              </svg>
-            </span>
+             <div class="logo">
+            <img src="https://i.ibb.co/SwCGm0fj/Hemoglovida-Logo.png" alt="Logo Hemoglovida" class="logo-icon"">
+            </div>
             <span class="navbar__title">Hemoglovida</span>
           </a>
           ${navLinks}
@@ -122,13 +119,13 @@ function getFooterHTML() {
           <p class="footer__heading">Social</p>
           <div class="footer__social">
             <a href="#" class="footer__social-btn" aria-label="Facebook">
-              <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+              <i class="ph-fill ph-facebook-logo"></i>
             </a>
             <a href="#" class="footer__social-btn" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47.66.26 1.21.6 1.76 1.15.55.55.9 1.1 1.15 1.76.25.64.42 1.37.47 2.43C21.99 8.95 22 9.3 22 12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.76 4.9 4.9 0 0 1-1.76 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.76-1.15 4.9 4.9 0 0 1-1.15-1.76c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43.26-.66.6-1.21 1.15-1.76a4.9 4.9 0 0 1 1.76-1.15c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Zm5.2-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+              <i class="ph-fill ph-instagram-logo"></i>
             </a>
             <a href="#" class="footer__social-btn" aria-label="Twitter/X">
-              <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.8L4.5 22H1.4l8.1-9.3L1 2h7l4.9 6.2L18.9 2Zm-1.2 18h1.9L7.4 4H5.3l12.4 16Z"/></svg>
+              <i class="ph-fill ph-x-logo"></i>
             </a>
           </div>
         </div>

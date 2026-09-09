@@ -91,5 +91,5 @@ deleteOverlay.addEventListener('click', (e)=>{ if(e.target === deleteOverlay) de
 
 document.getElementById('confirmDelete').addEventListener('click', ()=>{
   deleteOverlay.classList.remove('show');
-  showToast('Conta encerrada. Sentiremos sua falta. 💔');
+  showToast('Conta encerrada. Sentiremos sua falta.');
 });

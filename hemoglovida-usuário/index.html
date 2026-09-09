@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -38,7 +41,7 @@
           </p>
           <div class="hero__actions">
             <a href="cadastro.html" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21C7 21 3 17.5 3 13c0-4 4.5-8.5 9-13 4.5 4.5 9 9 9 13 0 4.5-4 8-9 8Z" fill="#fff"/></svg>
+              <i class="ph-fill ph-heart"></i>
               Quero Doar
             </a>
             <a href="#" class="btn btn-outline">Saiba Mais</a>
@@ -127,7 +130,7 @@
             <div class="center-item">
               <div class="center-item__left">
                 <span class="center-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                  <i class="ph-fill ph-map-pin"></i>
                 </span>
                 <div>
                   <p class="center-item__name">Hemocentro Central - São Paulo</p>
@@ -144,7 +147,7 @@
             <div class="center-item center-item--active">
               <div class="center-item__left">
                 <span class="center-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                  <i class="ph-fill ph-map-pin"></i>
                 </span>
                 <div>
                   <p class="center-item__name">Banco de Sangue Paulista</p>
@@ -161,7 +164,7 @@
             <div class="center-item">
               <div class="center-item__left">
                 <span class="center-item__icon">
-                  <svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+                  <i class="ph-fill ph-map-pin"></i>
                 </span>
                 <div>
                   <p class="center-item__name">Posto de Coleta - Clínicas</p>
@@ -178,6 +181,7 @@
 
           <div class="centers__map">
             <div id="map"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -193,7 +197,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"/></svg>
+                <i class="ph-fill ph-drop"></i>
               </span>
               <h3 class="info-card__title">Uma doação, várias vidas</h3>
               <p class="info-card__text">
@@ -205,7 +209,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3Z"/></svg>
+                <i class="ph-fill ph-identification-card"></i>
               </span>
               <h3 class="info-card__title">Quem pode doar</h3>
               <p class="info-card__text">
@@ -218,7 +222,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z" fill="none" stroke-width="2"/></svg>
+                <i class="ph-fill ph-clock"></i>
               </span>
               <h3 class="info-card__title">É rápido e seguro</h3>
               <p class="info-card__text">
@@ -230,7 +234,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 5h-2v6l5.2 3.1 1-1.7-4.2-2.5V7Z"/></svg>
+                <i class="ph-fill ph-clock-counter-clockwise"></i>
               </span>
               <h3 class="info-card__title">Com que frequência posso doar</h3>
               <p class="info-card__text">
@@ -242,7 +246,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+                <i class="ph-fill ph-heartbeat"></i>
               </span>
               <h3 class="info-card__title">Depois de doar</h3>
               <p class="info-card__text">
@@ -254,7 +258,7 @@
 
             <div class="info-card">
               <span class="info-card__icon">
-                <svg viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5.2 3.8 9.9 9 11 5.2-1.1 9-5.8 9-11V6l-9-4Zm-1 14-4-4 1.4-1.4L11 13.2l4.6-4.6L17 10l-6 6Z"/></svg>
+                <i class="ph-fill ph-seal-check"></i>
               </span>
               <h3 class="info-card__title">Novas regras ampliam quem pode doar</h3>
               <p class="info-card__text">
@@ -270,11 +274,11 @@
 
         <div class="info-carousel__controls">
           <button class="info-carousel__arrow" data-carousel-btn="prev" aria-label="Card anterior">
-            <svg viewBox="0 0 24 24"><path d="M15 18 9 12l6-6" fill="none" stroke="#a10023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <i class="ph ph-caret-left"></i>
           </button>
           <div class="info-carousel__dots"></div>
           <button class="info-carousel__arrow" data-carousel-btn="next" aria-label="Próximo card">
-            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" fill="none" stroke="#a10023" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <i class="ph ph-caret-right"></i>
           </button>
         </div>
       </div>

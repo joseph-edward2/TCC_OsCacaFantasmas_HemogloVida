@@ -3,14 +3,9 @@
    Estilos exclusivos desta página.
 =================================================== */
 
-.caderneta-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 .caderneta-header {
   margin-bottom: var(--space-xl);
 }
-
 
 /* ---------- SEÇÃO DA CARTEIRINHA ---------- */
 .id-card-section {
@@ -86,9 +81,9 @@
   flex-shrink: 0;
 }
 
-.id-card__logo svg {
-  width: 18px;
-  height: 18px;
+.id-card__logo i {
+  font-size: 18px;
+  color: var(--color-primary);
 }
 
 .id-card__brand-name {
@@ -117,9 +112,9 @@
   gap: var(--space-xs);
 }
 
-.id-card__blood-row svg {
-  width: 14px;
-  height: 14px;
+.id-card__blood-row i {
+  font-size: 14px;
+  color: var(--color-white);
 }
 
 .id-card__blood-type {
@@ -262,9 +257,8 @@
   box-shadow: var(--shadow-md);
 }
 
-.id-card-actions svg {
-  width: 18px;
-  height: 18px;
+.id-card-actions i {
+  font-size: 18px;
 }
 
 /* ---------- RESPONSIVO ---------- */

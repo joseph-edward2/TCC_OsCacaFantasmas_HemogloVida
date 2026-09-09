@@ -14,11 +14,20 @@
   position: sticky;
   top: 0;
   z-index: 100;
+  max-width: 100%;
+}
+
+/*Força o tamanho da imagem da logo*/
+.logo img, .logo-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .navbar__container {
   width: 100%;
-  max-width: var(--container-width);
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
   display: flex;
@@ -81,6 +90,7 @@
 .navbar__gear {
   font-size: 1.1rem;
   line-height: 1;
+  color: var(--color-white);
 }
 
 .navbar__welcome {
@@ -98,6 +108,96 @@
   object-fit: cover;
 }
 
+/* ===================================================
+   MODAL / OVERLAY (compartilhado)
+   Padrão usado pelas telas Agendamentos e Minha Conta.
+   Cada página ainda pode sobrescrever detalhes pontuais
+   (padding, alinhamento do texto) no próprio CSS, mas o
+   comportamento base fica só aqui, sem repetição.
+=================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 22, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(2px);
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  width: 420px;
+  max-width: 92vw;
+  padding: var(--space-lg);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal .close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  color: var(--color-gray-text);
+  cursor: pointer;
+}
+
+/* Notificação flutuante temporária (toast), usada em Encontrar Hemocentro
+   e Minha Conta pra confirmar ações rápidas ("E-mail alterado", etc). */
+.toast {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Cartão branco com borda, usado como base de vários blocos nas páginas
+   internas (calendário e resumo em Agendamentos, seções em Minha Conta).
+   Cada página pode ajustar detalhes extras (como margem) no próprio CSS. */
+.panel {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
 .navbar__logo {
   width: 34px;
   height: 34px;
@@ -109,9 +209,9 @@
   flex-shrink: 0;
 }
 
-.navbar__logo svg {
-  width: 18px;
-  height: 18px;
+.navbar__logo i {
+  font-size: 18px;
+  color: var(--color-primary);
 }
 
 .navbar__title {
@@ -191,10 +291,9 @@
   opacity: 0.9;
 }
 
-.footer__social-btn svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--color-white);
+.footer__social-btn i {
+  font-size: 16px;
+  color: var(--color-white);
 }
 
 @media (max-width: 800px) {

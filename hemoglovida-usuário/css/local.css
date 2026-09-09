@@ -5,10 +5,6 @@
    projeto e container de 1280px.
 =================================================== */
 
-.local-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 /* ---------- BARRA DE BUSCA ---------- */
 .search-bar {
   background: var(--color-white);
@@ -52,8 +48,9 @@
 #bloodFilter {
   appearance: none;
   background: var(--color-white)
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path d="M1 1l5 5 5-5" stroke="%236B6B70" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+    url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"%3E%3Crect width="256" height="256" fill="none"/%3E%3Cpolyline points="208 96 128 176 48 96" fill="none" stroke="%236B6B70" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/%3E%3C/svg%3E')
     no-repeat right 14px center;
+  background-size: 12px 8px;
   border: 1.5px solid var(--color-card-bg);
   border-radius: var(--radius-sm);
   padding: 0.7rem 2.2rem 0.7rem 1rem;
@@ -78,7 +75,7 @@
   gap: var(--space-md);
 }
 
-.hc-card {
+.hc-card{
   background: var(--color-white);
   border: 2px solid var(--color-card-bg);
   border-radius: var(--radius-md);
@@ -86,7 +83,7 @@
   transition: 0.15s;
 }
 
-.hc-card.selected {
+.hc-card:hover{
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px var(--color-drop-light);
 }
@@ -196,27 +193,29 @@
   background: #eef1ea;
 }
 
-.map-svg {
+#map {
   width: 100%;
   height: 100%;
-  display: block;
 }
 
-.map-pins {
-  position: absolute;
-  inset: 0;
+/* Remove o fundo branco/borda padrão que o Leaflet aplica em ícones
+   customizados (divIcon) — quem estiliza o marcador é o .pin abaixo. */
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
 }
 
+/* O Leaflet cuida de posicionar e ancorar o marcador no mapa — aqui só
+   estilizamos o conteúdo visual dele (mesmo "pin" customizado de antes,
+   sem nenhuma mudança na aparência). */
 .pin {
-  position: absolute;
-  transform: translate(-50%, -100%);
+  position: relative;
   width: 36px;
   height: 36px;
   border-radius: 50% 50% 50% 0;
   background: var(--color-primary);
   border: 3px solid var(--color-white);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  transform-origin: center bottom;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,29 +264,7 @@
   opacity: 1;
 }
 
-/* ---------- TOAST ---------- */
-.toast {
-  position: fixed;
-  bottom: var(--space-lg);
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.25s;
-  z-index: 300;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
+/* .toast e .toast.show agora vêm de css/components.css (compartilhado) */
 
 /* ---------- RESPONSIVO ---------- */
 @media (max-width: 1080px) {

@@ -6,10 +6,6 @@
    de leitura confortável, como no design original).
 =================================================== */
 
-.conta-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 .conta-container {
   max-width: 720px;
   margin: 0 auto;
@@ -57,7 +53,7 @@
 
 .profile-head h1 {
   margin: 0 0 2px 0;
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   font-weight: 800;
   color: var(--color-black);
 }
@@ -80,11 +76,9 @@
 }
 
 /* ---------- PAINÉIS ---------- */
+/* Igual ao .panel de css/components.css, só acrescenta a margem entre
+   uma seção e outra (aqui elas empilham verticalmente, sem flex-gap). */
 .panel {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--color-card-bg);
-  padding: var(--space-lg);
   margin-bottom: var(--space-lg);
 }
 
@@ -340,56 +334,9 @@
   background: var(--color-drop-light);
 }
 
-/* ---------- MODAIS ---------- */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(30, 20, 22, 0.4);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 200;
-  backdrop-filter: blur(2px);
-}
-
-.overlay.show {
-  display: flex;
-}
-
-.modal {
-  background: var(--color-white);
-  border-radius: var(--radius-md);
-  width: 420px;
-  max-width: 92vw;
-  padding: var(--space-lg);
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
-  animation: pop 0.2s ease;
-  text-align: left;
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.94);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.modal .close {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  border: none;
-  background: none;
-  font-size: 1.2rem;
-  color: var(--color-gray-text);
-  cursor: pointer;
-}
-
+/* ---------- MODAIS ----------
+   Estrutura base (.overlay, .modal, .modal .close, @keyframes pop) vem
+   de css/components.css — aqui só o que é específico desta tela. */
 .modal h2 {
   margin: 0 0 var(--space-lg) 0;
   font-size: 1.3rem;
@@ -409,6 +356,7 @@
   height: 52px;
   border-radius: 50%;
   background: var(--color-drop-light);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -463,29 +411,7 @@
   filter: brightness(0.92);
 }
 
-/* ---------- TOAST ---------- */
-.toast {
-  position: fixed;
-  bottom: var(--space-lg);
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 600;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.25s;
-  z-index: 300;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
+/* .toast e .toast.show agora vêm de css/components.css (compartilhado) */
 
 /* ---------- RESPONSIVO ---------- */
 @media (max-width: 680px) {

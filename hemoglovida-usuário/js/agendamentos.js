@@ -127,13 +127,13 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
 
   const MODAL_CONTENT = {
     success: {
-      icon: '✅',
+      icon: '<i class="ph-fill ph-check-circle"></i>',
       iconClass: 'success',
       title: 'Agendamento feito',
       text: 'Agendamento realizado, se cuide até a data da doação!'
     },
     error: {
-      icon: '🗓️',
+      icon: '<i class="ph ph-calendar-x"></i>',
       iconClass: '',
       title: 'Aguarde um pouco mais',
       text: 'Notamos que sua última doação foi recente. Para sua segurança, o intervalo mínimo entre doações é de 60 dias para homens e 90 dias para mulheres.'
@@ -142,7 +142,7 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
 
   function showModal(type){
     const content = MODAL_CONTENT[type];
-    modalIcon.textContent = content.icon;
+    modalIcon.innerHTML = content.icon;
     modalIcon.className = 'modal-icon' + (content.iconClass ? ' ' + content.iconClass : '');
     modalTitle.textContent = content.title;
     modalText.textContent = content.text;

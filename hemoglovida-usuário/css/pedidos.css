@@ -3,10 +3,6 @@
    Estilos exclusivos desta página.
 =================================================== */
 
-.pedidos-main {
-  padding: var(--space-xl) 0 var(--space-2xl);
-}
-
 /* ---------- CABEÇALHO ---------- */
 .pedidos-header {
   display: flex;
@@ -40,11 +36,11 @@
   padding: 0.7rem 1.2rem;
 }
 
-.location-select svg {
-  width: 18px;
-  height: 18px;
+.location-select i {
+  font-size: 18px;
   flex-shrink: 0;
   opacity: 0.6;
+  color: var(--color-gray-text);
 }
 
 .location-select span {
@@ -52,9 +48,8 @@
   font-size: 0.95rem;
 }
 
-.location-select .chevron {
-  width: 12px;
-  height: 12px;
+.location-select i.chevron {
+  font-size: 12px;
   opacity: 0.5;
 }
 
@@ -83,9 +78,9 @@
   flex-shrink: 0;
 }
 
-.pedidos-stats .stat-card__icon svg {
-  width: 24px;
-  height: 24px;
+.pedidos-stats .stat-card__icon i {
+  font-size: 24px;
+  color: var(--color-primary);
 }
 
 .pedidos-stats .stat-card__label {
@@ -149,9 +144,9 @@
   background-color: var(--color-card-bg);
 }
 
-.pedido-card__icon--neutral svg {
-  width: 26px;
-  height: 26px;
+.pedido-card__icon--neutral i {
+  font-size: 26px;
+  color: var(--color-gray-text);
 }
 
 .pedido-card__info {
@@ -245,9 +240,8 @@
   padding: 0.75rem;
 }
 
-.pedido-card__actions .btn-primary svg {
-  width: 16px;
-  height: 16px;
+.pedido-card__actions .btn-primary i {
+  font-size: 16px;
 }
 
 .pedido-card__share {
@@ -261,9 +255,9 @@
   justify-content: center;
 }
 
-.pedido-card__share svg {
-  width: 18px;
-  height: 18px;
+.pedido-card__share i {
+  font-size: 18px;
+  color: var(--color-black);
 }
 
 /* ---------- CARREGAR MAIS ---------- */
@@ -285,9 +279,8 @@
   font-size: 0.95rem;
 }
 
-.pedidos-load-more svg {
-  width: 18px;
-  height: 18px;
+.pedidos-load-more i {
+  font-size: 18px;
 }
 
 /* ---------- RESPONSIVO ---------- */

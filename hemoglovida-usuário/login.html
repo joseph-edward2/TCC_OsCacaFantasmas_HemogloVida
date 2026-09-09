@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -43,7 +46,7 @@
             <div class="form-input-wrapper">
               <input class="form-input form-input--icon-right" type="text" id="cpf-telefone" name="cpf-telefone" placeholder="000.000.000-00" inputmode="numeric" required />
               <span class="form-decorative-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+                <i class="ph ph-user"></i>
               </span>
             </div>
           </div>
@@ -52,12 +55,12 @@
           <div class="form-group">
             <div class="form-label__row">
               <label class="form-label" for="senha">Senha</label>
-              <a href="#" class="form-link">Esqueci minha senha</a>
+              <a href="recuperar-senha.html" class="form-link">Esqueci minha senha</a>
             </div>
             <div class="form-input-wrapper">
               <input class="form-input form-input--icon-right" type="password" id="senha" name="senha" placeholder="••••••••" required />
               <button type="button" class="form-toggle-visibility" data-target="senha" aria-label="Mostrar ou ocultar senha">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <i class="ph ph-eye"></i>
               </button>
             </div>
           </div>
@@ -66,7 +69,7 @@
 
           <button type="submit" class="btn btn-primary" >
             Entrar
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <i class="ph ph-arrow-right"></i>
           </button>
         </form>
 
@@ -74,6 +77,7 @@
           Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a>
         </p>
       </div>
+    </div>
 
   </main>
 

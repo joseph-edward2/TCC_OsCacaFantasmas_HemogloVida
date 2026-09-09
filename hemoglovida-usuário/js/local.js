@@ -6,7 +6,7 @@ const hemocentros = [
     status: 'Aberto',
     closes: 'Fecha às 19:30',
     blood: ['O-','O+','A+','A-','B+','B-','AB+','AB-'],
-    x: 40, y: 33
+    lat: -23.5578, lng: -46.6789
   },
   {
     id: 'banco',
@@ -15,7 +15,7 @@ const hemocentros = [
     status: 'Aberto',
     closes: 'Fecha às 19:30',
     blood: ['O-','A+','B+','AB-'],
-    x: 66, y: 76
+    lat: -23.6013, lng: -46.6410
   },
   {
     id: 'clinicas',
@@ -24,7 +24,7 @@ const hemocentros = [
     status: 'Aberto',
     closes: 'Fecha às 19:30',
     blood: ['O+','A-','B-','AB+'],
-    x: 21, y: 58
+    lat: -23.5567, lng: -46.6708
   },
   {
     id: 'guarulhos',
@@ -33,11 +33,20 @@ const hemocentros = [
     status: 'Aberto',
     closes: 'Fecha às 19:30',
     blood: ['O-','O+','A+','B+'],
-    x: 79, y: 44
+    lat: -23.4538, lng: -46.5333
   }
 ];
 
 let selectedId = 'banco'; // pré-selecionado como no mock
+
+// Mapa real (Leaflet + OpenStreetMap), o mesmo usado na Home.
+const map = L.map("map", { scrollWheelZoom: false }).setView([-23.57, -46.62], 11);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
+
+let markers = {}; // guarda os marcadores atuais, por id do hemocentro
 
 function matchesFilters(hc, query, blood){
   const q = query.trim().toLowerCase();
@@ -63,7 +72,7 @@ function renderList(){
       card.dataset.id = hc.id;
       card.innerHTML = `
         <div class="hc-head">
-          <div class="hc-pin">📍</div>
+          <div class="hc-pin"><i class="ph-fill ph-map-pin"></i></div>
           <div class="hc-info">
             <h3>${hc.name}</h3>
             <p>${hc.address}</p>
@@ -83,21 +92,33 @@ function renderList(){
 }
 
 function renderPins(visibleIds){
-  const pinsWrap = document.getElementById('mapPins');
-  pinsWrap.innerHTML = '';
+  // remove os marcadores da rodada anterior antes de desenhar os novos
+  Object.values(markers).forEach(marker => map.removeLayer(marker));
+  markers = {};
+
   hemocentros.forEach(hc=>{
     if(!visibleIds.includes(hc.id)) return;
-    const pin = document.createElement('div');
-    pin.className = 'pin' + (hc.id === selectedId ? ' selected' : '');
-    pin.style.left = hc.x + '%';
-    pin.style.top = hc.y + '%';
-    pin.dataset.id = hc.id;
-    pin.innerHTML = `<span class="pin-inner">🩸</span><span class="pin-label">${hc.name}</span>`;
-    pin.addEventListener('click', ()=>{
+
+    const isSelected = hc.id === selectedId;
+    const icon = L.divIcon({
+      className: "leaflet-div-icon",
+      html: `
+        <div class="pin${isSelected ? ' selected' : ''}">
+          <span class="pin-inner"><i class="ph-fill ph-drop"></i></span>
+          <span class="pin-label">${hc.name}</span>
+        </div>
+      `,
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+    });
+
+    const marker = L.marker([hc.lat, hc.lng], { icon }).addTo(map);
+    marker.on("click", () => {
       selectedId = hc.id;
       renderList();
     });
-    pinsWrap.appendChild(pin);
+
+    markers[hc.id] = marker;
   });
 }
 

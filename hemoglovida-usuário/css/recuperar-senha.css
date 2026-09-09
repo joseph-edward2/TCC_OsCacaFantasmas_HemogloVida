@@ -19,8 +19,8 @@
   transform: none;
 }
 
-.btn:disabled svg {
-  stroke: var(--color-gray-text);
+.btn:disabled i {
+  color: var(--color-gray-text);
 }
 
 /* Bloco do timer + botão de reenvio */

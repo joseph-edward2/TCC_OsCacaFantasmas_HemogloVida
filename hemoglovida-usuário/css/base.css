@@ -51,25 +51,20 @@ h1, h2, h3, h4 {
   line-height: 1.15;
 }
 
-.page-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--color-black);
-  margin: 0 0 var(--space-xs) 0;
-}
-
-.page-sub_title {
-  color: var(--color-gray-text);
-  font-size: 1rem;
-  margin: 0 0 var(--space-lg) 0;
-}
-
 /* Container central usado em quase todas as seções */
 .container {
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--space-lg);
+}
+
+/* Espaçamento vertical padrão do <main> nas páginas internas (Dashboard,
+   Pedidos, Agendamentos, Caderneta, Conta, Encontrar Hemocentro). Cada
+   página ainda tem sua própria classe (ex: .dashboard-main) só para
+   estilos exclusivos dela — o espaçamento comum mora aqui, num lugar só. */
+.page-main {
+  padding: var(--space-xl) 0 var(--space-2xl);
 }
 
 /* Botões (padrão usado no site inteiro) */
@@ -94,6 +89,13 @@ h1, h2, h3, h4 {
 .btn:focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* Ícones (Phosphor) dentro de qualquer botão do projeto: tamanho padrão de
+   16px, cor sempre herdada do texto do botão (branco no primary, preto
+   no light etc.) — nunca definida à parte. */
+.btn i {
+  font-size: 16px;
 }
 
 .btn-primary {
@@ -129,6 +131,12 @@ h1, h2, h3, h4 {
   color: var(--color-black);
   border-left: 5px solid var(--color-primary);
   padding-left: var(--space-md);
+}
+
+.section-subtitle {
+  color: var(--color-gray-text);
+  font-size: 1rem;
+  max-width: 640px;
 }
 
 /* Utilitário simples pra animação de entrada ao rolar a página.

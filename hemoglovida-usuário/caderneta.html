@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -18,13 +21,13 @@
   <!-- Navbar na variante "app", com "Carteirinha" marcado como link ativo -->
   <div id="navbar-placeholder" data-variant="app" data-active="caderneta"></div>
 
-  <main class="caderneta-main">
+  <main class="page-main caderneta-main">
     <div class="container">
 
       <!-- ===================== CABEÇALHO ===================== -->
       <div class="caderneta-header">
-        <h1 class="page-title">Caderneta de Doação</h1>
-        <p class="page-sub_title">
+        <h1 class="section-title">Caderneta de Doação</h1>
+        <p class="-section-subtitle">
           Sua carteirinha oficial do Hemoglovida. Use este QR Code nos hemocentros parceiros.
         </p>
       </div>
@@ -39,9 +42,7 @@
           <div class="id-card__top">
             <div class="id-card__brand">
               <span class="id-card__logo">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z" fill="#a10023"/>
-                </svg>
+                <i class="ph-fill ph-drop"></i>
               </span>
               <div>
                 <p class="id-card__brand-name">Hemoglovida</p>
@@ -51,7 +52,7 @@
 
             <div class="id-card__blood">
               <div class="id-card__blood-row">
-                <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2C12 2 5 10.5 5 15.5C5 19.09 8.13 22 12 22C15.87 22 19 19.09 19 15.5C19 10.5 12 2 12 2Z"/></svg>
+                <i class="ph-fill ph-drop"></i>
                 <span class="id-card__blood-type">O-</span>
               </div>
               <p class="id-card__blood-label">Tipo sanguíneo</p>
@@ -103,11 +104,11 @@
         <!-- Botões de ação -->
         <div class="id-card-actions">
           <button type="button" class="btn btn-primary" data-action="Baixar carteirinha em PDF">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            <i class="ph ph-download-simple"></i>
             Baixar em PDF
           </button>
           <button type="button" class="btn btn-light" data-action="Compartilhar carteirinha">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5 15.4 17.5M15.4 6.5 8.6 10.5"/></svg>
+            <i class="ph ph-share-network"></i>
             Compartilhar
           </button>
         </div>

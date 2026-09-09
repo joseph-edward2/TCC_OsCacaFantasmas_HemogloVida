@@ -23,9 +23,8 @@
   margin-bottom: var(--space-md);
 }
 
-.auth__back-link svg {
-  width: 14px;
-  height: 14px;
+.auth__back-link i {
+  font-size: 14px;
 }
 
 .auth__back-link:hover {

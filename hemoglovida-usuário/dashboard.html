@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/components.css" />
@@ -18,7 +21,7 @@
   <!-- Navbar na variante "app": logo + links de navegação + usuário -->
   <div id="navbar-placeholder" data-variant="app" data-active="inicio"></div>
 
-  <main class="dashboard-main">
+  <main class="page-main dashboard-main">
     <div class="container">
 
       <!-- ===================== CABEÇALHO DE BOAS-VINDAS ===================== -->
@@ -33,7 +36,7 @@
 
       <!-- ===================== ALERTA "PODE DOAR NOVAMENTE" ===================== -->
       <div class="dash-alert">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+        <i class="ph ph-warning"></i>
         <p>Você já pode doar novamente. Fazem <strong>92 dias</strong> desde sua última doação.</p>
       </div>
 
@@ -54,7 +57,7 @@
         <div class="stat-card stat-card--highlight">
           <p class="stat-card__label">Próxima Doação</p>
           <p class="stat-card__value">28/10</p>
-          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0Z"/></svg>
+          <i class="ph-fill ph-heart"></i>
         </div>
       </div>
 
@@ -81,15 +84,15 @@
                   <h3 class="campaign-card__title">Campanha Sangue Amigo</h3>
                   <div class="campaign-card__meta">
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Z"/></svg>
+                      <i class="ph ph-map-pin"></i>
                       Hemocentro Central
                     </span>
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3Z"/></svg>
+                      <i class="ph ph-navigation-arrow"></i>
                       2.5km
                     </span>
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                      <i class="ph ph-calendar-blank"></i>
                       25/10
                     </span>
                   </div>
@@ -115,15 +118,15 @@
                   <h3 class="campaign-card__title">Unidos pela Vida</h3>
                   <div class="campaign-card__meta">
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7Z"/></svg>
+                      <i class="ph ph-map-pin"></i>
                       Hosp. das Clínicas
                     </span>
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><path d="M12 2 4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5l-8-3Z"/></svg>
+                      <i class="ph ph-navigation-arrow"></i>
                       4.8km
                     </span>
                     <span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                      <i class="ph ph-calendar-blank"></i>
                       30/10
                     </span>
                   </div>
@@ -152,7 +155,7 @@
               <div class="visited-item">
                 <div class="visited-item__left">
                   <span class="visited-item__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+                    <i class="ph ph-hospital"></i>
                   </span>
                   <div>
                     <p class="visited-item__name">Santa Casa</p>
@@ -160,7 +163,7 @@
                   </div>
                 </div>
                 <button type="button" class="btn btn-primary" data-action="Agendar novamente na Santa Casa">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                  <i class="ph ph-calendar-blank"></i>
                   Agendar novamente
                 </button>
               </div>
@@ -168,7 +171,7 @@
               <div class="visited-item">
                 <div class="visited-item__left">
                   <span class="visited-item__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+                    <i class="ph ph-hospital"></i>
                   </span>
                   <div>
                     <p class="visited-item__name">Hemocentro Leste</p>
@@ -176,7 +179,7 @@
                   </div>
                 </div>
                 <button type="button" class="btn btn-primary" data-action="Agendar novamente no Hemocentro Leste">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                  <i class="ph ph-calendar-blank"></i>
                   Agendar novamente
                 </button>
               </div>
@@ -192,24 +195,24 @@
 
               <div class="alert-item">
                 <p class="alert-item__title">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                  <i class="ph ph-warning"></i>
                   Estoque crítico de O-
                 </p>
                 <p class="alert-item__text">
                   Hemocentro São Paulo necessita urgentemente de doadores deste tipo sanguíneo.
                 </p>
-                <a href="#" class="alert-item__link">Ver detalhes</a>
+                <a href="agendamentos.html" class="alert-item__link">Realizar agendamento</a>
               </div>
 
               <div class="alert-item">
                 <p class="alert-item__title">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="#a10023" stroke-width="2"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+                  <i class="ph ph-warning"></i>
                   Estoque baixo de AB+
                 </p>
                 <p class="alert-item__text">
                   Hosp. das Clínicas operando com 20% da meta para o mês.
                 </p>
-                <a href="#" class="alert-item__link">Ver detalhes</a>
+                <a href="agendamentos.html" class="alert-item__link">Realizar agendamento</a>
               </div>
             </div>
           </section>
@@ -228,7 +231,7 @@
               <p class="schedule-card__title">Hemocentro Leste</p>
 
               <div class="schedule-card__date">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+                <i class="ph ph-calendar-blank"></i>
                 28/10 às 09:00
               </div>
 
