@@ -17,7 +17,7 @@
   }
   
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;height:100%;}
+  html,body{margin:0;padding:0;height:100%;scrollbar-gutter: stable;}
   body{
     font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
@@ -105,9 +105,9 @@
 /*--------Layout--------*/
 
 .dashboard{
-  max-width: 1320px;
   margin: 0 auto;
   padding: 32px 40px 60px;
+  width: 1320px;
 }
 
 .page-header{
