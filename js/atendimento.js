@@ -9,7 +9,7 @@ const btnDoacaoRealizada = document.getElementById('btnDoacaoRealizada');
 // TODO: substituir por uma chamada fetch() à API real
 const agendamentos = [
   { nome: 'Maria Silva', horario: '08:00', status: 'Finalizado' },
-  { nome: 'João Pedro Lima', horario: '09:30', status: 'Em Andamento' },
+  { nome: 'Jesse Pinkman', horario: '09:30', status: 'Em Andamento' },
   { nome: 'Ana Souza', horario: '10:15', status: 'Agendado' },
   { nome: 'Carlos Pereira', horario: '11:00', status: 'Agendado' },
   { nome: 'Fernanda Costa', horario: '13:30', status: 'Atrasado' },

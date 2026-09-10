@@ -65,30 +65,8 @@ form.addEventListener('submit', async function (e) {
   btn.disabled = true;
   btn.textContent = 'Entrando…';
 
-  try {
-    // TODO: trocar a URL pela API real
-    const response = await fetch('https://api-exemplo.com/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ documento: doc, senha: senha }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || 'Falha ao fazer login.');
-    }
-
     showSuccess('Login realizado com sucesso!');
-
-    // TODO: redirecionar ou salvar token
-    // window.location.href = '/painel';
-  } catch (err) {
-    showError(err.message || 'Erro de conexão. Tente novamente.');
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Entrar';
-  }
+    window.location.href = 'Hem_Tela_Inicial.html';
 });
 
 function showError(text) {
