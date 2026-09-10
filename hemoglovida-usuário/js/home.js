@@ -55,15 +55,27 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // Lista dos hemocentros que já aparecem nos cards ao lado.
 // lat/lng são as coordenadas de latitude e longitude de cada endereço.
 const hemocentros = [
-  { nome: "Hemocentro Central - São Paulo", lat: -23.5578, lng: -46.6689 },
-  { nome: "Banco de Sangue Paulista", lat: -23.6013, lng: -46.6410 },
-  { nome: "Posto de Coleta - Clínicas", lat: -23.5567, lng: -46.6708 },
+  { nome: "Hemocentro Central - São Paulo", lat:  -23.55801, lng: -46.66867 },
+  { nome: "Banco de Sangue Paulista", lat: -23.6495, lng: -46.7039 },
+  { nome: "Hemocentro São Lucas - Guarulhos ", lat: -23.4684, lng: -46.5244 },
 ];
 
 // Pra cada hemocentro da lista, cria um marcador no mapa
 hemocentros.forEach((h) => {
-  L.marker([h.lat, h.lng])
+  const icon = L.divIcon({
+    className: "leaflet-div-icon",
+    html: `
+      <div class="pin">
+        <span class="pin-inner"><i class="ph-fill ph-drop"></i></span>
+        <span class="pin-label">${h.nome}</span>
+      </div>
+    `,
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+  });
+
+  L.marker([h.lat, h.lng], { icon })
     .addTo(map)
     .bindPopup(h.nome);
- }); // texto que aparece ao clicar no pino
+});
 });
