@@ -11,8 +11,9 @@
    de formulário, paginação, .alerta, .msg) NÃO foi repetido
    aqui — só ficou o que é específico desta tela.
 
-   O rodapé (footer) é uma EXCEÇÃO: como ele não existe mais
-   no base.css desta versão, o estilo dele continua aqui.
+   Esta página ainda não tem rodapé (footer) no HTML — se um
+   for adicionado depois, o CSS dele deve vir aqui, já que o
+   base.css não cobre footer.
    ====================================================== */
 
 :root {
@@ -22,37 +23,39 @@
 }
 
 /* ------------------------------------------------------
-   HEADER — só o que o base.css ainda não cobre
+   HEADER
    ------------------------------------------------------
-   O resto (cor de fundo, logo, nav, avatar...) já vem do
-   base.css. Aqui só adicionamos quebra de linha pro header
-   não "estourar" em telas estreitas.
+   A estrutura (cor, nav, logo, avatar) e o responsivo já
+   vêm do base.css. Esta tela só tem 3 ajustes próprios:
+   1) deixa o header quebrar linha mesmo antes do breakpoint
+      responsivo, já que "Bem-vindo, Dr. Gus Fring" é um
+      texto mais longo que nas outras páginas;
+   2) nome/saudação sem quebrar no meio da frase;
+   3) avatar com gradiente de fundo (fallback visual caso a
+      foto demore a carregar) e sem o pequeno espaço embaixo
+      da imagem que <img> costuma deixar.
    ------------------------------------------------------ */
 header {
   flex-wrap: wrap;
   gap: 16px;
 }
 
-.logo {
-  white-space: nowrap;
-}
-
+.header-left,
 nav {
   flex-wrap: wrap;
 }
 
-.user {
+.user,
+.logo {
   white-space: nowrap;
 }
 
-/* Gradiente de fundo do avatar (aparece um instante antes
-   da foto carregar, ou se a imagem falhar) */
 .avatar {
   background: linear-gradient(135deg, #d7d3ce, #a9a5a0);
 }
 
 .avatar img {
-  display: block; /* evita uma friesta de poucos pixels embaixo da imagem */
+  display: block;
 }
 
 
@@ -151,7 +154,12 @@ main {
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px 28px;
+  gap: 22px 22px;
+}
+
+/* Campo que ocupa as duas colunas (ex.: Cargo) */
+.grid-2 .grid-span-2 {
+  grid-column: 1;
 }
 
 /* Campos deste painel (nome diferente de .field__input de
@@ -161,7 +169,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .field label {
@@ -173,6 +181,7 @@ main {
 .field input {
   border: 1px solid var(--line);
   border-radius: 10px;
+  height: 46px;
   padding: 12px 14px;
   font-size: 15px;
   color: var(--ink);
@@ -186,7 +195,7 @@ main {
 }
 
 .field input:not(:disabled) {
-  background: #fff;
+  background: #f7f6f5;
   border-color: var(--brand);
 }
 
@@ -205,6 +214,14 @@ main {
   padding: 6px 6px 6px 14px;
   background: #f7f6f5;
 }
+
+/* Na grade de Dados Pessoais, o box acompanha a altura dos
+   outros campos (46px) pra tudo ficar alinhado na mesma linha */
+.grid-2 .input-with-btn {
+  height: 46px;
+  padding: 4px 4px 4px 14px;
+}
+
 
 .input-with-btn .ic {
   font-size: 15px;
@@ -232,7 +249,7 @@ main {
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 11px 20px;
+  padding: 9px 18px;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -245,6 +262,10 @@ main {
 
 .btn-alterar.editing {
   background: #2E9E4F;
+}
+
+.grid-2 .field {
+    margin-top: 0;
 }
 
 
