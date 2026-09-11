@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const action = button.dataset.action;
       alert(`${action}`);
-      window.location.href = "agendamentos.html";
+      if (button.classList.contains("pedido-card__share")) return;
+        window.location.href = "agendamentos.html";
     });
   });
 

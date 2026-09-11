@@ -54,12 +54,6 @@
   gap: var(--space-lg);
 }
 
-/* A equipe do hemocentro tem 6 links (em vez de 4), então usamos um
-   espaçamento menor pra tudo continuar cabendo nos mesmos 1280px */
-.navbar__links--compact {
-  gap: var(--space-md);
-}
-
 .navbar__link {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
@@ -85,12 +79,6 @@
   align-items: center;
   gap: var(--space-md);
   text-decoration: none;
-}
-
-.navbar__gear {
-  font-size: 1.1rem;
-  line-height: 1;
-  color: var(--color-white);
 }
 
 .navbar__welcome {
@@ -196,22 +184,6 @@
   border: 1.5px solid var(--color-card-bg);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
-}
-
-.navbar__logo {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.navbar__logo i {
-  font-size: 18px;
-  color: var(--color-primary);
 }
 
 .navbar__title {
