@@ -1,0 +1,336 @@
+/* ===================================================
+   COMPONENTES COMPARTILHADOS: NAVBAR e FOOTER
+   O HTML desses dois componentes é injetado via
+   js/components.js, então aqui só cuidamos do estilo.
+=================================================== */
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background-color: var(--color-primary);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: 100%;
+}
+
+/*Força o tamanho da imagem da logo*/
+.logo img, .logo-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.navbar__container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Agrupa a logo + os links de navegação (variante "app") do lado esquerdo */
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.navbar__link {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  padding: var(--space-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.navbar__link:hover {
+  color: var(--color-white);
+}
+
+.navbar__link--active {
+  color: var(--color-white);
+  font-weight: 700;
+  border-bottom-color: var(--color-white);
+}
+
+/* Saudação + avatar do usuário logado (variantes "app" e "staff").
+   Agora é um link (leva pra "Minha Conta"), mas mantém a mesma aparência. */
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  text-decoration: none;
+}
+
+.navbar__welcome {
+  color: var(--color-white);
+  font-weight: 800;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.navbar__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-white);
+  object-fit: cover;
+}
+
+/* ===================================================
+   MODAL / OVERLAY (compartilhado)
+   Padrão usado pelas telas Agendamentos e Minha Conta.
+   Cada página ainda pode sobrescrever detalhes pontuais
+   (padding, alinhamento do texto) no próprio CSS, mas o
+   comportamento base fica só aqui, sem repetição.
+=================================================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 22, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  backdrop-filter: blur(2px);
+}
+
+.overlay.show {
+  display: flex;
+}
+
+.modal {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  width: 420px;
+  max-width: 92vw;
+  padding: var(--space-lg);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal .close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  border: none;
+  background: none;
+  font-size: 1.2rem;
+  color: var(--color-gray-text);
+  cursor: pointer;
+}
+
+/* Notificação flutuante temporária (toast), usada em Encontrar Hemocentro
+   e Minha Conta pra confirmar ações rápidas ("E-mail alterado", etc). */
+.toast {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s;
+  z-index: 300;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Cartão branco com borda, usado como base de vários blocos nas páginas
+   internas (calendário e resumo em Agendamentos, seções em Minha Conta).
+   Cada página pode ajustar detalhes extras (como margem) no próprio CSS. */
+.panel {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.navbar__title {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background-color: var(--color-primary);
+  padding: var(--space-2xl) 0 var(--space-xl);
+  color: var(--color-white);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.footer__brand-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__copy {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.footer__heading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer__nav a {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: opacity 0.15s ease;
+}
+
+.footer__nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.footer__social {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.footer__social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.footer__social-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.footer__social-btn i {
+  font-size: 16px;
+  color: var(--color-white);
+}
+
+@media (max-width: 800px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pin {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--color-primary);
+  border: 3px solid var(--color-white);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.pin-inner {
+  transform: rotate(45deg);
+  color: var(--color-white);
+  font-size: 0.85rem;
+}
+
+.pin.selected {
+  background: var(--color-white);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 5px var(--color-drop-light);
+}
+
+.pin.selected .pin-inner {
+  color: var(--color-primary);
+}
+
+.pin:hover {
+  filter: brightness(1.08);
+}
+
+.pin-label {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.15s;
+}
+
+.pin:hover .pin-label {
+  opacity: 1;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}

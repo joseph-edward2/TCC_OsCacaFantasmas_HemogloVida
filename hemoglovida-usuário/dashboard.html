@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Painel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "app": logo + links de navegação + usuário -->
+  <div id="navbar-placeholder" data-variant="app" data-active="inicio"></div>
+
+  <main class="page-main dashboard-main">
+    <div class="container">
+
+      <!-- ===================== CABEÇALHO DE BOAS-VINDAS ===================== -->
+      <div class="dash-header">
+        <img
+          class="dash-header__avatar"
+          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=300&auto=format&fit=crop"
+          alt="Foto de perfil de Jesse Pinkman"
+        />
+        <p class="dash-header__welcome">Bem vindo, <strong>Jesse Pinkman</strong></p>
+      </div>
+
+      <!-- ===================== ALERTA "PODE DOAR NOVAMENTE" ===================== -->
+      <div class="dash-alert">
+        <i class="ph ph-warning"></i>
+        <p>Você já pode doar novamente. Fazem <strong>92 dias</strong> desde sua última doação.</p>
+      </div>
+
+      <!-- ===================== GRID DE ESTATÍSTICAS ===================== -->
+      <div class="dash-stats">
+        <div class="stat-card">
+          <p class="stat-card__label">Doações Realizadas</p>
+          <p class="stat-card__value">12</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-card__label">Vidas Impactadas</p>
+          <p class="stat-card__value">48</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-card__label">Hemocentros Visitados</p>
+          <p class="stat-card__value">03</p>
+        </div>
+        <div class="stat-card stat-card--highlight">
+          <p class="stat-card__label">Próxima Doação</p>
+          <p class="stat-card__value">28/10</p>
+          <i class="ph-fill ph-heart"></i>
+        </div>
+      </div>
+
+      <!-- ===================== CONTEÚDO PRINCIPAL (2 COLUNAS) ===================== -->
+      <div class="dash-grid">
+
+        <!-- ---------- COLUNA ESQUERDA ---------- -->
+        <div>
+          <section class="dash-section">
+            <div class="dash-section__header">
+              <h2 class="dash-section__title">Campanhas Próximas</h2>
+              <a href="#" class="dash-section__link">Ver todas</a>
+            </div>
+
+            <div class="campaign-grid">
+
+              <!-- Campanha 1 (crítica) -->
+              <article class="campaign-card">
+                <div class="campaign-card__image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=600&auto=format&fit=crop" alt="Campanha Sangue Amigo" />
+                  <span class="campaign-card__badge">Crítico</span>
+                </div>
+                <div class="campaign-card__body">
+                  <h3 class="campaign-card__title">Campanha Sangue Amigo</h3>
+                  <div class="campaign-card__meta">
+                    <span>
+                      <i class="ph ph-map-pin"></i>
+                      Hemocentro Central
+                    </span>
+                    <span>
+                      <i class="ph ph-navigation-arrow"></i>
+                      2.5km
+                    </span>
+                    <span>
+                      <i class="ph ph-calendar-blank"></i>
+                      25/10
+                    </span>
+                  </div>
+                  <div class="campaign-card__progress">
+                    <div class="campaign-card__progress-labels">
+                      <span>Meta atingida</span>
+                      <span>45%</span>
+                    </div>
+                    <div class="campaign-card__progress-bar">
+                      <div class="campaign-card__progress-fill" data-percent="45"></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" data-action="Quero ajudar na Campanha Sangue Amigo">Quero Ajudar</button>
+                </div>
+              </article>
+
+              <!-- Campanha 2 -->
+              <article class="campaign-card">
+                <div class="campaign-card__image-wrapper">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeW5EEYG_XEouSh7j3lBj35hoEAmamBonU7jZ55-AF4A&s=10" alt="Campanha Unidos pela Vida" />
+                </div>
+                <div class="campaign-card__body">
+                  <h3 class="campaign-card__title">Unidos pela Vida</h3>
+                  <div class="campaign-card__meta">
+                    <span>
+                      <i class="ph ph-map-pin"></i>
+                      Hosp. das Clínicas
+                    </span>
+                    <span>
+                      <i class="ph ph-navigation-arrow"></i>
+                      4.8km
+                    </span>
+                    <span>
+                      <i class="ph ph-calendar-blank"></i>
+                      30/10
+                    </span>
+                  </div>
+                  <div class="campaign-card__progress">
+                    <div class="campaign-card__progress-labels">
+                      <span>Meta atingida</span>
+                      <span>80%</span>
+                    </div>
+                    <div class="campaign-card__progress-bar">
+                      <div class="campaign-card__progress-fill" data-percent="80"></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" data-action="Quero ajudar na Campanha Unidos pela Vida">Quero Ajudar</button>
+                </div>
+              </article>
+
+            </div>
+          </section>
+
+          <section class="dash-section">
+            <div class="dash-section__header">
+              <h2 class="dash-section__title">Hemocentros Visitados</h2>
+            </div>
+
+            <div class="visited-list">
+              <div class="visited-item">
+                <div class="visited-item__left">
+                  <span class="visited-item__icon">
+                    <i class="ph ph-hospital"></i>
+                  </span>
+                  <div>
+                    <p class="visited-item__name">Santa Casa</p>
+                    <p class="visited-item__date">Última visita: 15/07/2024</p>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" data-action="Agendar novamente na Santa Casa">
+                  <i class="ph ph-calendar-blank"></i>
+                  Agendar novamente
+                </button>
+              </div>
+
+              <div class="visited-item">
+                <div class="visited-item__left">
+                  <span class="visited-item__icon">
+                    <i class="ph ph-hospital"></i>
+                  </span>
+                  <div>
+                    <p class="visited-item__name">Hemocentro Leste</p>
+                    <p class="visited-item__date">Última visita: 10/03/2024</p>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" data-action="Agendar novamente no Hemocentro Leste">
+                  <i class="ph ph-calendar-blank"></i>
+                  Agendar novamente
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ---------- COLUNA DIREITA ---------- -->
+        <div>
+          <section class="dash-section">
+            <div class="alerts-card">
+              <p class="alerts-card__title">Alertas Críticos</p>
+
+              <div class="alert-item">
+                <p class="alert-item__title">
+                  <i class="ph ph-warning"></i>
+                  Estoque crítico de O-
+                </p>
+                <p class="alert-item__text">
+                  Hemocentro São Paulo necessita urgentemente de doadores deste tipo sanguíneo.
+                </p>
+                <a href="agendamentos.html" class="alert-item__link">Realizar agendamento</a>
+              </div>
+
+              <div class="alert-item">
+                <p class="alert-item__title">
+                  <i class="ph ph-warning"></i>
+                  Estoque baixo de AB+
+                </p>
+                <p class="alert-item__text">
+                  Hosp. das Clínicas operando com 20% da meta para o mês.
+                </p>
+                <a href="agendamentos.html" class="alert-item__link">Realizar agendamento</a>
+              </div>
+            </div>
+          </section>
+
+          <section class="dash-section">
+            <div class="dash-section__header">
+              <h2 class="dash-section__title">Doar</h2>
+            </div>
+
+            <div class="schedule-card">
+              <div class="schedule-card__status">
+                <span class="schedule-card__badge">Confirmado</span>
+                <span class="schedule-card__protocol">Protocolo: #DV8921</span>
+              </div>
+
+              <p class="schedule-card__title">Hemocentro Leste</p>
+
+              <div class="schedule-card__date">
+                <i class="ph ph-calendar-blank"></i>
+                28/10 às 09:00
+              </div>
+
+              <div class="schedule-card__actions">
+                <button type="button" class="btn-outline-dark" data-action="Cancelar agendamento no Hemocentro Leste">Cancelar</button>
+                <button type="button" class="btn btn-primary" data-action="Reagendar no Hemocentro Leste">Reagendar</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
