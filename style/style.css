@@ -1,7 +1,7 @@
 :root{
   --brand: #a10023;
   --brand-dark: #7A1526;
- --brand-light: #FDEBEF;
+  --brand-light: #FDEBEF;
   --ink: #2B2B2E;
   --ink-soft: #6B6B70;
   --line: #E6E3E1;
@@ -24,7 +24,7 @@
   }
 
   *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;height:100%;scrollbar-gutter: stable;}
+  html,body{margin:0;padding:0;height:100%;scrollbar-gutter: auto;}
   body{
     font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--bg);
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content:space-between;
     padding: 18px 40px;
-
+    min-height: 78px;
   }
 
   .header-left {
