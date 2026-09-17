@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemoglovida — Pedidos de Doação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
+  <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pedidos.css" />
+</head>
+<body>
+
+  <!-- Navbar na variante "app", com "Pedidos" marcado como link ativo -->
+  <div id="navbar-placeholder" data-variant="app" data-active="pedidos"></div>
+
+  <main class="page-main pedidos-main">
+    <div class="container">
+
+      <!-- ===================== CABEÇALHO ===================== -->
+      <div class="pedidos-header">
+        <div>
+          <h1 class="section-title">Pedidos de Doação</h1>
+          <p class="section-subtitle">
+            Encontre pessoas e instituições que precisam de ajuda urgente.
+            Sua doação pode salvar até quatro vidas hoje.
+          </p>
+        </div>
+
+        <div class="pedidos-header__filter">
+          <label for="localizacao">Localização</label>
+          <div class="location-select">
+            <i class="ph ph-map-pin"></i>
+            <span id="localizacao">Guarulhos - SP</span>
+            <i class="ph ph-caret-down chevron"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== ESTATÍSTICAS ===================== -->
+      <div class="pedidos-stats">
+        <div class="stat-card">
+          <span class="stat-card__icon">
+            <i class="ph ph-drop"></i>
+          </span>
+          <div>
+            <p class="stat-card__label">Total Pedidos</p>
+            <p class="stat-card__value">124</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__icon">
+            <i class="ph ph-warning"></i>
+          </span>
+          <div>
+            <p class="stat-card__label">Críticos</p>
+            <p class="stat-card__value">18</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================== GRID DE PEDIDOS ===================== -->
+      <div class="pedidos-grid">
+
+        <!-- Pedido 1: crítico -->
+        <article class="pedido-card">
+          <span class="pedido-card__critical-badge">Crítico</span>
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">O-</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hospital Geral de Guarulhos</h3>
+              <p class="pedido-card__subtitle">Doação Urgente</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Cirurgia Cardíaca</span>
+                <span class="pedido-card__tag">Urgente</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>8</strong><span class="total">/15</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="53"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hospital Geral de Guarulhos">
+              <i class="ph-fill ph-heart"></i>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hospital Geral de Guarulhos" aria-label="Compartilhar">
+              <i class="ph ph-share-network"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 2: estável -->
+        <article class="pedido-card">
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">AB+</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hemocentro Regional</h3>
+              <p class="pedido-card__subtitle">Reposição de Estoque Geral</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Estoque Baixo</span>
+                <span class="pedido-card__tag">Rotina</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>12</strong><span class="total">/20</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="60"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hemocentro Regional">
+              <i class="ph-fill ph-heart"></i>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hemocentro Regional" aria-label="Compartilhar">
+              <i class="ph ph-share-network"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 3: crítico -->
+        <article class="pedido-card">
+          <span class="pedido-card__critical-badge">Crítico</span>
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon">A-</span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Santa Casa de Misericórdia</h3>
+              <p class="pedido-card__subtitle">Doação Urgente</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Anemia Falciforme</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>2</strong><span class="total">/10</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="20"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar a Santa Casa de Misericórdia">
+              <i class="ph-fill ph-heart"></i>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido da Santa Casa de Misericórdia" aria-label="Compartilhar">
+              <i class="ph ph-share-network"></i>
+            </button>
+          </div>
+        </article>
+
+        <!-- Pedido 4: todos os tipos -->
+        <article class="pedido-card">
+          <div class="pedido-card__top">
+            <span class="pedido-card__icon pedido-card__icon--neutral">
+              <i class="ph ph-users"></i>
+            </span>
+            <div class="pedido-card__info">
+              <h3 class="pedido-card__title">Hemocentro Unifesp</h3>
+              <p class="pedido-card__subtitle">Campanha de Doação Local</p>
+              <div class="pedido-card__tags">
+                <span class="pedido-card__tag">Todos os tipos</span>
+                <span class="pedido-card__tag">Hoje</span>
+              </div>
+            </div>
+          </div>
+          <div class="pedido-card__progress">
+            <div class="pedido-card__progress-labels">
+              <span>Meta de Doadores</span>
+              <span class="pedido-card__progress-fraction"><strong>45</strong><span class="total">/100</span></span>
+            </div>
+            <div class="pedido-card__progress-bar">
+              <div class="pedido-card__progress-fill" data-percent="45"></div>
+            </div>
+          </div>
+          <div class="pedido-card__actions">
+            <button type="button" class="btn btn-primary" data-action="Quero ajudar o Hemocentro Unifesp">
+              <i class="ph-fill ph-heart"></i>
+              Quero ajudar
+            </button>
+            <button type="button" class="pedido-card__share" data-action="Compartilhar pedido do Hemocentro Unifesp" aria-label="Compartilhar">
+              <i class="ph ph-share-network"></i>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ===================== CARREGAR MAIS ===================== -->
+      <div class="pedidos-load-more">
+        <button type="button" id="load-more">
+          <i class="ph ph-plus"></i>
+          Carregar mais pedidos
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/components.js"></script>
+  <script src="js/pedidos.js"></script>
+</body>
+</html>
