@@ -1,35 +1,14 @@
-/* ======================================================
-   HEMOGLOVIDA — LOGIN
-   ======================================================
-   Importe DEPOIS do base.js:
-
-   <script src="base.js"></script>
-   <script src="js/login.js"></script>
-   ====================================================== */
-
+// Máscara automática de CPF/CNPJ
 const loginInput = document.getElementById('login');
-const senhaInput = document.getElementById('senha');
-const toggleSenhaBtn = document.getElementById('toggleSenha');
-const form = document.getElementById('loginForm');
-const msgEl = document.getElementById('msg');
 
-// Se algum elemento essencial não existir na página, para antes de registrar
-// qualquer listener (mesmo padrão defensivo dos outros scripts).
-if (!loginInput || !senhaInput || !form || !msgEl) {
-  console.warn('Elementos do formulário de login não encontrados.');
-} else {
-
-// ------------------------------------------------------
-// 1. Máscara automática de CPF/CNPJ
-// ------------------------------------------------------
 loginInput.addEventListener('input', function () {
   // Remove tudo que não é número
   let v = this.value.replace(/\D/g, '');
 
   if (v.length > 14) v = v.slice(0, 14);
 
+  // CPF: 000.000.000-00
   if (v.length <= 11) {
-    // CPF: 000.000.000-00
     v = v.replace(/(\d{3})(\d)/, '$1.$2');
     v = v.replace(/(\d{3})(\d)/, '$1.$2');
     v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
@@ -44,6 +23,63 @@ loginInput.addEventListener('input', function () {
   this.value = v;
 });
 
-ativarToggleSenha(toggleSenhaBtn, senhaInput);
+// Mostrar / ocultar senha
+const toggleBtn = document.getElementById('toggleSenha');
+const senhaInput = document.getElementById('senha');
 
-} // fim do else (elementos presentes)
+toggleBtn.addEventListener('click', function () {
+  const isPassword = senhaInput.type === 'password';
+  senhaInput.type = isPassword ? 'text' : 'password';
+  this.setAttribute('aria-label', isPassword ? 'Ocultar senha' : 'Mostrar senha');
+});
+
+// Validação e envio do formulário
+const form = document.getElementById('loginForm');
+const msgEl = document.getElementById('msg');
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  // Limpa mensagem anterior
+  msgEl.hidden = true;
+  msgEl.textContent = '';
+  msgEl.className = 'msg';
+
+  // Remove formatação para validar
+  const doc = loginInput.value.replace(/\D/g, '');
+  const senha = senhaInput.value;
+
+  // Validação simples
+  if (doc.length < 11) {
+    showError('Informe um CPF ou CNPJ válido.');
+    return;
+  }
+
+  if (senha.length < 6) {
+    showError('A senha deve ter pelo menos 6 caracteres.');
+    return;
+  }
+
+  // Desabilita botão durante envio
+  const btn = form.querySelector('.btn');
+  btn.disabled = true;
+  btn.textContent = 'Entrando…';
+
+
+  setTimeout(function () {
+    showSuccess('Login realizado com sucesso!');
+    window.location.href = 'Hospital_estoque.html';
+  }, 600);
+});
+
+function showError(text) {
+  msgEl.textContent = text;
+  msgEl.className = 'msg msg--error';
+  msgEl.hidden = false;
+}
+
+function showSuccess(text) {
+  msgEl.textContent = text;
+  msgEl.className = 'msg msg--success';
+  msgEl.hidden = false;
+}

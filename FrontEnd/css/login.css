@@ -156,7 +156,14 @@ header {
   color: var(--ink);
 }
 
-
+.text__link {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--brand);
+  text-decoration: none;
+  margin-top: 6px;
+}
 /* ------------------------------------------------------
    3. BOTÃO DE ENTRAR
    ------------------------------------------------------

@@ -1,13 +1,10 @@
 /* ======================================================
    HEMOGLOVIDA — TELA DE CADASTRO DE FUNCIONÁRIO
    ======================================================
-   Importe DEPOIS do base.css:
-
+  
    <link rel="stylesheet" href="../base.css">
    <link rel="stylesheet" href="css/cadastro-funcionario.css">
 
-   Esta página segue o mesmo padrão visual da tela de Login:
-   hero com logo + cartão centralizado com formulário.
 
    A altura e a cor dos botões (.btn) e dos campos de texto
    (.field__input, .field__select) já vêm prontas do
@@ -20,14 +17,15 @@
    nenhum ajuste específico neles. */
 
 
-/* O <body> vira uma coluna flex pra "empurrar" o footer
-   pro final da tela, mesmo com pouco conteúdo. */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
+header {
+  min-height: 78px;
+}
 
 /* ------------------------------------------------------
    1. ÁREA CENTRAL DA PÁGINA
@@ -41,9 +39,7 @@ body {
 }
 
 
-/* ------------------------------------------------------
-   2. BLOCO HERO (logo grande + nome do sistema)
-   ------------------------------------------------------ */
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -56,7 +52,6 @@ body {
   gap: 14px;
 }
 
-/* Badge circular branco com borda — segura a logo */
 .hero__badge {
   width: 50px;
   height: 50px;
@@ -83,7 +78,6 @@ body {
   line-height: 1;
 }
 
-/* Subtítulo abaixo do nome — indica o tipo de página */
 .hero__subtitle {
   margin-top: 10px;
   font-weight: 800;
@@ -101,12 +95,13 @@ body {
    ------------------------------------------------------ */
 .card {
   width: 100%;
-  max-width: 420px; /* maior que o login (340px) */
+  max-width: 340px;
   background: var(--card);
   border-radius: 10px;
   box-shadow: 0 6px 18px -6px rgba(30, 20, 20, 0.15);
-  padding: 28px 24px;
+  padding: 22px;
   margin-top: 28px;
+  margin-bottom: 28px;
 }
 
 /* Título dentro do cartão */

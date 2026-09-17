@@ -1,22 +1,5 @@
 /* ======================================================
    HEMOGLOVIDA — CSS BASE
-   ======================================================
-   Este arquivo reúne tudo que se REPETE em várias páginas
-   do sistema (Hemocentro e Hospital): as cores do site, o
-   reset básico e o cabeçalho (header, com o responsivo).
-   Cada página específica cuida do próprio rodapé (footer),
-   já que ele varia bastante de tela pra tela.
-
-   Como usar: importe este arquivo SEMPRE ANTES do CSS
-   específico de cada página, assim:
-
-   <link rel="stylesheet" href="base.css">
-   <link rel="stylesheet" href="atendimento.css">
-
-   A ordem importa! O CSS que vier depois "ganha" quando
-   houver conflito de regras.
-   ====================================================== */
-
 
 /* ------------------------------------------------------
    1. VARIÁVEIS (paleta de cores)
