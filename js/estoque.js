@@ -3,8 +3,7 @@
 
   const TIPOS_SANGUINEOS = ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"];
 
-  // Estado da paginação (mock: não há mais dados reais para outras páginas,
-  // então só simulamos a contagem exibida no rodapé da tabela)
+  // Estado da paginação
   const paginacao = {
     total: 20,
     porPagina: 10,

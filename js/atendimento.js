@@ -98,9 +98,6 @@ paginacaoEl.addEventListener('click', (event) => {
   renderizarAgenda();
 });
 
-// ===== Link "Ver todos" =====
-linkTodos.textContent = `Ver todos os ${agendamentos.length} agendamentos`;
-
 // ===== Ações do atendimento =====
 // Envia a ação para a API (POST)
 async function enviarAcao(endpoint, payload) {
