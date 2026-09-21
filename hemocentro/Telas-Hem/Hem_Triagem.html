@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Hemoglovida | Triagem de Bolsas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Importação da biblioteca de ícones "phosphor"-->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="../style/triagem.css">
+  <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+<header>
+  <!--Título e logo-->
+  <div class="header-left">
+    <div class="logo">
+      <img src="../assets/img/HemoglovidaLogo.png" alt="Logo Hemoglovida" class="logo-icon">
+      Hemoglovida
+    </div>
+
+    <!--Links da navbar-->
+    <nav>
+      <a href="Hem_Tela_Inicial.html">Visão Geral</a>
+      <a href="Hem_Atendimento.html">Atendimento</a>
+      <a href="Hem_Estoque.html" class="active">Estoque</a>
+      <a href="Hem_Agendamento.html">Agendamentos</a>
+      <a href="Hem_Pedidos.html">Pedidos</a>
+      <a href="Hem_Alertas.html">Alertas</a>
+    </nav>
+  </div>
+
+  <!--Ícone de usuário-->
+    <div class="user">
+     <span>Bem-vindo, Dr. Walter White</span>
+      <a href="../Telas-Hem/Hem_Usuario.html">
+      <div class="avatar">
+        <img src="../assets/img/WalterWhite.png" alt="Foto do usuário">
+      </div>
+      </a>
+    </div>
+</header>
+
+<main class="dashboard">
+
+  <!--Busca e filtro-->
+  <div class="search-bar-row">
+    <div class="search-box">
+      <i class="ph ph-magnifying-glass"></i>
+      <input type="text" placeholder="Buscar por código ou tipo sanguíneo...">
+    </div>
+    <button class="btn-filter"><i class="ph ph-funnel"></i> Filtrar</button>
+  </div>
+
+  <!--Lista de triagem-->
+  <div class="triage-list">
+
+    <div class="triage-row">
+      <div class="triage-id">
+        <div class="triage-avatar"><i class="ph-fill ph-drop"></i></div>
+        <div>
+          <div class="triage-type">O+</div>
+          <div class="triage-code">#BV-98231-X</div>
+        </div>
+      </div>
+      <div class="triage-status">
+        <span class="badge-pill badge-waiting">Aguardando exame</span>
+      </div>
+      <div class="triage-doc">
+        <button class="doc-btn"><i class="ph ph-file-arrow-up"></i> Anexar Laudo</button>
+      </div>
+      <div class="triage-action">
+        <button class="release-btn is-disabled" disabled><i class="ph ph-check-circle"></i> Liberar para Estoque</button>
+      </div>
+    </div>
+
+    <div class="triage-row">
+      <div class="triage-id">
+        <div class="triage-avatar"><i class="ph-fill ph-drop"></i></div>
+        <div>
+          <div class="triage-type">AB-</div>
+          <div class="triage-code">#BV-98245-Y</div>
+        </div>
+      </div>
+      <div class="triage-status">
+        <span class="badge-pill badge-attached"><i class="ph ph-check"></i> Exame anexado</span>
+      </div>
+      <div class="triage-doc">
+        <button class="doc-btn"><i class="ph ph-eye"></i> Ver Documento</button>
+      </div>
+      <div class="triage-action">
+        <button class="release-btn is-enabled"><i class="ph ph-check-circle"></i> Liberar para Estoque</button>
+      </div>
+    </div>
+
+    <div class="triage-row">
+      <div class="triage-id">
+        <div class="triage-avatar"><i class="ph-fill ph-drop"></i></div>
+        <div>
+          <div class="triage-type">A+</div>
+          <div class="triage-code">#BV-98250-A</div>
+        </div>
+      </div>
+      <div class="triage-status">
+        <span class="badge-pill badge-waiting">Aguardando exame</span>
+      </div>
+      <div class="triage-doc">
+        <button class="doc-btn"><i class="ph ph-file-arrow-up"></i> Anexar Laudo</button>
+      </div>
+      <div class="triage-action">
+        <button class="release-btn is-disabled" disabled><i class="ph ph-check-circle"></i> Liberar para Estoque</button>
+      </div>
+    </div>
+
+    <div class="triage-row">
+      <div class="triage-id">
+        <div class="triage-avatar"><i class="ph-fill ph-drop"></i></div>
+        <div>
+          <div class="triage-type">B+</div>
+          <div class="triage-code">#BV-98261-B</div>
+        </div>
+      </div>
+      <div class="triage-status">
+        <span class="badge-pill badge-attached"><i class="ph ph-check"></i> Exame anexado</span>
+      </div>
+      <div class="triage-doc">
+        <button class="doc-btn"><i class="ph ph-eye"></i> Ver Documento</button>
+      </div>
+      <div class="triage-action">
+        <button class="release-btn is-enabled"><i class="ph ph-check-circle"></i> Liberar para Estoque</button>
+      </div>
+    </div>
+
+    <div class="triage-row">
+      <div class="triage-id">
+        <div class="triage-avatar"><i class="ph-fill ph-drop"></i></div>
+        <div>
+          <div class="triage-type">O-</div>
+          <div class="triage-code">#BV-98272-O</div>
+        </div>
+      </div>
+      <div class="triage-status">
+        <span class="badge-pill badge-waiting">Aguardando exame</span>
+      </div>
+      <div class="triage-doc">
+        <button class="doc-btn"><i class="ph ph-file-arrow-up"></i> Anexar Laudo</button>
+      </div>
+      <div class="triage-action">
+        <button class="release-btn is-disabled" disabled><i class="ph ph-check-circle"></i> Liberar para Estoque</button>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<script src="../js/triagem.js"></script>
+</body>
+</html>
