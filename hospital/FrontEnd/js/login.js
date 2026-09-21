@@ -51,7 +51,7 @@ form.addEventListener('submit', async function (e) {
 
   // Validação simples
   if (doc.length < 11) {
-    showError('Informe um CPF ou CNPJ válido.');
+    showError('Informe um CNPJ válido.');
     return;
   }
 

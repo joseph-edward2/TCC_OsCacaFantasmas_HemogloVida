@@ -9,36 +9,31 @@
 <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body>
+ <header>
+    <!--Título e logo-->
+    <div class="header-left">
+      <div class="logo">
+         <img src="https://i.ibb.co/SwCGm0fj/Hemoglovida-Logo.png" alt="Logo Hemoglovida" class="logo-icon">
+        Hemoglovida
+      </div>
 
-<header>
-  <!--Título e logo-->
-  <div class="header-left">
-    <div class="logo">
-      <img src="assets/logo.png" alt="Logo Hemoglovida" class="logo-icon">
-      Hemoglovida
+      <!--Links da navbar-->
+      <nav>
+        <a href="Hospital_estoque.html" class="active">Estoque</a>
+        <a href="Hospital_pedidos.html">Pedidos</a>
+      </nav>
     </div>
 
-    <!--Links da navbar-->
-    <nav>
-      <a href="Hem_Tela_Inicial.html">Visão Geral</a>
-      <a href="Hem_Atendimento.html">Atendimento</a>
-      <a href="Hem_Estoque.html">Estoque</a>
-      <a href="Hem_Agendamento.html">Agendamentos</a>
-      <a href="Hem_Pedidos.html">Pedidos</a>
-      <a href="Hem_Alertas.html">Alertas</a>
-    </nav>
-  </div>
-
-  <!--Ícone de usuário-->
+    <!--Ícone de usuário-->
     <div class="user">
-     <span>Bem-vindo, Dr. Charlie Kirk</span>
-      <a href="../Telas-Hem/Hem_Usuario.html">
+      Bem-vindo, Renato Gonçalves
+      <a href="Hospital_usuario.html">
       <div class="avatar">
-        <img src= "assets/avatar.jpg" alt="Foto do usuário">
+        <img src="assets/avatar.jpg" alt="Foto de perfil">
       </div>
       </a>
     </div>
-</header>
+  </header>
 
 <main>
   <div class="profile-head">
@@ -48,7 +43,7 @@
     </div>
     <div>
       <h1>Minha Conta</h1>
-      <p class="profile-name">Charlie Kirk</p>
+      <p class="profile-name">Renato Gonçalves</p>
       <a href="#" class="edit-photo-link" id="editPhotoLink">Editar Foto</a>
     </div>
   </div>
@@ -60,7 +55,7 @@
 
       <div class="field">
         <label>Nome Completo</label>
-        <input type="text" id="fullName" value="Charlie Kirk" disabled>
+        <input type="text" id="fullName" value="Renato Gonçalves" disabled>
      </div>
 
       <div class="field">
@@ -79,7 +74,7 @@
             <span class="ic">
                 <i class="ph ph-envelope-simple"></i>
             </span>
-            <input type="email" id="emailField" value="chalkirk@email.com" disabled>
+            <input type="email" id="emailField" value="renatao@email.com" disabled>
             <button class="btn-alterar" data-target="emailField">
                 Alterar
             </button>
@@ -120,7 +115,9 @@
     <button class="btn-solid" id="cadastrofun">Cadastro Funcionário</button>
 
 
-    <button class="btn-outline-danger" id="deleteAccountBtn"><i class="ph ph-prohibit"></i> Encerrar Conta</button>
+    <button class="btn-outline-danger" id="deleteAccountBtn">
+      <i class="ph ph-prohibit"></i> Encerrar Conta
+    </button>
 
   </div>
 </main>
@@ -150,18 +147,23 @@
 <div class="overlay" id="deleteOverlay">
   <div class="modal">
     <button class="close" id="deleteClose"><i class="ph ph-x"></i></button>
+
     <div class="modal-icon"><i class="ph ph-warning"></i></div>
     <h2>Encerrar Conta</h2>
     <p class="modal-text">Essa ação é permanente e removerá seu acesso ao painel do hemocentro. Tem certeza que deseja continuar?</p>
+
     <div class="modal-actions">
-      <button class="btn-outline" id="cancelDelete">Cancelar</button>
-      <button class="btn-danger" id="confirmDelete">Sim, encerrar conta</button>
+      <button class="btn-danger" id="cancelDelete">Cancelar</button>
+      <button class="btn-outline-danger" id="confirmDelete">Encerrar conta</button>
     </div>
+
   </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
 
-<script src="../FrontEnd/js/conta.js"></script>
+<script src="base.js"></script>
+<script src="js/usuario.js"></script>
 </body>
 </html>

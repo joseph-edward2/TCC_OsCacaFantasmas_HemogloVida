@@ -33,7 +33,7 @@
 
     <!--Ícone de usuário-->
     <div class="user">
-      Bem-vindo, Charlie Kirk
+      Bem-vindo, Renato Gonçalves
       <a href="Hospital_usuario.html">
       <div class="avatar">
         <img src="assets/avatar.jpg" alt="Foto de perfil">
@@ -308,119 +308,161 @@
     <!-- ====================================================
          TABELA DE INVENTÁRIO DETALHADO
          ==================================================== -->
-    <div class="table-card">
-      <div class="table-card__head">
-        <h2>Inventário Detalhado</h2>
-        <div class="table-card__actions">
-          <button class="btn-outline-sm" id="btnExportar">Exportar</button>
-          <button class="btn-outline-sm" id="btnImprimir">Imprimir</button>
-        </div>
-      </div>
-
-      <div class="table-scroll">
-        <table class="inventory-table">
-          <thead>
-            <tr>
-              <th>ID Bolsa/Lote</th>
-              <th>Tipo Sanguíneo</th>
-              <th>Origem</th>
-              <th>Recebimento</th>
-              <th>Validade</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>#H-1234</td>
-              <td><span class="blood-tag">O-</span></td>
-              <td>Hemocentro Central</td>
-              <td>12/10/2023</td>
-              <td>19/10/2023</td>
-              <td><span class="status-tag status-tag--disponivel">Disponível</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-            <tr>
-              <td>#H-1235</td>
-              <td><span class="blood-tag">A+</span></td>
-              <td>Hemocentro Leste</td>
-              <td>14/10/2023</td>
-              <td>14/11/2023</td>
-              <td><span class="status-tag status-tag--reservado">Reservado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-            <tr>
-              <td>#H-1236</td>
-              <td><span class="blood-tag">O-</span></td>
-              <td>Hemocentro Central</td>
-              <td>15/10/2023</td>
-              <td>22/10/2023</td>
-              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-
-            <tr>
-              <td>#H-1237</td>
-              <td><span class="blood-tag">B-</span></td>
-              <td>Hospital Santa Casa</td>
-              <td>10/10/2023</td>
-              <td>15/10/2023</td>
-              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-
-            
-            <tr>
-              <td>#H-1238</td>
-              <td><span class="blood-tag">B-</span></td>
-              <td>Hospital Santa Casa</td>
-              <td>10/10/2023</td>
-              <td>15/10/2023</td>
-              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-
-            
-            <tr>
-              <td>#H-1239</td>
-              <td><span class="blood-tag">B-</span></td>
-              <td>Hospital Santa Casa</td>
-              <td>10/10/2023</td>
-              <td>15/10/2023</td>
-              <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-
-             <tr>
-              <td>#H-1240</td>
-              <td><span class="blood-tag">B-</span></td>
-              <td>Hospital Santa Casa</td>
-              <td>10/10/2023</td>
-              <td>15/10/2023</td>
-              <td><span class="status-tag status-tag--reservado">Reservado</span></td>
-              <td><button class="table-action-btn">Ver</button></td>
-            </tr>
-
-            
-
-          </tbody>
-        </table>
-      </div>
-
-      <div class="table-footer">
-        <span class="table-footer__info">Mostrando 1-10 de 156 bolsas</span>
-        <div class="paginacao" id="paginacao">
-          <button class="paginacao__botao" data-pagina="anterior">‹</button>
-          <button class="paginacao__botao paginacao__botao--ativo" data-pagina="1">1</button>
-          <button class="paginacao__botao" data-pagina="2">2</button>
-          <button class="paginacao__botao" data-pagina="3">3</button>
-          <button class="paginacao__botao" data-pagina="proxima">›</button>
-        </div>
+     <div class="table-card">
+    <div class="table-card__head">
+      <h2>Inventário Detalhado</h2>
+      <div class="table-card__actions">
+        <button class="btn-outline-sm">Imprimir</button>
+        <!-- Botão novo desta tela: abre o modal na 1ª bolsa -->
+        <button class="btn-outline-sm" data-abrir-inventario>Editar Inventário</button>
       </div>
     </div>
 
-  </main>
+    <div class="table-scroll">
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>ID Bolsa/Lote</th>
+            <th>Tipo Sanguíneo</th>
+            <th>Origem</th>
+            <th>Recebimento</th>
+            <th>Validade</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#H-1234</td>
+            <td><span class="blood-tag">O-</span></td>
+            <td>Hemocentro Central</td>
+            <td>12/10/2023</td>
+            <td>19/10/2023</td>
+            <td><span class="status-tag status-tag--disponivel">Disponível</span></td>
+            <td><button class="table-action-btn" data-abrir-inventario data-bolsa="H-1234">Ver</button></td>
+          </tr>
+          <tr>
+            <td>#H-1235</td>
+            <td><span class="blood-tag">A+</span></td>
+            <td>Hemocentro Leste</td>
+            <td>14/10/2023</td>
+            <td>14/11/2023</td>
+            <td><span class="status-tag status-tag--reservado">Reservado</span></td>
+            <td><button class="table-action-btn" data-abrir-inventario data-bolsa="H-1235">Ver</button></td>
+          </tr>
+          <tr>
+            <td>#H-1236</td>
+            <td><span class="blood-tag">O-</span></td>
+            <td>Hemocentro Central</td>
+            <td>15/10/2023</td>
+            <td>22/10/2023</td>
+            <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
+            <td><button class="table-action-btn" data-abrir-inventario data-bolsa="H-1236">Ver</button></td>
+          </tr>
+          <tr>
+            <!-- #H-1237 não tem mock ainda (veja o TODO no
+                 estoque-modal.js) — por isso, sem botão "Ver" por enquanto -->
+            <td>#H-1237</td>
+            <td><span class="blood-tag">B-</span></td>
+            <td>Hospital Santa Casa</td>
+            <td>10/10/2023</td>
+            <td>15/10/2023</td>
+            <td><span class="status-tag status-tag--utilizado">Utilizado</span></td>
+            <td><button class="table-action-btn" data-abrir-inventario data-bolsa="H-1237">Ver</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
+</div>
+
+
+
+<div class="overlay" id="modalInventarioOverlay">
+  <div class="modal">
+    <div class="modal__header">
+      <h2>Inventário — Santa Casa SP</h2>
+      <button class="modal__close" id="modalInventarioClose">✕</button>
+    </div>
+
+    <div class="modal__body">
+
+      <!-- ---- Seção 1: Controle Interno (editável pelo hospital) ---- -->
+      <div class="modal__section">
+        <div class="modal__section-title">Controle Interno</div>
+        <div class="modal__grid">
+          <div class="modal__field">
+            <label class="modal__field-label" for="selectBolsa">ID Bolsa/Lote</label>
+            <select class="field__select" id="selectBolsa">
+              <option value="H-1234">#H-1234</option>
+              <option value="H-1235">#H-1235</option>
+              <option value="H-1236">#H-1236</option>
+              <option value="H-1237">#H-1237</option>
+            </select>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label" for="pacienteDestino">Paciente de destino</label>
+            <input class="field__input" type="text" id="pacienteDestino" placeholder="Ainda não definido">
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label" for="statusBolsa">Status da Bolsa</label>
+            <select class="field__select" id="statusBolsa">
+              <option>Disponível</option>
+              <option>Reservada</option>
+              <option>Utilizada</option>
+              <option>Descartada</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Seção 2: Informações da Bolsa (só leitura, vem do hemocentro) ---- -->
+      <div class="modal__section">
+        <div class="modal__section-title">Informações da Bolsa</div>
+        <p class="modal__hint">
+          A validade das informações é de responsabilidade do hemocentro.
+          Qualquer inconformidade deve ser alertada a um administrador.
+        </p>
+        <div class="modal__grid">
+          <div class="modal__field">
+            <label class="modal__field-label">Nome do Doador</label>
+            <input class="field__input" type="text" id="infoNomeDoador" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">Caderneta do Doador</label>
+            <input class="field__input" type="text" id="infoCaderneta" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">Data de Envio</label>
+            <input class="field__input" type="text" id="infoDataEnvio" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">ABO/Rh (Tipo Sanguíneo)</label>
+            <input class="field__input" type="text" id="infoAboRh" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">Data de Validade</label>
+            <input class="field__input" type="text" id="infoDataValidade" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">Origem</label>
+            <input class="field__input" type="text" id="infoOrigem" readonly>
+          </div>
+          <div class="modal__field">
+            <label class="modal__field-label">Data da Doação</label>
+            <input class="field__input" type="text" id="infoDataDoacao" readonly>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal__footer">
+      <button class="btn" id="btnConfirmarInventario">Confirmar</button>
+    </div>
+  </div>
+</div>
 
 
   <script src="base.js"></script>

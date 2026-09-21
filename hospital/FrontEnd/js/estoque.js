@@ -140,31 +140,130 @@ function mostrarPagina(pagina) {
 }
 
 
+
+const bolsasMock = {
+  'H-1234': {
+    status: 'Reservada',
+    pacienteDestino: 'Jonh Ligma',
+    nomeDoador: 'Jesse Pinkman',
+    caderneta: '1234O-',
+    dataEnvio: '12/10/2023',
+    aboRh: 'AB+', // diferente do "O-" da tabela de propósito — é
+                  // exatamente esse tipo de inconformidade que o
+                  // aviso do modal existe pra alertar
+    dataValidade: '12/10/2023',
+    origem: 'Hemocentro Central',
+    dataDoacao: '11/09/2001'
+  },
+  'H-1235': {
+    status: 'Disponível',
+    pacienteDestino: '',
+    nomeDoador: 'Walter White',
+    caderneta: '5678O+',
+    dataEnvio: '14/10/2023',
+    aboRh: 'O+',
+    dataValidade: '14/11/2023',
+    origem: 'Hemocentro Leste',
+    dataDoacao: '02/03/2024'
+  },
+  'H-1236': {
+    status: 'Utilizada',
+    pacienteDestino: 'Mike Ehrmantraut',
+    nomeDoador: 'Saul Goodman',
+    caderneta: '9012B-',
+    dataEnvio: '15/10/2023',
+    aboRh: 'B-',
+    dataValidade: '22/10/2023',
+    origem: 'Hemocentro Central',
+    dataDoacao: '18/09/2023'
+  },
+    'H-1237': {
+    status: 'Descartada',
+    pacienteDestino: 'Skyler White',
+    nomeDoador: 'Gus Fring',
+    caderneta: '6967B-',
+    dataEnvio: '06/07/2023',
+    aboRh: 'B-',
+    dataValidade: '22/10/2024',
+    origem: 'Hemocentro Central',
+    dataDoacao: '05/07/2023'
+  }
+  // TODO: adicionar a #H-1237 aqui seguindo o mesmo padrão,
+  // se quiser deixar as 4 linhas da tabela clicáveis
+};
+
+const modalOverlay = document.getElementById('modalInventarioOverlay');
+const selectBolsa = document.getElementById('selectBolsa');
+
+
 // ------------------------------------------------------
-// Clique nos botões
+// 1. Preenche os campos do modal com os dados da bolsa escolhida
 // ------------------------------------------------------
+function carregarBolsa(id) {
+  const dados = bolsasMock[id];
+  if (!dados) return;
 
-botoesPaginacao.forEach(botao => {
+  selectBolsa.value = id;
+  document.getElementById('pacienteDestino').value = dados.pacienteDestino;
+  document.getElementById('statusBolsa').value = dados.status;
+  document.getElementById('infoNomeDoador').value = dados.nomeDoador;
+  document.getElementById('infoCaderneta').value = dados.caderneta;
+  document.getElementById('infoDataEnvio').value = dados.dataEnvio;
+  document.getElementById('infoAboRh').value = dados.aboRh;
+  document.getElementById('infoDataValidade').value = dados.dataValidade;
+  document.getElementById('infoOrigem').value = dados.origem;
+  document.getElementById('infoDataDoacao').value = dados.dataDoacao;
+}
 
-  botao.addEventListener('click', () => {
 
-    const pagina = botao.dataset.pagina;
+// ------------------------------------------------------
+// 2. Abrir / fechar o modal
+// ------------------------------------------------------
+function abrirModalInventario(id) {
+  carregarBolsa(id);
+  modalOverlay.classList.add('show');
+}
 
-    if (pagina === 'anterior') {
-      mostrarPagina(paginaAtual - 1);
-      return;
-    }
+document.querySelectorAll('[data-abrir-inventario]').forEach(function (botao) {
+  botao.addEventListener('click', function () {
 
-    if (pagina === 'proxima') {
-      mostrarPagina(paginaAtual + 1);
-      return;
-    }
-
-    mostrarPagina(Number(pagina));
-
+    abrirModalInventario(botao.dataset.bolsa || 'H-1234');
   });
+});
 
+// Trocar o dropdown "ID Bolsa/Lote" dentro do modal também
+// atualiza os outros campos, sem precisar fechar e abrir de novo
+selectBolsa.addEventListener('change', function () {
+  carregarBolsa(this.value);
+});
+
+document.getElementById('modalInventarioClose').addEventListener('click', function () {
+  modalOverlay.classList.remove('show');
+});
+
+modalOverlay.addEventListener('click', function (e) {
+  if (e.target === modalOverlay) modalOverlay.classList.remove('show');
 });
 
 
-mostrarPagina(1);
+// ------------------------------------------------------
+// 3. Confirmar
+// ------------------------------------------------------
+document.getElementById('btnConfirmarInventario').addEventListener('click', async function () {
+  const restaurar = iniciarCarregamento(this, 'Salvando…');
+
+  try {
+
+    await enviarParaAPI('https://api.exemplo.com/estoque/' + selectBolsa.value, {
+      status: document.getElementById('statusBolsa').value,
+      pacienteDestino: document.getElementById('pacienteDestino').value
+    });
+
+    alert('Alterações confirmadas com sucesso!');
+    modalOverlay.classList.remove('show');
+  } catch (erro) {
+    alert(erro.message);
+  } finally {
+    restaurar();
+  }
+});
