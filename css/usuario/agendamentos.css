@@ -1,12 +1,4 @@
-/* ===================================================
-   PÁGINA AGENDAMENTOS
-   Adaptada da tela feita pelo colega de grupo — mesma
-   estrutura e comportamento, usando as variáveis de
-   cor/espaçamento/raio do projeto (variables.css) em
-   vez de valores soltos, e container de 1280px.
-=================================================== */
 
-/* ---------- CARD DO LOCAL SELECIONADO ---------- */
 .location-card {
   background: var(--color-white);
   border: 1.5px solid var(--color-card-bg);
@@ -60,7 +52,6 @@
   background: var(--color-bg);
 }
 
-/* ---------- LAYOUT PRINCIPAL ---------- */
 .layout {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -74,9 +65,6 @@
   gap: var(--space-lg);
 }
 
-/* .panel (cartão branco com borda) agora vem de css/components.css */
-
-/* ---------- CALENDÁRIO ---------- */
 .cal-head {
   display: flex;
   align-items: center;
@@ -142,8 +130,6 @@
   cursor: default;
 }
 
-/* Não existe um token de "cinza desabilitado" no projeto, então usamos
-   uma versão bem clara do preto — só pros dias fora do mês/indisponíveis */
 .day-cell.muted {
   color: rgba(0, 0, 0, 0.18);
 }
@@ -206,7 +192,6 @@
   border-color: var(--color-primary);
 }
 
-/* ---------- HORÁRIOS ---------- */
 .panel h3.section-title {
   margin: 0 0 var(--space-md) 0;
   font-size: 1.2rem;
@@ -250,7 +235,6 @@
   border-color: var(--color-card-bg);
 }
 
-/* ---------- COLUNA DIREITA: RESUMO ---------- */
 .right-col {
   display: flex;
   flex-direction: column;
@@ -369,10 +353,6 @@
   opacity: 0.9;
 }
 
-/* ---------- MODAL DE RESULTADO ----------
-   Estrutura base (.overlay, .modal, .modal .close, @keyframes pop) vem
-   de css/components.css. Aqui só o que é DIFERENTE nesta tela: texto
-   centralizado e mais espaço no topo por causa do ícone grande. */
 .modal {
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
   text-align: center;
@@ -425,7 +405,6 @@
   filter: brightness(0.92);
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 980px) {
   .layout {
     grid-template-columns: 1fr;

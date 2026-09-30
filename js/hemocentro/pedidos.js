@@ -1,4 +1,4 @@
-// ---------- DADOS ----------
+
 const criticalOrders = [
   {
     id: 'HC-4429',
@@ -8,7 +8,7 @@ const criticalOrders = [
     qty: '05 bolsas',
     patient: 'Maria S. Oliveira',
     time: 'Hoje, 10:45',
-    stage: 1 // 0=Recebido,1=Em Separação,2=Enviado,3=Entregue
+    stage: 1
   }
 ];
 
@@ -20,7 +20,7 @@ const recentOrders = [
     qty: '12 bolsas',
     urgency: 'Rotina',
     patient: null,
-    status: 'received', // aguardando confirmação
+    status: 'received',
     statusLabel: 'RECEBIDO (AGUARDANDO CONFIRMAÇÃO)',
     meta: 'Solicitado há 15 min',
     technician: null
@@ -39,7 +39,6 @@ const recentOrders = [
   }
 ];
 
-// pool extra para "Carregar mais pedidos"
 const moreOrdersPool = [
   {
     id: 'BR-3391', hospital: 'Beneficência Portuguesa', blood: 'B+', qty: '06 bolsas',
@@ -67,7 +66,6 @@ const stageIcons = [
   '<i class="ph ph-check-circle"></i>'
 ];
 
-// ---------- RENDER ----------
 function renderCritical(){
   const wrap = document.getElementById('criticalList');
   wrap.innerHTML = '';
@@ -86,7 +84,7 @@ function renderCritical(){
               </div>`;
     }).join('');
 
-    const isFinal = order.stage >= 2; // enviado ou além -> desabilita botão de marcar enviado
+    const isFinal = order.stage >= 2;
     card.innerHTML = `
       <div class="critical-head">
         <h3>${order.hospital}</h3>
@@ -173,7 +171,6 @@ function refreshStats(){
     String(criticalOrders.length).padStart(2,'0');
 }
 
-// ---------- TOAST ----------
 let toastTimer;
 function showToast(msg){
   const toast = document.getElementById('toast');
@@ -183,7 +180,6 @@ function showToast(msg){
   toastTimer = setTimeout(()=> toast.classList.remove('show'), 2600);
 }
 
-// ---------- MODAL DETALHES ----------
 const detailsOverlayEl = document.getElementById('detailsOverlay');
 function openDetails(order){
   document.getElementById('detailsTitle').textContent = `${order.hospital}`;
@@ -200,7 +196,6 @@ function openDetails(order){
 document.getElementById('detailsClose').addEventListener('click', ()=> detailsOverlayEl.classList.remove('show'));
 detailsOverlayEl.addEventListener('click', (e)=>{ if(e.target === detailsOverlayEl) detailsOverlayEl.classList.remove('show'); });
 
-// ---------- EVENTOS (delegação) ----------
 document.addEventListener('click', (e)=>{
   const btn = e.target.closest('[data-action]');
   if(!btn) return;
@@ -256,7 +251,6 @@ document.addEventListener('click', (e)=>{
   }
 });
 
-// ---------- FILTROS ----------
 function applyFilters(){
   const status = document.getElementById('filterStatus').value;
   const blood = document.getElementById('filterBlood').value;
@@ -281,7 +275,6 @@ function applyFilters(){
   document.getElementById(id).addEventListener('change', applyFilters);
 });
 
-// ---------- CARREGAR MAIS ----------
 document.getElementById('loadMoreBtn').addEventListener('click', ()=>{
   if(moreIndex >= moreOrdersPool.length){
     document.getElementById('loadMoreBtn').textContent = 'Não há mais pedidos';
@@ -299,7 +292,6 @@ document.getElementById('loadMoreBtn').addEventListener('click', ()=>{
   }
 });
 
-// ---------- INIT ----------
 renderCritical();
 renderRecent();
 refreshStats();

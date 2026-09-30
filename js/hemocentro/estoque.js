@@ -3,7 +3,6 @@
 
   const TIPOS_SANGUINEOS = ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"];
 
-  // Estado da paginação
   const paginacao = {
     total: 20,
     porPagina: 10,
@@ -17,9 +16,6 @@
     setupRegistrarEntrada();
   });
 
-  /* --------------------------------------------------------------------
-     Inventário Detalhado — Paginação
-     -------------------------------------------------------------------- */
   function setupPaginacao() {
     const footer = document.querySelector(".table-footer");
     if (!footer) return;
@@ -52,9 +48,6 @@
     elBtnProximo.disabled = paginacao.paginaAtual === totalPaginas();
   }
 
-  /* --------------------------------------------------------------------
-     Registrar Entrada (pop-up)
-     -------------------------------------------------------------------- */
   function setupRegistrarEntrada() {
     const btn = document.querySelector(".page-actions .btn-primary");
     if (!btn) return;
@@ -70,7 +63,7 @@
       form.reset();
       const hoje = new Date();
       const validade = new Date(hoje);
-      validade.setDate(validade.getDate() + 35); // validade padrão: 35 dias
+      validade.setDate(validade.getDate() + 35);
       inputColeta.value = paraInputDate(hoje);
       inputValidade.value = paraInputDate(validade);
       modal.hidden = false;
@@ -154,9 +147,6 @@
     return overlay;
   }
 
-  /* --------------------------------------------------------------------
-     Inserção da nova bolsa no Inventário Detalhado
-     -------------------------------------------------------------------- */
   function adicionarBolsaNoInventario({ tipo, coleta, validade, origem }) {
     const tbody = document.querySelector(".table tbody");
     if (!tbody) return;
@@ -181,9 +171,6 @@
     return `#${tipo}-${numero}`;
   }
 
-  /* --------------------------------------------------------------------
-     Atualização do card de estoque correspondente ao tipo sanguíneo
-     -------------------------------------------------------------------- */
   function atualizarStockCard(tipo, quantidade) {
     const card = [...document.querySelectorAll(".stock-card")].find(
       (c) => c.querySelector(".blood-type").textContent.trim() === tipo
@@ -201,9 +188,6 @@
     card.querySelector(".meta-right").innerHTML = `${percentual}% do<br>ideal`;
   }
 
-  /* --------------------------------------------------------------------
-     Utilitários de data
-     -------------------------------------------------------------------- */
   function paraInputDate(data) {
     const ano = data.getFullYear();
     const mes = String(data.getMonth() + 1).padStart(2, "0");

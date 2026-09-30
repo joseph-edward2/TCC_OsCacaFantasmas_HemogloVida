@@ -1,28 +1,14 @@
-/* ======================================================
-   HEMOGLOVIDA — ESTOQUE (HOSPITAL)
-   ======================================================
-   Importe DEPOIS do base.js:
-
-   <script src="../base.js"></script>
-   <script src="js/estoque.js"></script>
-   ====================================================== */
 
 const btnRequisicao = document.getElementById('btnRequisicao');
 const btnExportar = document.getElementById('btnExportar');
 const btnImprimir = document.getElementById('btnImprimir');
 
-
-// ------------------------------------------------------
-// 1. Botão "Fazer Requisição Agora"
-// (usa enviarParaAPI e iniciarCarregamento do base.js)
-// ------------------------------------------------------
 if (btnRequisicao) {
   btnRequisicao.addEventListener('click', async function () {
     const restaurar = iniciarCarregamento(btnRequisicao, 'Enviando…');
 
     try {
-      // TODO: trocar pela URL real da API e enviar os tipos
-      // sanguíneos que estão em falta
+
       await enviarParaAPI('https://api.exemplo.com/estoque/requisicao', {
         origem: 'Hospital Santa Casa SP'
       });
@@ -36,10 +22,6 @@ if (btnRequisicao) {
   });
 }
 
-
-// ------------------------------------------------------
-// 2. Exportar / Imprimir
-// ------------------------------------------------------
 if (btnExportar) {
   btnExportar.addEventListener('click', function () {
 
@@ -52,11 +34,6 @@ if (btnImprimir) {
     window.print();
   });
 }
-
-
-
-
-//3. Mock bolsas
 
 const bolsasMock = {
   'H-1234': {
@@ -126,10 +103,6 @@ const bolsasMock = {
 const modalOverlay = document.getElementById('modalInventarioOverlay');
 const selectBolsa = document.getElementById('selectBolsa');
 
-
-// ------------------------------------------------------
-// 1. Preenche os campos do modal com os dados da bolsa escolhida
-// ------------------------------------------------------
 function carregarBolsa(id) {
   const dados = bolsasMock[id];
   if (!dados) return;
@@ -147,10 +120,6 @@ function carregarBolsa(id) {
   document.getElementById('infoIDDoacao').value = dados.idDoacao;
 }
 
-
-// ------------------------------------------------------
-// 2. Abrir / fechar o modal
-// ------------------------------------------------------
 function abrirModalInventario(id) {
   carregarBolsa(id);
   modalOverlay.classList.add('show');
@@ -176,10 +145,6 @@ modalOverlay.addEventListener('click', function (e) {
   if (e.target === modalOverlay) modalOverlay.classList.remove('show');
 });
 
-
-// ------------------------------------------------------
-// 3. Confirmar
-// ------------------------------------------------------
 document.getElementById('btnConfirmarInventario').addEventListener('click', async function () {
   const restaurar = iniciarCarregamento(this, 'Salvando…');
 

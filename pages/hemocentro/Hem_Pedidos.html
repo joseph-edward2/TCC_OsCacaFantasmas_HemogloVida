@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hemoglovida | Pedidos de Hospitais</title>
 
-<!--Importação da biblioteca de ícones "phosphor"-->
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
 <link rel="stylesheet" href="../../css/hemocentro/pedidos.css">
 <link rel="stylesheet" href="../../css/hemocentro/style.css">
@@ -13,14 +12,13 @@
 <body>
 
 <header>
-  <!--Título e logo-->
+
   <div class="header-left">
     <div class="logo">
       <img src="../../logo.png" alt="Logo Hemoglovida" class="logo-icon">
       Hemoglovida
     </div>
 
-    <!--Links da navbar-->
     <nav>
       <a href="Hem_Tela_Inicial.html">Visão Geral</a>
       <a href="Hem_Atendimento.html">Atendimento</a>
@@ -31,7 +29,6 @@
     </nav>
   </div>
 
-  <!--Ícone de usuário-->
     <div class="user">
      <span>Bem-vindo, Dr. Walter White</span>
       <a href="Hem_Usuario.html">
@@ -44,7 +41,6 @@
 
 <main class="dashboard">
 
-  <!--Cabeçalho da página + filtros-->
   <div class="page-header">
     <div>
       <h1>Pedidos de Hospitais</h1>
@@ -90,7 +86,6 @@
     </div>
   </div>
 
-  <!--Cartões de resumo-->
   <section class="ped-stats">
     <div class="ped-stat-card">
       <div class="ped-stat-info">
@@ -125,11 +120,9 @@
     </div>
   </section>
 
-  <!--Pedidos críticos-->
   <h2 class="section-title"><i class="ph ph-warning"></i> Pedidos Críticos</h2>
   <div class="critical-list" id="criticalList"></div>
 
-  <!--Pedidos recentes-->
   <h2 class="section-title">Pedidos Recentes</h2>
   <div class="recent-list" id="recentList"></div>
 
@@ -139,7 +132,6 @@
 
 </main>
 
-<!--Modal de detalhes do pedido-->
 <div class="overlay" id="detailsOverlay">
   <div class="modal">
     <button class="close" id="detailsClose"><i class="ph ph-x"></i></button>
@@ -148,7 +140,6 @@
   </div>
 </div>
 
-<!--Toast-->
 <div class="toast" id="toast"></div>
 
 <script src="../../js/hemocentro/pedidos.js"></script>

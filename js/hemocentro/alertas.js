@@ -1,9 +1,4 @@
-/* =============================================
-   Hemoglovida - Alertas e Campanhas
-   Comportamentos interativos (JS puro)
-   ============================================= */
 
-// --- Seleção de chips de tipo sanguíneo ---
 document.querySelectorAll('.chips').forEach(function(container) {
   container.addEventListener('click', function(e) {
     var chip = e.target.closest('.chip');
@@ -12,7 +7,6 @@ document.querySelectorAll('.chips').forEach(function(container) {
   });
 });
 
-// --- Busca na tabela de alertas ---
 var inputBusca = document.getElementById('buscaAlerta');
 if (inputBusca) {
   inputBusca.addEventListener('input', function() {
@@ -25,7 +19,6 @@ if (inputBusca) {
   });
 }
 
-// --- Formulário de Alerta ---
 var formAlerta = document.getElementById('formAlerta');
 if (formAlerta) {
   formAlerta.addEventListener('submit', function(e) {
@@ -64,7 +57,7 @@ if (btnRascunho) {
     fetch('https://api.example.com/alertas/rascunho', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ /* dados do formulário */ })
+      body: JSON.stringify({  })
     })
     .then(function(res) { return res.json(); })
     .then(function(data) {

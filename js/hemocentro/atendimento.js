@@ -1,12 +1,10 @@
-// ===== Elementos da página =====
+
 const agendaEl = document.getElementById('agenda');
 const paginacaoEl = document.getElementById('paginacao');
 const linkTodos = document.getElementById('linkTodos');
 const btnConfirmarChegada = document.getElementById('btnConfirmarChegada');
 const btnDoacaoRealizada = document.getElementById('btnDoacaoRealizada');
 
-// ===== Dados dos agendamentos =====
-// TODO: substituir por uma chamada fetch() à API real
 const agendamentos = [
   { nome: 'Maria Silva', horario: '08:00', status: 'Finalizado' },
   { nome: 'Jesse Pinkman', horario: '09:30', status: 'Em Andamento' },
@@ -23,7 +21,6 @@ const CORES_INICIAIS = ['#e2e0de', '#e2e0de', '#e2e0de', '#e2e0de', '#e2e0de', '
 
 let paginaAtual = 1;
 
-// ===== Gera as iniciais do nome =====
 function iniciaisDe(nome) {
   const partes = nome.trim().split(/\s+/);
   const primeira = partes[0].charAt(0);
@@ -31,7 +28,6 @@ function iniciaisDe(nome) {
   return (primeira + ultima).toUpperCase();
 }
 
-// ===== Classe de status de cada agendamento =====
 const STATUS_CLASSE = {
   'Agendado': 'badge-status--agendado',
   'Em Andamento': 'badge-status--em-andamento',
@@ -39,7 +35,6 @@ const STATUS_CLASSE = {
   'Finalizado': 'badge-status--finalizado'
 };
 
-// ===== Renderiza a lista da página atual =====
 function renderizarAgenda() {
   const inicio = (paginaAtual - 1) * ITENS_POR_PAGINA;
   const itensPagina = agendamentos.slice(inicio, inicio + ITENS_POR_PAGINA);
@@ -59,7 +54,6 @@ function renderizarAgenda() {
   renderizarPaginacao();
 }
 
-// ===== Renderiza os botões de página =====
 function renderizarPaginacao() {
   const totalPaginas = Math.ceil(agendamentos.length / ITENS_POR_PAGINA);
 
@@ -80,7 +74,6 @@ function renderizarPaginacao() {
   paginacaoEl.innerHTML = html;
 }
 
-// ===== Clique nos botões de página =====
 paginacaoEl.addEventListener('click', (event) => {
   const botao = event.target.closest('.paginacao__botao');
   if (!botao || botao.disabled) return;
@@ -98,11 +91,9 @@ paginacaoEl.addEventListener('click', (event) => {
   renderizarAgenda();
 });
 
-// ===== Ações do atendimento =====
-// Envia a ação para a API (POST)
 async function enviarAcao(endpoint, payload) {
   try {
-    // TODO: substituir pela URL real da API
+
     const resposta = await fetch('https://api.exemplo.com/' + endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -118,14 +109,13 @@ async function enviarAcao(endpoint, payload) {
 }
 
 btnConfirmarChegada.addEventListener('click', () => {
-  // TODO: ajustar o payload conforme a API real
+
   enviarAcao('atendimento/confirmar-chegada', { paciente: 'João Pedro Lima' });
 });
 
 btnDoacaoRealizada.addEventListener('click', () => {
-  // TODO: ajustar o payload conforme a API real
+
   enviarAcao('atendimento/doacao-realizada', { paciente: 'João Pedro Lima' });
 });
 
-// ===== Renderização inicial =====
 renderizarAgenda();

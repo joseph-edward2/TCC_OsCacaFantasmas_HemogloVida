@@ -7,8 +7,6 @@
   
 }
 
-/*--------Bloco de identidade--------*/
-
 .hero{
   display: flex;
   flex-direction: column;
@@ -56,9 +54,6 @@
   line-height: 1;
 }
 
-/*--------Cartão de login--------*/
-/* Nome próprio (login-card) para não colidir com o .card do Atendimento */
-
 .login-card{
   width: 100%;
   max-width: 340px;
@@ -69,14 +64,11 @@
   margin-top: 28px;
 }
 
-/* Botão de envio reaproveita .btn/.btn-primary; aqui só o deixamos full-width */
 .login-card .btn{
   width: 100%;
   justify-content: center;
   margin-top: 22px;
 }
-
-/*--------Campos--------*/
 
 .field{
   display: flex;
@@ -114,7 +106,6 @@
   box-shadow: 0 0 0 2px var(--brand);
 }
 
-/* Campo de senha com ícone */
 .field__wrapper{ position: relative; }
 
 .field__input--password{ padding-right: 40px; }
@@ -137,8 +128,6 @@
 
 .field__toggle:hover{ color: var(--ink); }
 
-/*--------Mensagem de erro/sucesso--------*/
-
 .msg{
   margin: 14px 0 0;
   padding: 10px 14px;
@@ -157,8 +146,6 @@
   background: #e6f9ed;
   color: #1a7a3a;
 }
-
-/*--------Responsivo--------*/
 
 @media (max-width: 420px){
   .page{ padding-top: 36px; }
