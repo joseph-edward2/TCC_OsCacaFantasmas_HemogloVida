@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 
   <link rel="stylesheet" href="../../css/usuario/variables.css" />
@@ -17,11 +18,13 @@
 </head>
 <body>
 
+  <!-- Navbar na variante "app", com "Pedidos" marcado como link ativo -->
   <div id="navbar-placeholder" data-variant="app" data-active="pedidos"></div>
 
   <main class="page-main pedidos-main">
     <div class="container">
 
+      <!-- ===================== CABEÇALHO ===================== -->
       <div class="pedidos-header">
         <div>
           <h1 class="section-title">Pedidos de Doação</h1>
@@ -41,6 +44,7 @@
         </div>
       </div>
 
+      <!-- ===================== ESTATÍSTICAS ===================== -->
       <div class="pedidos-stats">
         <div class="stat-card">
           <span class="stat-card__icon">
@@ -62,8 +66,10 @@
         </div>
       </div>
 
+      <!-- ===================== GRID DE PEDIDOS ===================== -->
       <div class="pedidos-grid">
 
+        <!-- Pedido 1: crítico -->
         <article class="pedido-card">
           <span class="pedido-card__critical-badge">Crítico</span>
           <div class="pedido-card__top">
@@ -97,6 +103,7 @@
           </div>
         </article>
 
+        <!-- Pedido 2: estável -->
         <article class="pedido-card">
           <div class="pedido-card__top">
             <span class="pedido-card__icon">AB+</span>
@@ -129,6 +136,7 @@
           </div>
         </article>
 
+        <!-- Pedido 3: crítico -->
         <article class="pedido-card">
           <span class="pedido-card__critical-badge">Crítico</span>
           <div class="pedido-card__top">
@@ -161,6 +169,7 @@
           </div>
         </article>
 
+        <!-- Pedido 4: todos os tipos -->
         <article class="pedido-card">
           <div class="pedido-card__top">
             <span class="pedido-card__icon pedido-card__icon--neutral">
@@ -197,6 +206,7 @@
 
       </div>
 
+      <!-- ===================== CARREGAR MAIS ===================== -->
       <div class="pedidos-load-more">
         <button type="button" id="load-more">
           <i class="ph ph-plus"></i>
