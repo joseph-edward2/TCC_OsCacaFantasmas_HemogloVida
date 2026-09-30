@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemoglovida | Cadastro de Funcionário</title>
+
+  <link rel="stylesheet" href="../../css/hospital/base.css">
+
+  <link rel="stylesheet" href="../../css/hospital/cadastro-funcionario.css">
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <div class="logo">
+        <img src="../../assets/logo.png" alt="Logo Hemoglovida" class="logo-icon">
+        Hemoglovida
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+      <div class="hero__row">
+        <div class="hero__badge">
+          <img class="hero__logo" src="../../assets/logo.png" alt="Logo Hemoglovida">
+        </div>
+        <h1 class="hero__name">Hemoglovida</h1>
+      </div>
+      <h2 class="hero__subtitle">Cadastro de Funcionário</h2>
+    </section>
+
+    <section class="card">
+      <h3 class="card__title">Preencha os dados do funcionário</h3>
+
+      <form id="cadastroFuncionarioForm" method="POST" novalidate>
+
+        <div class="field">
+          <label class="field__label" for="nome_funcionario">Nome do Funcionário</label>
+          <input
+            class="field__input"
+            type="text"
+            id="nome_funcionario"
+            name="nome_funcionario"
+            placeholder="Digite o nome completo"
+            required>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="senha_funcionario">Senha</label>
+          <div class="field__wrapper">
+            <input
+              class="field__input field__input--password"
+              type="password"
+              id="senha_funcionario"
+              name="senha_funcionario"
+              placeholder="••••••••"
+              autocomplete="new-password">
+            <button type="button" class="field__toggle" id="toggleSenha" aria-label="Mostrar senha">
+              <i class="ph ph-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="codigo_registro_funcionario">Código de Registro</label>
+          <input
+            class="field__input"
+            type="text"
+            id="codigo_registro_funcionario"
+            name="codigo_registro_funcionario"
+            placeholder="Ex: 1234567"
+            inputmode="numeric">
+          <small class="field__hint">Número que vincula o funcionário ao CNES do estabelecimento</small>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="tipo_funcionario">Tipo de Funcionário</label>
+          <select class="field__select" id="tipo_funcionario" name="tipo_funcionario" required>
+            <option value="" disabled selected>Selecione o tipo…</option>
+            <option value="Responsavel Hospital">Responsável Hospital</option>
+            <option value="Responsavel Hemocentro">Responsável Hemocentro</option>
+            <option value="Administrativo Hemocentro">Administrativo Hemocentro</option>
+            <option value="Administrativo Hospital">Administrativo Hospital</option>
+          </select>
+        </div>
+
+        <input type="hidden" name="login_funcionario" value="">
+
+
+        <button type="submit" class="btn">Cadastrar</button>
+      </form>
+
+      <p class="msg" id="msg" hidden></p>
+    </section>
+
+  </main>
+
+  <script src="../../js/hospital/base.js"></script>
+  <script src="../../js/hospital/cadastro-funcionario.js"></script>
+
+ 
+
+</body>
+</html>

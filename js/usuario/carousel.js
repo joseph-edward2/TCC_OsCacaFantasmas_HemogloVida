@@ -1,0 +1,71 @@
+function initCarousel(root) {
+  const track = root.querySelector(".info-carousel__track");
+  const cards = Array.from(track.children);
+  const dotsWrapper = root.querySelector(".info-carousel__dots");
+  const prevBtn = root.querySelector('[data-carousel-btn="prev"]');
+  const nextBtn = root.querySelector('[data-carousel-btn="next"]');
+
+  let current = 0;
+  let autoplayId = null;
+  const AUTOPLAY_DELAY = 6000;
+
+  cards.forEach((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = "info-carousel__dot";
+    dot.setAttribute("aria-label", `Ir para o card ${index + 1}`);
+    dot.addEventListener("click", () => goTo(index));
+    dotsWrapper.appendChild(dot);
+  });
+
+  const dots = Array.from(dotsWrapper.children);
+
+  function update() {
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("info-carousel__dot--active", index === current);
+    });
+  }
+
+  function goTo(index) {
+    current = (index + cards.length) % cards.length;
+    update();
+  }
+
+  function next() {
+    goTo(current + 1);
+  }
+
+  function prev() {
+    goTo(current - 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = setInterval(next, AUTOPLAY_DELAY);
+  }
+
+  function stopAutoplay() {
+    if (autoplayId) clearInterval(autoplayId);
+  }
+
+  prevBtn.addEventListener("click", () => {
+    prev();
+    startAutoplay(); 
+  });
+
+  nextBtn.addEventListener("click", () => {
+    next();
+    startAutoplay();
+  });
+
+  root.addEventListener("mouseenter", stopAutoplay);
+  root.addEventListener("mouseleave", startAutoplay);
+
+  update();
+  startAutoplay();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".info-carousel").forEach(initCarousel);
+});

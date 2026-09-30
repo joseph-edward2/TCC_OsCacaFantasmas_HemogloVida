@@ -5,16 +5,45 @@
 =================================================== */
 
 /* ---------- NAVBAR ---------- */
-.navbar {
-  background-color: var(--color-primary);
-  height: 80px;
-  display: flex;
+header{
+  background: var( --color-primary);
+  color: #fff;
+  display:flex;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  max-width: 100%;
+  justify-content:space-between;
+  padding: 18px 40px;
+}
+
+.header-left {
+  display: flex;
+  gap: 40px;
+}
+  
+nav{display:flex; gap:34px; font-size:15px; }
+
+nav a{
+  color: rgba(255,255,255,.85);
+  text-decoration:none;
+  padding-top: 10px;
+  padding-bottom:6px;
+  border-bottom: 3px solid transparent;
+  transition:.2s;
+}
+
+nav a.active{ gap:12px; color:#fff; font-weight:bold; border-color:#fff; }
+nav a:hover{ color:#fff; }
+
+.user{
+  display:flex; align-items:center; gap:12px;
+  font-size:15px; font-weight:600;
+}
+
+.logo {
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  font-weight: 800;
+  font-size: 22px;
 }
 
 /*Força o tamanho da imagem da logo*/
@@ -25,74 +54,22 @@
   flex-shrink: 0;
 }
 
-.navbar__container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-/* Agrupa a logo + os links de navegação (variante "app") do lado esquerdo */
-.navbar__left {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-}
-
-.navbar__links {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-.navbar__link {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
-  padding: var(--space-xs) 0;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-
-.navbar__link:hover {
-  color: var(--color-white);
-}
-
-.navbar__link--active {
-  color: var(--color-white);
-  font-weight: 700;
-  border-bottom-color: var(--color-white);
-}
-
-/* Saudação + avatar do usuário logado (variantes "app" e "staff").
-   Agora é um link (leva pra "Minha Conta"), mas mantém a mesma aparência. */
-.navbar__user {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  text-decoration: none;
-}
-
-.navbar__welcome {
-  color: var(--color-white);
-  font-weight: 800;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-.navbar__avatar {
-  width: 44px;
-  height: 44px;
+/*Ícone do usuário*/
+.avatar {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 1.5px solid var(--color-white);
+  overflow: hidden; /* Corta a imagem no formato do círculo */
+  flex-shrink: 0;   /* Impede que o Flexbox estique a div */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Força a foto de perfil a caber exata dentro dos 42px da div*/
+.avatar img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -186,92 +163,60 @@
   padding: var(--space-lg);
 }
 
-.navbar__title {
-  color: var(--color-white);
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
 /* ---------- FOOTER ---------- */
-.footer {
-  background-color: var(--color-primary);
-  padding: var(--space-2xl) 0 var(--space-xl);
-  color: var(--color-white);
+footer {
+  background: var(--color-primary);
+  color: #ffffff;
+  margin-top: 50px;
+  padding: 40px 40px 26px;
 }
 
-.footer__grid {
+.foot-grid {
+  max-width: 1440px; 
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: var(--space-xl);
+  gap: 20px;
 }
 
-.footer__brand-title {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: var(--space-sm);
-}
+.foot-grid h4 { margin: 0 0 12px 0; font-size: 14px; letter-spacing: .04em; }
+.foot-grid p { margin: 0; opacity: .85; font-size: 13px; }
+.foot-grid a { display: block; color: rgba(255,255,255,.85); text-decoration: none; font-size: 14px; margin-bottom: 9px; }
+.foot-brand { font-size: 22px; font-weight: bold; margin-bottom: 8px; }
 
-.footer__copy {
-  opacity: 0.85;
-  font-size: 0.95rem;
-}
+/* ---------------------------------------------------
+   SESSÃO DE ÍCONES SOCIAIS
+--------------------------------------------------- */
 
-.footer__heading {
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-md);
-}
-
-.footer__nav {
+/* Container que garante a sequência horizontal dos botões */
+.social-links {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
+  flex-direction: row; /* Mantém os itens um ao lado do outro */
+  gap: 16px;
+  margin-top: 12px;
 }
 
-.footer__nav a {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  transition: opacity 0.15s ease;
-}
-
-.footer__nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-.footer__social {
-  display: flex;
-  gap: var(--space-md);
-}
-
-.footer__social-btn {
-  width: 40px;
-  height: 40px;
+/* Seletor super específico para sobrescrever o comportamento padrão do .foot-grid a */
+.foot-grid .social-links a.social-btn {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: var(--color-accent);
-  display: flex;
+  background-color: #CD0B31;   
+  color: #ffffff;
+  display: flex; 
   align-items: center;
   justify-content: center;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  font-size: 24px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-bottom: 0; 
 }
 
-.footer__social-btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-.footer__social-btn i {
-  font-size: 16px;
-  color: var(--color-white);
-}
-
-@media (max-width: 800px) {
-  .footer__grid {
-    grid-template-columns: 1fr 1fr;
-  }
+/* Garante que o ícone em si não tenha margens indesejadas */
+.foot-grid .social-links a.social-btn i, 
+.foot-grid .social-links a.social-btn svg {
+  margin: 0;
+  display: block;
 }
 
 .pin {

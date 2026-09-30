@@ -1,0 +1,38 @@
+
+.btn:disabled {
+  background-color: var(--color-card-bg);
+  color: var(--color-gray-text);
+  border-color: var(--color-card-bg);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn:disabled:hover {
+  transform: none;
+}
+
+.btn:disabled i {
+  color: var(--color-gray-text);
+}
+
+.resend-section {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+.resend-timer {
+  color: var(--color-gray-text);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.resend-timer strong {
+  color: var(--color-black);
+}
+
+.resend-section .btn {
+  width: 100%;
+  justify-content: center;
+  text-transform: none;
+  font-size: 0.95rem;
+}

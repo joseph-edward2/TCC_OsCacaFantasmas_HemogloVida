@@ -56,5 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     alert("Senha redefinida com sucesso!");
+    window.location.href = "login.html";
   });
 });
