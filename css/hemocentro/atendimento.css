@@ -11,6 +11,8 @@
   gap: 24px;
 }
 
+/*--------Cartões--------*/
+
 .card{
   background-color: var(--card);
   border: 1px solid #e2e0de;
@@ -56,6 +58,8 @@
   min-height: 420px;
 }
 
+/*--------Selo de horário--------*/
+
 .badge-time{
   background-color: var(--brand-light);
   color: var(--brand);
@@ -64,6 +68,8 @@
   padding: 4px 12px;
   border-radius: 999px;
 }
+
+/*--------Paciente--------*/
 
 .paciente{
   display: flex;
@@ -105,6 +111,8 @@
   padding: 3px 10px;
   border-radius: 999px;
 }
+
+/*--------Stepper--------*/
 
 .stepper{
   display: flex;
@@ -173,6 +181,8 @@
   justify-content: center;
 }
 
+/*--------Alerta de observações--------*/
+
 .alerta{
   background-color: var(--brand-light);
   border-left: 4px solid var(--brand);
@@ -181,6 +191,8 @@
   font-size: 14px;
   line-height: 1.5;
 }
+
+/*--------Agendamentos--------*/
 
 .agenda{
   list-style: none;
@@ -261,6 +273,8 @@
   color: #2e7d32;
 }
 
+/*--------Paginação da agenda--------*/
+
 .paginacao{
   display: flex;
   align-items: center;
@@ -310,6 +324,39 @@
 
 .agenda__todos:hover{ color: var(--brand); }
 
+/*--------Responsivo--------*/
+
 @media (max-width: 900px){
   .layout{ grid-template-columns: 1fr; }
+}
+
+/*--------Botões de ação desabilitados (passo a passo)--------*/
+
+.card__actions .btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/*--------Troca de doador (agenda clicável)--------*/
+
+.agenda__item--clicavel{
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.agenda__item--clicavel:hover,
+.agenda__item--clicavel:focus-visible{
+  background-color: #e2e0de;
+  outline: none;
+}
+
+.agenda__item--clicavel:hover .agenda__nome,
+.agenda__item--clicavel:focus-visible .agenda__nome{
+  color: var(--brand);
+}
+
+/* Doador que está em atendimento no momento */
+.agenda__item--atual{
+  box-shadow: inset 3px 0 0 var(--brand);
 }

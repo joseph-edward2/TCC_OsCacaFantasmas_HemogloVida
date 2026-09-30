@@ -3,14 +3,19 @@
 
   const state = {
     searchTerm: "",
-    statusFilter: "all",
+    statusFilter: "all", // "all" | "waiting" | "attached"
   };
 
+  // Guarda os arquivos (laudos) anexados pelo usuário nesta sessão,
+  // indexados pelo código da bolsa (ex: "#BV-98231-X")
   const attachedFiles = new Map();
 
   let hiddenFileInput = null;
   let pendingRow = null;
 
+  /* --------------------------------------------------------------------
+     Inicialização
+     -------------------------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
@@ -20,6 +25,9 @@
     setupGlobalKeyboardShortcuts();
   }
 
+  /* --------------------------------------------------------------------
+     Busca por código ou tipo sanguíneo
+     -------------------------------------------------------------------- */
   function setupSearch() {
     const input = document.querySelector(".search-box input");
     if (!input) return;
@@ -35,6 +43,7 @@
     const filterBtn = document.querySelector(".btn-filter");
     if (!filterBtn) return;
 
+    // Envolve o botão em um wrapper posicionado, para ancorar o dropdown
     const wrapper = document.createElement("div");
     wrapper.className = "filter-wrapper";
     filterBtn.parentNode.insertBefore(wrapper, filterBtn);
@@ -146,7 +155,7 @@
   function openFilePicker(row) {
     pendingRow = row;
     const input = getHiddenFileInput();
-    input.value = "";
+    input.value = ""; // permite selecionar o mesmo arquivo novamente
     input.click();
   }
 

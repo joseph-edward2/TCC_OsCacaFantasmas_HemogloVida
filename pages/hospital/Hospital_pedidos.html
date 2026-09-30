@@ -12,20 +12,25 @@
 </head>
 <body>
 
+  <!-- ======================================================
+       HEADER (classes vindas do base.css)
+       ====================================================== -->
   <header>
-
+    <!--Título e logo-->
     <div class="header-left">
       <div class="logo">
         <img src="https://i.ibb.co/SwCGm0fj/Hemoglovida-Logo.png" alt="Logo Hemoglovida" class="logo-icon">
         Hemoglovida
       </div>
 
+      <!--Links da navbar-->
       <nav>
         <a href="Hospital_estoque.html">Estoque</a>
         <a href="Hospital_pedidos.html" class="active">Pedidos</a>
       </nav>
     </div>
 
+    <!--Ícone de usuário-->
     <div class="user">
       Bem-vindo, Renato Gonçalves
       <a href="Hospital_usuario.html">
@@ -39,11 +44,17 @@
 
   <main class="page-content">
 
+    <!-- ====================================================
+         TÍTULO DA PÁGINA
+         ==================================================== -->
     <div class="page-top">
       <h1>Requisições de Sangue</h1>
       <button class="btn" id="btnNovaRequisicao">+ Nova Requisição</button>
     </div>
 
+    <!-- ====================================================
+         FAIXA DE RESUMO
+         ==================================================== -->
     <div class="summary-grid">
       <div class="summary-card">
         <div>
@@ -71,16 +82,22 @@
       </div>
     </div>
 
+    <!-- ====================================================
+         LAYOUT EM DUAS COLUNAS: formulário + tabela
+         ==================================================== -->
     <div class="pedidos-layout">
 
+      <!-- ---------- COLUNA ESQUERDA: FORMULÁRIO ---------- -->
       <div class="request-card" id="formNovaRequisicao">
         <h2 class="request-card__title">Solicitar Bolsas</h2>
 
         <form id="formRequisicao">
 
+          <!-- Tipo sanguíneo -->
           <div class="form-section">
             <label class="form-section__label">Tipo Sanguíneo Requerido</label>
-
+            <!-- Os botões abaixo funcionam tipo um "rádio": só um fica
+                 ativo por vez (comportamento controlado via JS) -->
             <div class="blood-select" id="tipoSanguineo">
               <button type="button" class="blood-select__btn">O-</button>
               <button type="button" class="blood-select__btn">O+</button>
@@ -90,12 +107,12 @@
               <button type="button" class="blood-select__btn">B+</button>
               <button type="button" class="blood-select__btn">AB-</button>
             </div>
-
+            <!-- Guarda o tipo escolhido pra enviar junto no formulário -->
             <input type="hidden" name="tipo_sanguineo" id="tipoSanguineoValor">
           </div>
 
           <div class="form-row">
-
+            <!-- Quantidade de bolsas -->
             <div class="form-section">
               <label class="form-section__label">Quantidade de bolsas</label>
               <div class="qty-stepper">
@@ -105,6 +122,7 @@
               </div>
             </div>
 
+            <!-- Urgência -->
             <div class="form-section">
               <label class="form-section__label">Urgência</label>
               <select class="field__select" name="urgencia">
@@ -115,11 +133,13 @@
             </div>
           </div>
 
+          <!-- Paciente / Setor -->
           <div class="form-section">
             <label class="form-section__label">Paciente / Setor</label>
             <input type="text" class="field__input" name="paciente_setor" placeholder="Ex: João Silva - UTI Cardiovascular">
           </div>
 
+          <!-- Hemocentro de destino -->
           <div class="form-section">
             <label class="form-section__label">Hemocentro de Destino</label>
 
@@ -140,6 +160,7 @@
             </label>
           </div>
 
+          <!-- Documento assinado -->
           <div class="form-section">
             <label class="form-section__label">Documento de Requisição (Assinado)</label>
             <div class="upload-box">
@@ -159,6 +180,7 @@
         <p class="msg" id="msg" hidden></p>
       </div>
 
+      <!-- ---------- COLUNA DIREITA: TABELA + BANNER ---------- -->
       <div>
         <div class="monitor-card">
           <div class="monitor-card__head">
@@ -181,7 +203,7 @@
                 </tr>
               </thead>
               <tbody>
-
+                <!-- Linha crítica: estágio atual = "Em Separação" (3ª etapa de 5) -->
                 <tr>
                   <td><span class="blood-tag">O-</span></td>
                   <td>04 unid.</td>
@@ -201,6 +223,7 @@
                   <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
 
+                <!-- Linha normal: já concluída ("Entregue") -->
                 <tr>
                   <td><span class="blood-tag">A+</span></td>
                   <td>02 unid.</td>
@@ -218,6 +241,7 @@
                   <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
 
+                <!-- Linha urgente: estágio atual = "Enviado" (2ª etapa) -->
                 <tr>
                   <td><span class="blood-tag">B-</span></td>
                   <td>01 unid.</td>
@@ -239,6 +263,8 @@
           </div>
         </div>
 
+        <!-- Banner informativo (o conteúdo original desse bloco não veio
+             completo do Figma — ajuste o texto como preferir) -->
         <div class="info-banner">
           <div class="info-banner__icon">i</div>
           <div class="info-banner__text">

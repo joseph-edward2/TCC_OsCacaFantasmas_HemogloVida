@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 
   <link rel="stylesheet" href="../../css/usuario/variables.css" />
@@ -18,15 +19,18 @@
 </head>
 <body>
 
+  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
   <div id="navbar-placeholder" data-variant="auth"></div>
 
   <main class="auth">
 
+    <!-- ===================== COLUNA ESQUERDA ===================== -->
     <div class="auth__illustration">
       <div class="auth__illustration-img"></div>
       <p class="auth__illustration-quote">Seu sangue salva vidas</p>
     </div>
 
+    <!-- ===================== COLUNA DIREITA (FORMULÁRIO) ===================== -->
     <div class="auth__form-side">
       <div class="auth-card">
         <h1 class="auth-card__title">Crie sua conta</h1>
@@ -36,6 +40,7 @@
 
         <form id="cadastro-form" novalidate>
 
+          <!-- E-mail -->
           <div class="form-group">
             <label class="form-label" for="email">E-mail</label>
             <div class="form-input-wrapper">
@@ -46,6 +51,7 @@
             </div>
           </div>
 
+          <!-- CPF -->
           <div class="form-group">
             <label class="form-label" for="cpf">CPF</label>
             <div class="form-input-wrapper">
@@ -56,6 +62,7 @@
             </div>
           </div>
 
+          <!-- Tipo Sanguíneo -->
           <div class="form-group">
             <label class="form-label" for="tipo-sanguineo">Tipo Sanguíneo</label>
             <div class="form-input-wrapper">
@@ -76,6 +83,7 @@
             </div>
           </div>
 
+          <!-- Senha + Confirmar Senha -->
           <div class="form-group form-group--split">
             <div>
               <label class="form-label" for="senha">Senha</label>
@@ -103,6 +111,7 @@
             </div>
           </div>
 
+          <!-- Gênero -->
           <div class="form-group">
             <label class="form-label">Gênero</label>
             <div class="segmented">
@@ -112,6 +121,7 @@
             </div>
           </div>
 
+          <!-- Telefone -->
           <div class="form-group">
             <label class="form-label" for="telefone">Telefone</label>
             <div class="form-input-wrapper">
@@ -122,6 +132,7 @@
             </div>
           </div>
 
+          <!-- Termos -->
           <div class="form-terms">
             <input type="checkbox" id="terms" name="terms" />
             <label for="terms">
@@ -129,6 +140,7 @@
             </label>
           </div>
 
+          <!-- Botão -->
           <button type="submit" class="btn btn-primary">
             Criar conta
             <i class="ph ph-arrow-right"></i>

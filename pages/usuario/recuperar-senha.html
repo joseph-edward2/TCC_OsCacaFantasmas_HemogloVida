@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
+  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 
   <link rel="stylesheet" href="../../css/usuario/variables.css" />
@@ -18,15 +19,18 @@
 </head>
 <body>
 
+  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
   <div id="navbar-placeholder" data-variant="auth"></div>
 
   <main class="auth">
 
+    <!-- ===================== COLUNA ESQUERDA ===================== -->
     <div class="auth__illustration">
       <div class="auth__illustration-img"></div>
       <p class="auth__illustration-quote">Seu sangue salva vidas</p>
     </div>
 
+    <!-- ===================== COLUNA DIREITA (FORMULÁRIO) ===================== -->
     <div class="auth__form-side">
       <div class="auth-card">
         <h1 class="auth-card__title">Redefinir senha</h1>
@@ -37,6 +41,7 @@
 
         <form id="recuperar-senha-form" novalidate>
 
+          <!-- E-mail (mesmo padrão de ícone à esquerda usado no Cadastro) -->
           <div class="form-group">
             <label class="form-label" for="email">E-mail</label>
             <div class="form-input-wrapper">
@@ -47,12 +52,14 @@
             </div>
           </div>
 
+          <!-- Botão -->
           <button type="submit" id="submit-button" class="btn btn-primary">
             Enviar instruções
             <i class="ph ph-arrow-right"></i>
           </button>
         </form>
 
+        <!-- Timer + botão de reenvio: ficam escondidos até o primeiro envio -->
         <div id="resend-section" class="resend-section" hidden>
           <p id="resend-timer" class="resend-timer">
             Você pode reenviar em <strong id="resend-countdown">60</strong>s
