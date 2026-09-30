@@ -62,19 +62,19 @@
         <section class="card card--atendimento">
           <div class="card__header">
             <h2 class="card__title">Atendimento em Curso</h2>
-            <span class="badge-time">09:30</span>
+            <span class="badge-time" id="badgeHorario">09:30</span>
           </div>
 
           <!-- Bloco do paciente -->
           <div class="paciente">
-            <img class="paciente__foto" src="../../assets/JessePinkman.png" alt="Foto do paciente">
+            <img class="paciente__foto" id="pacienteFoto" src="../../assets/JessePinkman.png" alt="Foto do paciente">
             <div class="paciente__info">
-              <p class="paciente__nome">Jesse Pinkman</p>
+              <p class="paciente__nome" id="pacienteNome">Jesse Pinkman</p>
               <div class="paciente__dados">
-                <span>Tipo Sanguíneo: O-</span>
-                <span>CPF: 452.*.-01</span>
+                <span id="pacienteTipo">Tipo Sanguíneo: O-</span>
+                <span id="pacienteCpf">CPF: 452.*.-01</span>
               </div>
-              <span class="tag">Doador Frequente</span>
+              <span class="tag" id="pacienteTag">Doador Frequente</span>
             </div>
           </div>
 
@@ -109,7 +109,7 @@
             <h2 class="card__title">Observações Médicas</h2>
             <a href="#" class="card__link">Ver Histórico Completo</a>
           </div>
-          <div class="alerta">
+          <div class="alerta" id="observacaoTexto">
             Última doação há 4 meses. Sem restrições relatadas na triagem digital.
           </div>
         </section>
