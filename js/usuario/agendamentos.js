@@ -1,15 +1,14 @@
 const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
   const dows = ["Dom","Seg","Ter","Qua","Qui","Sex","Sab"];
 
-  // State: fixed reference month = Março 2026 (per mockup)
-  let viewYear = 2026, viewMonth = 2; // month index 0-based -> 2 = March
+  let viewYear = 2026, viewMonth = 2; 
   let selectedDay = 1;
   let selectedTime = "09:30";
 
-  // Days considered unavailable within the month (weekdays highlighted differently in mock: e.g. Sun & day 24 unavailable)
+  
   function isUnavailable(day, weekday){
-    if(weekday === 0) return true; // Sundays unavailable
-    if(day === 24) return true;    // matches mock (24 has no dot)
+    if(weekday === 0) return true;
+    if(day === 24) return true;    
     return false;
   }
 
@@ -33,7 +32,7 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
     const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
     const daysInPrevMonth = new Date(viewYear, viewMonth, 0).getDate();
 
-    // leading muted days
+  
     for(let i=startWeekday-1; i>=0; i--){
       const el = document.createElement('div');
       el.className = 'day-cell muted';
@@ -61,7 +60,7 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
       grid.appendChild(el);
     }
 
-    // trailing to complete grid to full weeks
+    
     const totalCells = startWeekday + daysInMonth;
     const remainder = totalCells % 7;
     if(remainder !== 0){
@@ -119,7 +118,6 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
     buildCalendar();
   });
 
-  // Confirm -> decide qual modal mostrar conforme a metade do mês em que a data selecionada cai
   const overlay = document.getElementById('overlay');
   const modalIcon = document.getElementById('modalIcon');
   const modalTitle = document.getElementById('modalTitle');
@@ -150,9 +148,6 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
   }
 
   document.getElementById('confirmBtn').addEventListener('click', ()=>{
-    // Divide o mês em duas metades pelo número de dias.
-    // 1ª metade do mês -> agendamento feito (sucesso)
-    // 2ª metade do mês -> erro (intervalo mínimo entre doações)
     const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
     const midpoint = Math.ceil(daysInMonth / 2);
     const resultType = selectedDay <= midpoint ? 'success' : 'error';
@@ -167,8 +162,6 @@ const monthNames = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho
   buildCalendar();
   buildSlots();
 
-  // Botão "Trocar" leva para a tela de busca de hemocentro (local.html),
-  // que permite escolher outro local antes de voltar pra agendar.
   const trocarBtn = document.querySelector(".trocar-btn");
   if (trocarBtn) {
     trocarBtn.addEventListener("click", () => {

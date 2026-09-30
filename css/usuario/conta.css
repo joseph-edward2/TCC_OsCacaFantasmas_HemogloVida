@@ -1,10 +1,3 @@
-/* ===================================================
-   PÁGINA MINHA CONTA (doador)
-   Adaptada da tela feita pelo colega de grupo — mesma
-   estrutura e comportamento, usando as variáveis do
-   projeto e container de 1280px (aqui limitado a 720px
-   de leitura confortável, como no design original).
-=================================================== */
 
 .conta-container {
   max-width: 720px;
@@ -12,7 +5,6 @@
   padding: 0 var(--space-lg);
 }
 
-/* ---------- CABEÇALHO DO PERFIL ---------- */
 .profile-head {
   display: flex;
   align-items: center;
@@ -75,9 +67,6 @@
   text-decoration: underline;
 }
 
-/* ---------- PAINÉIS ---------- */
-/* Igual ao .panel de css/components.css, só acrescenta a margem entre
-   uma seção e outra (aqui elas empilham verticalmente, sem flex-gap). */
 .panel {
   margin-bottom: var(--space-lg);
 }
@@ -209,7 +198,6 @@
   background: var(--color-success);
 }
 
-/* ---------- TOGGLES DE NOTIFICAÇÃO ---------- */
 .toggle-row {
   display: flex;
   align-items: center;
@@ -286,7 +274,6 @@
   transform: translateX(20px);
 }
 
-/* ---------- AÇÕES FINAIS ---------- */
 .bottom-actions {
   display: flex;
   align-items: center;
@@ -334,9 +321,6 @@
   background: var(--color-drop-light);
 }
 
-/* ---------- MODAIS ----------
-   Estrutura base (.overlay, .modal, .modal .close, @keyframes pop) vem
-   de css/components.css — aqui só o que é específico desta tela. */
 .modal h2 {
   margin: 0 0 var(--space-lg) 0;
   font-size: 1.3rem;
@@ -411,9 +395,6 @@
   filter: brightness(0.92);
 }
 
-/* .toast e .toast.show agora vêm de css/components.css (compartilhado) */
-
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 680px) {
   .grid-2 {
     grid-template-columns: 1fr;

@@ -1,7 +1,3 @@
-/* =============================================
-   Hemoglovida - Alertas e Campanhas
-   Estilos do dashboard
-   ============================================= */
 
 :root {
   --brand: #a10023;
@@ -27,7 +23,6 @@ body {
   min-height: 100vh;
 }
 
-/* ---- Header ---- */
 .header {
   background: var(--brand);
   color: #fff;
@@ -97,14 +92,12 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-/* ---- Main ---- */
 .main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 28px 32px 48px;
 }
 
-/* ---- Page Header ---- */
 .page-header {
   display: flex;
   align-items: center;
@@ -117,7 +110,6 @@ body {
   font-weight: 700;
 }
 
-/* ---- KPI Cards ---- */
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -168,7 +160,6 @@ body {
   flex-shrink: 0;
 }
 
-/* ---- Two Columns Layout ---- */
 .two-columns {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -218,7 +209,6 @@ body {
   color: var(--ink);
 }
 
-/* ---- Search Box ---- */
 .search-box {
   position: relative;
 }
@@ -246,7 +236,6 @@ body {
   color: var(--ink-soft);
 }
 
-/* ---- Alerts Table ---- */
 .alerts-table {
   width: 100%;
   border-collapse: collapse;
@@ -294,7 +283,6 @@ body {
   color: var(--ink-soft);
 }
 
-/* ---- Badges ---- */
 .badge {
   display: inline-block;
   padding: 3px 10px;
@@ -314,7 +302,6 @@ body {
   color: var(--ink-soft);
 }
 
-/* ---- Status ---- */
 .status {
   font-size: 13px;
   font-weight: 600;
@@ -328,7 +315,6 @@ body {
   color: var(--brand);
 }
 
-/* ---- Action Buttons ---- */
 .actions {
   display: flex;
   gap: 6px;
@@ -353,7 +339,6 @@ body {
   border-color: var(--brand-light);
 }
 
-/* ---- Form Styles ---- */
 .form-group {
   margin-bottom: 16px;
 }
@@ -403,7 +388,6 @@ body {
   flex: 1;
 }
 
-/* ---- Chips ---- */
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -444,7 +428,6 @@ body {
   color: #fff;
 }
 
-/* ---- Buttons ---- */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -495,7 +478,6 @@ body {
   margin-top: 10px;
 }
 
-/* ---- Section Campaigns ---- */
 .section-title {
   font-size: 20px;
   font-weight: 700;
@@ -538,7 +520,6 @@ body {
   min-width: 180px;
 }
 
-/* ---- Campaign Cards (Vitrine) ---- */
 .campaign-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -588,7 +569,6 @@ body {
   margin-bottom: 16px;
 }
 
-/* ---- Progress Bar ---- */
 .progress-section {
   margin-bottom: 16px;
 }
@@ -625,7 +605,6 @@ body {
   transition: width 0.6s ease;
 }
 
-/* ---- Campaign Card Footer ---- */
 .campaign-card-footer {
   display: flex;
   align-items: center;

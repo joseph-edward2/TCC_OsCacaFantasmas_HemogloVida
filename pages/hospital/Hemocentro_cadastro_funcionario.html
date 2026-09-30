@@ -4,20 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hemoglovida | Cadastro de Funcionário</title>
-  <!-- CSS base (cores, reset, header, footer) — sempre importar ANTES do CSS da página -->
+
   <link rel="stylesheet" href="../../css/hospital/base.css">
-  <!-- CSS específico desta tela (estilos do card, campos, etc.) -->
+
   <link rel="stylesheet" href="../../css/hospital/cadastro-funcionario.css">
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
 <body>
 
-  <!-- ====================================================
-       CABEÇALHO
-       ====================================================
-       Mesmo header simplificado da tela de Login: só logo
-       e nome do sistema, sem menu de navegação.
-       ==================================================== -->
   <header>
     <div class="header-left">
       <div class="logo">
@@ -27,12 +21,8 @@
     </div>
   </header>
 
-  <!-- ====================================================
-       CONTEÚDO PRINCIPAL
-       ==================================================== -->
   <main class="page">
 
-    <!-- Bloco de identidade (logo grande + nome) -->
     <section class="hero">
       <div class="hero__row">
         <div class="hero__badge">
@@ -43,19 +33,11 @@
       <h2 class="hero__subtitle">Cadastro de Funcionário</h2>
     </section>
 
-    <!-- ====================================================
-         CARTÃO DO FORMULÁRIO
-         ====================================================
-         Contém todos os campos para cadastrar um funcionário
-         do hemocentro. NÃO envia dados pra nenhuma API — é
-         apenas o formulário visual (HTML + CSS).
-         ==================================================== -->
     <section class="card">
       <h3 class="card__title">Preencha os dados do funcionário</h3>
 
       <form id="cadastroFuncionarioForm" method="POST" novalidate>
 
-        <!-- CAMPO 1: Nome do Funcionário -->
         <div class="field">
           <label class="field__label" for="nome_funcionario">Nome do Funcionário</label>
           <input
@@ -67,9 +49,6 @@
             required>
         </div>
 
-        <!-- CAMPO 2: Senha -->
-        <!-- Usa o mesmo padrão da tela de Login: input dentro de .field__wrapper
-             com botão de mostrar/ocultar senha posicionado à direita. -->
         <div class="field">
           <label class="field__label" for="senha_funcionario">Senha</label>
           <div class="field__wrapper">
@@ -86,10 +65,6 @@
           </div>
         </div>
 
-        <!-- CAMPO 3: Código de Registro -->
-        <!-- É o número que vincula o funcionário ao CNES do estabelecimento.
-             O sistema usará esse código pra identificar a qual hemocentro
-             ou hospital o funcionário pertence. -->
         <div class="field">
           <label class="field__label" for="codigo_registro_funcionario">Código de Registro</label>
           <input
@@ -102,10 +77,6 @@
           <small class="field__hint">Número que vincula o funcionário ao CNES do estabelecimento</small>
         </div>
 
-        <!-- CAMPO 4: Tipo de Funcionário -->
-        <!-- Select com as 3 opções válidas do banco de dados.
-             A primeira opção é um placeholder desabilitado que
-             força o usuário a escolher antes de enviar. -->
         <div class="field">
           <label class="field__label" for="tipo_funcionario">Tipo de Funcionário</label>
           <select class="field__select" id="tipo_funcionario" name="tipo_funcionario" required>
@@ -117,18 +88,12 @@
           </select>
         </div>
 
-        <!-- CAMPO 5: Login do Funcionário (OCULTO)
-             Este campo existe no banco de dados mas NÃO aparece
-             no formulário. O valor será gerado ou tratado pelo
-             sistema back-end (por exemplo, gerado automaticamente
-             a partir do nome + código de registro). -->
         <input type="hidden" name="login_funcionario" value="">
 
 
         <button type="submit" class="btn">Cadastrar</button>
       </form>
 
-      <!-- Mensagem de feedback (erro ou sucesso) — fica oculta por padrão -->
       <p class="msg" id="msg" hidden></p>
     </section>
 

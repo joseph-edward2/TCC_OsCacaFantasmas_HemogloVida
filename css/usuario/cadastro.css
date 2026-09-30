@@ -1,18 +1,10 @@
-/* ===================================================
-   PÁGINA CADASTRO
-   Estilos exclusivos desta página. O layout de duas
-   colunas, o card e os campos de formulário genéricos
-   estão em css/auth.css (compartilhado com o Login).
-=================================================== */
 
-/* Dois campos lado a lado (Senha / Confirmar Senha) */
 .form-group--split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-md);
 }
 
-/* Select de tipo sanguíneo (usa <select> nativo estilizado) */
 .form-select {
   padding-left: 2.6rem;
   appearance: none;
@@ -23,7 +15,6 @@
   background-size: 16px;
 }
 
-/* ---------- GÊNERO: segmented control ---------- */
 .segmented {
   display: flex;
   background-color: var(--color-card-bg);
@@ -49,7 +40,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* ---------- TERMOS ---------- */
 .form-terms {
   display: flex;
   align-items: flex-start;
@@ -76,7 +66,6 @@
   font-weight: 700;
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 900px) {
   .form-group--split {
     grid-template-columns: 1fr;

@@ -39,7 +39,6 @@
     text-decoration: none;
   }
   
-  /*--------Header--------*/
 
   header{
     background: var(--brand);
@@ -82,7 +81,6 @@
   font-size: 22px;
 }
 
-/*Força o tamanho da imagem da logo*/
 .logo img, .logo-icon {
   width: 28px;
   height: 28px;
@@ -90,26 +88,22 @@
   flex-shrink: 0;
 }
 
-/*Ícone do usuário*/
 .avatar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  overflow: hidden; /* Corta a imagem no formato do círculo */
-  flex-shrink: 0;   /* Impede que o Flexbox estique a div */
+  overflow: hidden;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/*Força a foto de perfil a caber exata dentro dos 42px da div*/
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/*--------Layout--------*/
 
 .dashboard{
   margin: 0 auto;
@@ -145,8 +139,6 @@
   gap:12px;
 }
 
-/*--------Buttons--------*/
-
 .btn{
   display:inline-flex;
   align-items:center;
@@ -175,8 +167,6 @@
 }
 .btn-primary:hover{ background:var(--brand-dark); }
 
-/*--------Section headers--------*/
-
 .section-header{
   display:flex;
   align-items:baseline;
@@ -202,8 +192,6 @@
   text-align:right;
 }
 .section-link:hover{ text-decoration:underline; }
-
-/*--------Stat cards--------*/
 
 .stats-grid{
   display:grid;
@@ -286,8 +274,6 @@
   line-height:1.4;
 }
 
-/*--------Blood type grid--------*/
-
 .blood-grid{
   display:grid;
   grid-template-columns:repeat(8, 1fr);
@@ -357,8 +343,6 @@
 
 .blood-card.is-critical .blood-level{ color:var(--brand); }
 
-/*--------Panels (alerts / orders)--------*/
-
 .panels-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -387,8 +371,6 @@
   font-size:19px;
   line-height:1.25;
 }
-
-/*--------Alert list--------*/
 
 .alert-list{
   display:flex;
@@ -452,8 +434,6 @@
 .alert-status.is-ativo{ color:var(--brand); }
 .alert-status.is-encerrado{ color:var(--ink-soft); }
 
-/*--------Orders table--------*/
-
 .table{
   width:100%;
   border-collapse:collapse;
@@ -514,8 +494,6 @@
   background:var(--success-bg);
   color:var(--success);
 }
-
-/*--------Chart panel--------*/
 
 .chart-panel{
   background:var(--card);
@@ -602,8 +580,6 @@
   font-weight:600;
   text-transform:uppercase;
 }
-
-/*--------Responsive--------*/
 
 @media (max-width: 1080px){
   .stats-grid{ grid-template-columns:repeat(2, 1fr); }

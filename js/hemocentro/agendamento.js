@@ -6,18 +6,17 @@
 
   const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const DIAS  = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
-  const LINHA_DIA = [1, 2, 3, 4, 5, 6, 0]; // Ordem das linhas da tabela semanal -> getDay()
+  const LINHA_DIA = [1, 2, 3, 4, 5, 6, 0];
 
-  // ---- estado ---------------------------------------------------------
   const state = {
-    pattern: [ // 0=Domingo ... 6=Sábado
+    pattern: [
       { open: false, start: '12:00 AM', end: '12:00 AM', cap: 0 },
-      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
-      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
-      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
-      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
-      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
-      { open: true,  start: '07:00 AM', end: '12:00 PM', cap: 30 },
+      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
+      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
+      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
+      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
+      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
+      { open: true,  start: '08:00 AM', end: '12:00 PM', cap: 60 },
     ],
     overrides: {
       '2026-09-12': { open: true, horarios: [
@@ -32,7 +31,6 @@
   let view = { ano: 2026, mes: 9 }; 
   let selecionado = '2026-09-12';
 
-  // ---- utilitários ------------------------------------------------------
   const pad = (n) => String(n).padStart(2, '0');
   const chave = (a, m, d) => `${a}-${pad(m + 1)}-${pad(d)}`;
   const diaSemana = (a, m, d) => new Date(a, m, d).getDay();
@@ -46,7 +44,6 @@
   }
   const paraHora = (min) => `${pad(Math.floor(min / 60))}:${pad(min % 60)}`;
 
-  // gera horários de 1h com vagas distribuídas a partir do padrão semanal
   function gerarHorarios(p) {
     if (!p.open) return [];
     const ini = paraMinutos(p.start);
@@ -64,7 +61,6 @@
     return lista;
   }
 
-  // configuração efetiva: bloqueio manual > exceção do dia > padrão semanal
   function configDoDia(data) {
     const [a, m, d] = data.split('-').map(Number);
     const dw = diaSemana(a, m - 1, d);
@@ -75,7 +71,6 @@
     return { open: p.open, horarios: gerarHorarios(p), bloqueado: false, dw };
   }
 
-  // cria (se ainda não existir) uma exceção editável para o dia
   function overrideDoDia(data) {
     if (!state.overrides[data]) {
       const c = configDoDia(data);
@@ -84,7 +79,6 @@
     return state.overrides[data];
   }
 
-  // ---- calendário ---------------------------------------------------------
   function desenharCalendario() {
     const grid = $('.calendar-grid');
     $('.calendar-header h2').textContent = `${MESES[view.mes]} ${view.ano}`;
@@ -124,7 +118,6 @@
     desenharCalendario();
   }
 
-  // ---- painel do dia selecionado -------------------------------------------
   function selecionar(data) {
     selecionado = data;
     desenharCalendario();
@@ -185,7 +178,6 @@
     $('.day-config-subhead .total').innerHTML = `Total: ${total}<br>vagas`;
   }
 
-  // toggle "Hemocentro aberto neste dia"
   $('.toggle-box .switch input').addEventListener('change', (e) => {
     const ov = overrideDoDia(selecionado);
     ov.open = e.target.checked;
@@ -197,7 +189,6 @@
     desenharPainel();
   });
 
-  // vagas / ativo / remover em cada horário (delegação de eventos)
   $('.horario-list').addEventListener('input', (e) => {
     if (e.target.classList.contains('horario-vagas')) {
       e.target.value = e.target.value.replace(/\D/g, '');
@@ -224,7 +215,6 @@
     atualizarTotal();
   });
 
-  // adicionar novo horário
   $('.btn-dashed').addEventListener('click', () => {
     const ov = overrideDoDia(selecionado);
     if (!ov.open) return;
@@ -236,7 +226,6 @@
     atualizarTotal();
   });
 
-  // ---- barra de ferramentas: bloquear / liberar / aplicar padrão ------------
   const [btnBloquear, btnLiberar, btnAplicar] = $$('.toolbar button');
   btnBloquear.addEventListener('click', () => {
     if (!state.blocked.includes(selecionado)) state.blocked.push(selecionado);
@@ -266,7 +255,6 @@
   btnAnterior.addEventListener('click', () => mudarMes(-1));
   btnProximo.addEventListener('click', () => mudarMes(1));
 
-  // ---- tabela "Configuração Padrão Semanal" -----------------------------
   function desenharTabelaSemanal() {
     $$('.weekly-table tbody tr').forEach((row, i) => {
       const p = state.pattern[LINHA_DIA[i]];
@@ -313,10 +301,8 @@
     });
   });
 
-  // ---- salvar --------------------------------------------------------------
   $('.page-actions .btn-primary').addEventListener('click', () => alert('Alterações salvas com sucesso!'));
 
-  // ---- primeira renderização -------------------------------------------
   desenharCalendario();
   desenharPainel();
   desenharTabelaSemanal();

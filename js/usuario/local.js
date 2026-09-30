@@ -37,16 +37,15 @@ const hemocentros = [
   }
 ];
 
-let selectedId = 'banco'; // pré-selecionado como no mock
+let selectedId = 'banco';
 
-// Mapa real (Leaflet + OpenStreetMap), o mesmo usado na Home.
 const map = L.map("map", { scrollWheelZoom: false }).setView([-23.57, -46.62], 11);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
-let markers = {}; // guarda os marcadores atuais, por id do hemocentro
+let markers = {}; 
 
 function matchesFilters(hc, query, blood){
   const q = query.trim().toLowerCase();
@@ -92,7 +91,7 @@ function renderList(){
 }
 
 function renderPins(visibleIds){
-  // remove os marcadores da rodada anterior antes de desenhar os novos
+ 
   Object.values(markers).forEach(marker => map.removeLayer(marker));
   markers = {};
 
@@ -122,7 +121,7 @@ function renderPins(visibleIds){
   });
 }
 
-// clique nos botões "Agendar" e no card (delegação)
+
 document.getElementById('listCol').addEventListener('click', (e)=>{
   const btn = e.target.closest('.agendar-btn');
   const card = e.target.closest('.hc-card');
@@ -132,8 +131,6 @@ document.getElementById('listCol').addEventListener('click', (e)=>{
     renderList();
     showToast(`Redirecionando para agendamento em "${hc.name}"...`);
 
-    // Depois de mostrar o toast, volta pra tela de Agendamentos
-    // com esse hemocentro já escolhido.
     setTimeout(() => {
       window.location.href = "agendamentos.html";
     }, 1200);
