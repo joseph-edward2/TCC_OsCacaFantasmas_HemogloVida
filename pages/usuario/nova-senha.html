@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 
   <link rel="stylesheet" href="../../css/usuario/variables.css" />
@@ -19,18 +18,15 @@
 </head>
 <body>
 
-  <!-- Navbar na variante "auth": só a logo, sem botão "Doar Agora" -->
   <div id="navbar-placeholder" data-variant="auth"></div>
 
   <main class="auth">
 
-    <!-- ===================== COLUNA ESQUERDA ===================== -->
     <div class="auth__illustration">
       <div class="auth__illustration-img"></div>
       <p class="auth__illustration-quote">Seu sangue salva vidas</p>
     </div>
 
-    <!-- ===================== COLUNA DIREITA (FORMULÁRIO) ===================== -->
     <div class="auth__form-side">
       <div class="auth-card">
         <h1 class="auth-card__title">Nova senha</h1>
@@ -40,7 +36,6 @@
 
         <form id="nova-senha-form" novalidate>
 
-          <!-- Nova senha -->
           <div class="form-group">
             <label class="form-label" for="nova-senha">Nova senha</label>
             <div class="form-input-wrapper">
@@ -51,7 +46,6 @@
             </div>
           </div>
 
-          <!-- Confirmar nova senha -->
           <div class="form-group">
             <label class="form-label" for="confirmar-nova-senha">Confirme a nova senha</label>
             <div class="form-input-wrapper">
@@ -62,11 +56,10 @@
             </div>
           </div>
 
-          <!-- Lista de requisitos de segurança, muda de cor conforme o usuário digita -->
           <ul class="password-requirements">
             <li class="requirement-item" data-requirement="length">
               <i class="ph ph-check-circle"></i>
-              Mínimo de 8 caracteres
+              Mínimo de 6 caracteres
             </li>
             <li class="requirement-item" data-requirement="uppercase">
               <i class="ph ph-check-circle"></i>
@@ -90,7 +83,6 @@
             </li>
           </ul>
 
-          <!-- Botão -->
           <button type="submit" class="btn btn-primary">
             Redefinir senha
             <i class="ph ph-arrow-right"></i>

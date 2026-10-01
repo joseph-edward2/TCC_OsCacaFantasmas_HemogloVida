@@ -4,7 +4,6 @@
   padding: 32px 40px 60px;
 }
 
-/*--------Search + filter--------*/
 
 .search-bar-row{
   display:flex;
@@ -53,7 +52,6 @@
 }
 .btn-filter:hover{ background:var(--line); }
 
-/*--------Triage list--------*/
 
 .triage-list{
   display:flex;
@@ -174,7 +172,6 @@
 }
 .release-btn.is-enabled:hover{ background:var(--brand-dark); }
 
-/*--------Responsive--------*/
 
 @media (max-width: 900px){
   .triage-row{ gap:14px; }
@@ -194,7 +191,6 @@
   .release-btn{ width:100%; }
 }
 
-/*--------Filter dropdown--------*/
 
 .filter-wrapper{ position:relative; }
 
@@ -230,7 +226,6 @@
 }
 .filter-dropdown[hidden]{ display:none; }
 
-/*--------Empty state--------*/
 
 .triage-empty{
   display:flex;
@@ -244,7 +239,6 @@
 .triage-empty i{ font-size:28px; }
 .triage-empty[hidden]{ display:none; }
 
-/*--------Release transition--------*/
 
 .triage-row.is-releasing{
   opacity:0;
@@ -253,7 +247,6 @@
   pointer-events:none;
 }
 
-/*--------Document modal--------*/
 
 .doc-modal-overlay{
   position:fixed;
@@ -304,7 +297,6 @@
 }
 .doc-modal-placeholder i{ font-size:30px; }
 
-/*--------Toast notifications--------*/
 
 .toast-container{
   position:fixed;

@@ -1,11 +1,9 @@
-// ===== Elementos da página =====
 const agendaEl = document.getElementById('agenda');
 const paginacaoEl = document.getElementById('paginacao');
 const linkTodos = document.getElementById('linkTodos');
 const btnConfirmarChegada = document.getElementById('btnConfirmarChegada');
 const btnDoacaoRealizada = document.getElementById('btnDoacaoRealizada');
 
-// Card "Atendimento em Curso"
 const badgeHorarioEl = document.getElementById('badgeHorario');
 const pacienteFotoEl = document.getElementById('pacienteFoto');
 const pacienteNomeEl = document.getElementById('pacienteNome');
@@ -14,13 +12,9 @@ const pacienteCpfEl = document.getElementById('pacienteCpf');
 const pacienteTagEl = document.getElementById('pacienteTag');
 const observacaoEl = document.getElementById('observacaoTexto');
 
-// Elementos do passo a passo (stepper)
 const passos = document.querySelectorAll('.stepper .step');
 const linhas = document.querySelectorAll('.stepper .step__line');
 
-// ===== Dados dos agendamentos =====
-// TODO: substituir por uma chamada fetch() à API real
-// etapa: 1 = aguardando chegada | 2 = chegou | 3 = doação concluída
 const agendamentos = [
   { nome: 'Maria Silva', horario: '08:00', status: 'Finalizado', etapa: 3,
     tipo: 'A+', cpf: '318.*.-22', foto: null, tag: '', obs: 'Doação concluída sem intercorrências.' },
@@ -52,10 +46,8 @@ const CORES_INICIAIS = ['#e2e0de', '#e2e0de', '#e2e0de', '#e2e0de', '#e2e0de', '
 
 let paginaAtual = 1;
 
-// Doador que está em atendimento agora
 let pacienteAtual = agendamentos.find(a => a.status === 'Em Andamento');
 
-// ===== Gera as iniciais do nome =====
 function iniciaisDe(nome) {
   const partes = nome.trim().split(/\s+/);
   const primeira = partes[0].charAt(0);
@@ -63,7 +55,6 @@ function iniciaisDe(nome) {
   return (primeira + ultima).toUpperCase();
 }
 
-// ===== Foto padrão (iniciais) para quem não tem foto =====
 function fotoPadrao(nome) {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="64" height="84">
     <rect width="100%" height="100%" fill="#e2e0de"/>
@@ -73,7 +64,6 @@ function fotoPadrao(nome) {
   return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 
-// ===== Classe de status de cada agendamento =====
 const STATUS_CLASSE = {
   'Agendado': 'badge-status--agendado',
   'Em Andamento': 'badge-status--em-andamento',
@@ -81,7 +71,6 @@ const STATUS_CLASSE = {
   'Finalizado': 'badge-status--finalizado'
 };
 
-// ===== Renderiza a lista da página atual =====
 function renderizarAgenda() {
   const inicio = (paginaAtual - 1) * ITENS_POR_PAGINA;
   const itensPagina = agendamentos.slice(inicio, inicio + ITENS_POR_PAGINA);
@@ -113,7 +102,6 @@ function renderizarAgenda() {
   renderizarPaginacao();
 }
 
-// ===== Renderiza os botões de página =====
 function renderizarPaginacao() {
   const totalPaginas = Math.ceil(agendamentos.length / ITENS_POR_PAGINA);
 
@@ -134,7 +122,6 @@ function renderizarPaginacao() {
   paginacaoEl.innerHTML = html;
 }
 
-// ===== Clique nos botões de página =====
 paginacaoEl.addEventListener('click', (event) => {
   const botao = event.target.closest('.paginacao__botao');
   if (!botao || botao.disabled) return;
@@ -152,7 +139,6 @@ paginacaoEl.addEventListener('click', (event) => {
   renderizarAgenda();
 });
 
-// ===== Preenche o card "Atendimento em Curso" e as observações =====
 function renderizarPaciente() {
   const p = pacienteAtual;
 
@@ -167,10 +153,9 @@ function renderizarPaciente() {
   observacaoEl.textContent = p.obs;
 }
 
-// ===== Passo a passo do atendimento =====
-const USAR_API = false; // troque para true quando a API real estiver pronta
+const USAR_API = false;
 
-let enviando = false; // evita cliques duplos enquanto a requisição está em andamento
+let enviando = false;
 
 function renderizarPassos() {
   const etapa = pacienteAtual.etapa;
@@ -192,17 +177,14 @@ function renderizarPassos() {
     linha.classList.toggle('step__line--done', i < etapa);
   });
 
-  // Cada botão só fica habilitado na sua etapa
   btnConfirmarChegada.disabled = enviando || etapa !== 1;
   btnDoacaoRealizada.disabled = enviando || etapa !== 2;
 }
 
-// Envia a ação para a API (POST). Retorna true em caso de sucesso
 async function enviarAcao(endpoint, payload) {
-  if (!USAR_API) return true; // modo de teste: simula sucesso
+  if (!USAR_API) return true;
 
   try {
-    // TODO: substituir pela URL real da API
     const resposta = await fetch('https://api.exemplo.com/' + endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -219,12 +201,10 @@ async function enviarAcao(endpoint, payload) {
   }
 }
 
-// Executa a ação, bloqueando os botões durante o envio
 async function executarEtapa(endpoint, proximaEtapa, aoConcluir) {
   enviando = true;
   renderizarPassos();
 
-  // TODO: ajustar o payload conforme a API real
   const ok = await enviarAcao(endpoint, { paciente: pacienteAtual.nome });
 
   enviando = false;
@@ -281,7 +261,6 @@ agendaEl.addEventListener('keydown', (event) => {
   }
 });
 
-// ===== Renderização inicial =====
 renderizarPaciente();
 renderizarAgenda();
 renderizarPassos();

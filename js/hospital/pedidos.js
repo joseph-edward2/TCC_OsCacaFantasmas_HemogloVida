@@ -19,9 +19,6 @@ const formRequisicao = document.getElementById('formRequisicao');
 const msgEl = document.getElementById('msg');
 
 
-// ------------------------------------------------------
-// 1. Botão "Nova Requisição" leva até o formulário
-// ------------------------------------------------------
 if (btnNovaRequisicao) {
   btnNovaRequisicao.addEventListener('click', function () {
     formNovaRequisicao.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -29,29 +26,21 @@ if (btnNovaRequisicao) {
 }
 
 
-// ------------------------------------------------------
-// 2. Seleção do tipo sanguíneo (só um ativo por vez)
-// ------------------------------------------------------
 if (tipoSanguineoEl) {
   tipoSanguineoEl.addEventListener('click', function (e) {
     const botao = e.target.closest('.blood-select__btn');
     if (!botao) return;
 
-    // Tira o destaque de todos os botões...
     tipoSanguineoEl.querySelectorAll('.blood-select__btn').forEach(function (b) {
       b.classList.remove('blood-select__btn--active');
     });
 
-    // ...e destaca só o que foi clicado
     botao.classList.add('blood-select__btn--active');
     tipoSanguineoValor.value = botao.textContent.trim();
   });
 }
 
 
-// ------------------------------------------------------
-// 3. Stepper de quantidade (botões - e +)
-// ------------------------------------------------------
 if (qtyMenos && qtyMais && qtyInput) {
   qtyMenos.addEventListener('click', function () {
     const valorAtual = Number(qtyInput.value) || 1;
@@ -65,9 +54,6 @@ if (qtyMenos && qtyMais && qtyInput) {
 }
 
 
-// ------------------------------------------------------
-// 4. Upload do documento (mostra o nome do arquivo escolhido)
-// ------------------------------------------------------
 if (btnTrocarArquivo) {
   btnTrocarArquivo.addEventListener('click', function () {
     inputArquivo.click();
@@ -87,16 +73,10 @@ if (inputArquivo) {
 }
 
 
-// ------------------------------------------------------
-// 5. Envio do formulário
-// (usa enviarParaAPI, iniciarCarregamento e
-// mostrarMensagem do base.js)
-// ------------------------------------------------------
 if (formRequisicao) {
   formRequisicao.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Esconde mensagem antiga antes de revalidar
     if (msgEl) msgEl.hidden = true;
 
     if (!tipoSanguineoValor.value) {
@@ -107,9 +87,6 @@ if (formRequisicao) {
     const restaurar = iniciarCarregamento(this.querySelector('button[type="submit"]'), 'Enviando…');
 
     try {
-      // TODO: trocar pela URL real da API. Se precisar enviar o
-      // arquivo PDF junto, isso normalmente é feito com um
-      // FormData em vez de JSON puro.
       await enviarParaAPI('https://api.exemplo.com/pedidos', {
         tipoSanguineo: tipoSanguineoValor.value,
         quantidade: qtyInput.value,

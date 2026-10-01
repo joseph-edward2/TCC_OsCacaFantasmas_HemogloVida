@@ -1,13 +1,4 @@
-/* ===================================================
-   AUTH.CSS
-   Estilos compartilhados por TODAS as páginas de
-   autenticação (Login, Cadastro, Código de confirmação).
-   Cada página específica só adiciona o que for exclusivo
-   dela no próprio arquivo CSS (ex: cadastro.css cuida do
-   segmented control de gênero, que só existe lá).
-=================================================== */
 
-/* ---------- LAYOUT DE DUAS COLUNAS ---------- */
 .auth {
   display: grid;
   grid-template-columns: 0.85fr 1fr;
@@ -49,7 +40,6 @@
   padding: var(--space-xl) var(--space-lg);
 }
 
-/* ---------- CARD DO FORMULÁRIO ---------- */
 .auth-card {
   background-color: var(--color-white);
   border: 1.5px solid rgba(237, 237, 237, 0.6);
@@ -91,7 +81,6 @@
   font-size: 1rem;
 }
 
-/* ---------- CAMPOS DE FORMULÁRIO ---------- */
 .form-group {
   margin-bottom: var(--space-md);
 }
@@ -104,8 +93,6 @@
   margin-bottom: var(--space-xs);
 }
 
-/* Usado quando o label vem acompanhado de um link ao lado
-   (ex: "Senha" + "Esqueci minha senha") */
 .form-label__row {
   display: flex;
   align-items: center;
@@ -168,7 +155,6 @@
   color: var(--color-gray-text);
 }
 
-/* Botão de mostrar/ocultar senha (comportamento em js/password-toggle.js) */
 .form-toggle-visibility {
   position: absolute;
   right: 0.9rem;
@@ -184,7 +170,6 @@
   color: var(--color-gray-text);
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 900px) {
   .auth {
     grid-template-columns: 1fr;

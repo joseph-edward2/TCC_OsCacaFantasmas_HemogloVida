@@ -38,7 +38,6 @@ nav a:hover{ color:#fff; }
 
 main{ padding: 40px; max-width:980px; margin:0 auto; }
 
-/* PROFILE HEAD */
 .profile-head{ display:flex; align-items:center; gap:24px; margin-bottom:34px; }
 .profile-photo{ position:relative; flex-shrink:0; }
 .profile-photo img{
@@ -58,7 +57,6 @@ main{ padding: 40px; max-width:980px; margin:0 auto; }
 .edit-photo-link{ color: var(--brand); font-weight:700; font-size:14px; text-decoration:none; }
 .edit-photo-link:hover{ text-decoration:underline; }
 
-/* PANELS */
 .panel{
   background:#fff; border-radius:14px; border:1px solid var(--line);
   padding:28px 32px; margin-bottom:22px;
@@ -99,7 +97,6 @@ main{ padding: 40px; max-width:980px; margin:0 auto; }
 .btn-alterar:hover{ background: var(--brand-dark); }
 .btn-alterar.editing{ background:#2E9E4F; }
 
-/* BOTTOM ACTIONS */
 .bottom-actions{
   display:flex; align-items:center; justify-content:space-between; margin-top:10px; flex-wrap:wrap; gap:14px;
 }
@@ -128,7 +125,6 @@ footer{ background: var(--brand); color:#fff; margin-top:50px; padding: 40px 40p
   display:flex; align-items:center; justify-content:center; font-size:14px;
 }
 
-/* MODAL */
 .overlay{
   position:fixed; inset:0; background: rgba(30,20,22,.4);
   display:none; align-items:center; justify-content:center; z-index:200;

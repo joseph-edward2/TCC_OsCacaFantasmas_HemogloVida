@@ -1,8 +1,3 @@
-/* ===================================================
-   BASE / RESET
-   Estilos genéricos que valem pra qualquer página do
-   site (não só a Home).
-=================================================== */
 
 * {
   margin: 0;
@@ -11,8 +6,6 @@
 }
 
 html {
-  /* Base menor que o padrão (16px) pra reduzir a escala
-     geral da página, já que tudo em rem depende disso. */
   font-size: 14px;
   scroll-behavior: smooth;
 }
@@ -51,7 +44,6 @@ h1, h2, h3, h4 {
   line-height: 1.15;
 }
 
-/* Container central usado em quase todas as seções */
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -59,15 +51,10 @@ h1, h2, h3, h4 {
   padding: 0 var(--space-lg);
 }
 
-/* Espaçamento vertical padrão do <main> nas páginas internas (Dashboard,
-   Pedidos, Agendamentos, Caderneta, Conta, Encontrar Hemocentro). Cada
-   página ainda tem sua própria classe (ex: .dashboard-main) só para
-   estilos exclusivos dela — o espaçamento comum mora aqui, num lugar só. */
 .page-main {
   padding: var(--space-xl) 0 var(--space-2xl);
 }
 
-/* Botões (padrão usado no site inteiro) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -91,9 +78,6 @@ h1, h2, h3, h4 {
   outline-offset: 2px;
 }
 
-/* Ícones (Phosphor) dentro de qualquer botão do projeto: tamanho padrão de
-   16px, cor sempre herdada do texto do botão (branco no primary, preto
-   no light etc.) — nunca definida à parte. */
 .btn i {
   font-size: 16px;
 }
@@ -124,8 +108,6 @@ h1, h2, h3, h4 {
   color: var(--color-black);
 }
 
-/* Título de seção com barrinha vermelha à esquerda,
-   reaproveitado em mais de uma seção */
 .section-title {
   font-size: 1.9rem;
   color: var(--color-black);
@@ -139,8 +121,6 @@ h1, h2, h3, h4 {
   max-width: 640px;
 }
 
-/* Utilitário simples pra animação de entrada ao rolar a página.
-   A classe "in-view" é adicionada via JS (Intersection Observer). */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
