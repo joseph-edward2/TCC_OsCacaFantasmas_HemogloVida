@@ -64,16 +64,21 @@
         <div class="alert-banner__icon">!</div>
         <div class="alert-banner__text">
           <h2>Estoque Crítico Detectado</h2>
-          <p>3 tipos sanguíneos estão abaixo do estoque mínimo de segurança.</p>
+          <p>2 tipos sanguíneos estão abaixo do estoque mínimo de segurança.</p>
         </div>
       </div>
       <button class="btn" id="btnRequisicao">Fazer Requisição Agora</button>
     </div>
 
-
+    <!-- ====================================================
+         CARTÕES POR TIPO SANGUÍNEO
+         Cada .stock-card representa um tipo. A classe extra
+         "stock-card--critical" só entra quando o estoque
+         está abaixo do mínimo (aí também aparece o badge).
+         ==================================================== -->
     <div class="stock-grid">
 
-      <!-- O- -->
+      <!-- O- (crítico) -->
       <div class="stock-card stock-card--critical">
         <div class="stock-card__head">
           <span class="stock-card__type">O-</span>

@@ -288,11 +288,19 @@ document.getElementById('loadMoreBtn').addEventListener('click', ()=>{
     document.getElementById('loadMoreBtn').disabled = true;
     return;
   }
-  recentOrders.push(moreOrdersPool[moreIndex]);
-  moreIndex++;
+
+  const incremento = 3; // troque para 2, 3, 4...
+  const fim = Math.min(moreIndex + incremento, moreOrdersPool.length);
+
+  for(let i = moreIndex; i < fim; i++){
+    recentOrders.push(moreOrdersPool[i]);
+  }
+  moreIndex = fim;
+
   renderRecent();
   applyFilters();
   refreshStats();
+
   if(moreIndex >= moreOrdersPool.length){
     document.getElementById('loadMoreBtn').textContent = 'Não há mais pedidos';
     document.getElementById('loadMoreBtn').disabled = true;

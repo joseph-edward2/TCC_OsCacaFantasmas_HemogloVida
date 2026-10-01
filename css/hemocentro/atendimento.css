@@ -329,3 +329,34 @@
 @media (max-width: 900px){
   .layout{ grid-template-columns: 1fr; }
 }
+
+/*--------Botões de ação desabilitados (passo a passo)--------*/
+
+.card__actions .btn:disabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/*--------Troca de doador (agenda clicável)--------*/
+
+.agenda__item--clicavel{
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.agenda__item--clicavel:hover,
+.agenda__item--clicavel:focus-visible{
+  background-color: #e2e0de;
+  outline: none;
+}
+
+.agenda__item--clicavel:hover .agenda__nome,
+.agenda__item--clicavel:focus-visible .agenda__nome{
+  color: var(--brand);
+}
+
+/* Doador que está em atendimento no momento */
+.agenda__item--atual{
+  box-shadow: inset 3px 0 0 var(--brand);
+}

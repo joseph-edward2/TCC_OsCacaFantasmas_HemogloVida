@@ -12,12 +12,12 @@
   const state = {
     pattern: [ // 0=Domingo ... 6=Sábado
       { open: false, start: '12:00 AM', end: '12:00 AM', cap: 0 },
-      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
-      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
-      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
-      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
-      { open: true,  start: '08:00 AM', end: '06:00 PM', cap: 120 },
-      { open: true,  start: '08:00 AM', end: '12:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '06:00 PM', cap: 60 },
+      { open: true,  start: '07:00 AM', end: '12:00 PM', cap: 30 },
     ],
     overrides: {
       '2026-09-12': { open: true, horarios: [
