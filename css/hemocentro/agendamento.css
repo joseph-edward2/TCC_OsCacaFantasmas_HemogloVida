@@ -6,6 +6,8 @@
   max-width:520px;
 }
 
+/*--------Toggle switch--------*/
+
 .switch{
   position:relative;
   display:inline-block;
@@ -35,6 +37,8 @@
 .switch input:checked + .track{ background:var(--brand); }
 .switch input:checked + .track::before{ transform:translateX(18px); }
 
+/*--------Toolbar buttons (calendar actions)--------*/
+
 .toolbar{
   display:flex;
   gap:12px;
@@ -44,12 +48,16 @@
 .toolbar .btn-primary{ padding:10px 16px; }
 .toolbar .btn-gap{ margin-left:auto; }
 
+/*--------Agenda layout--------*/
+
 .agenda-grid{
   display:grid;
   grid-template-columns: 1fr 300px;
   gap:20px;
   align-items:start;
 }
+
+/*--------Calendar--------*/
 
 .calendar-header{
   display:flex;
@@ -149,6 +157,8 @@
 }
 .legend-swatch.is-indisponivel{ background:var(--disabled); border-color:var(--disabled); }
 .legend-swatch.is-selecionado{ border:2px solid var(--brand); background:var(--card); }
+
+/*--------Day config sidebar--------*/
 
 .day-config{
   padding:0;
@@ -264,6 +274,8 @@
   font-family:inherit;
 }
 .btn-dashed:hover{ background:var(--bg); }
+
+/*--------Weekly config table--------*/
 
 .weekly-table{ width:100%; border-collapse:collapse; font-size:14px; }
 .weekly-table th{

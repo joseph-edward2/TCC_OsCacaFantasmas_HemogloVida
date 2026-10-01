@@ -1,7 +1,22 @@
+/* ======================================================
+   HEMOGLOVIDA — TELA DE ALERTAS E CAMPANHAS
+   ======================================================
+   Importe DEPOIS do base.css:
 
+   <link rel="stylesheet" href="base.css">
+   <link rel="stylesheet" href="alertas.css">
+
+   Esta página tem: KPIs no topo, tabela de alertas
+   publicados, formulário de criar alerta e uma vitrine
+   de campanhas de doação.
+   ====================================================== */
+
+/* ------------------------------------------------------
+   1. ÁREA PRINCIPAL DO CONTEÚDO
+   ------------------------------------------------------ */
 .main {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto; /* centraliza o conteúdo na tela */
   padding: 28px 32px 48px;
 }
 
@@ -17,6 +32,16 @@
   font-weight: 700;
 }
 
+/* O botão "+ Novo Alerta" (.btn-pill) já vem pronto do
+   base.css, no mesmo tamanho dos outros botões da página. */
+
+
+/* ------------------------------------------------------
+   2. CARTÕES DE KPI (números em destaque no topo)
+   ------------------------------------------------------
+   "repeat(3, 1fr)" cria 3 colunas de largura igual —
+   é um jeito mais curto de escrever "1fr 1fr 1fr".
+   ------------------------------------------------------ */
 .kpi-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,6 +92,10 @@
   flex-shrink: 0;
 }
 
+
+/* ------------------------------------------------------
+   3. LAYOUT DE DUAS COLUNAS (tabela + formulário)
+   ------------------------------------------------------ */
 .two-columns {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -78,7 +107,7 @@
   background: var(--card);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06); /* sombra suave */
 }
 
 .card-header {
@@ -116,8 +145,12 @@
   color: var(--ink);
 }
 
+
+/* ------------------------------------------------------
+   4. CAMPO DE BUSCA
+   ------------------------------------------------------ */
 .search-box {
-  position: relative;
+  position: relative; /* referência pro ícone posicionado dentro do input */
 }
 
 .search-icon {
@@ -125,14 +158,14 @@
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none;
+  pointer-events: none; /* clique "atravessa" o ícone e vai pro input */
 }
 
 .search-input {
   background: var(--input-bg);
   border: none;
   border-radius: 8px;
-  padding: 9px 14px 9px 36px;
+  padding: 9px 14px 9px 36px; /* padding maior à esquerda pra abrir espaço pro ícone */
   font-size: 13px;
   font-family: inherit;
   color: var(--ink);
@@ -143,9 +176,13 @@
   color: var(--ink-soft);
 }
 
+
+/* ------------------------------------------------------
+   5. TABELA DE ALERTAS
+   ------------------------------------------------------ */
 .alerts-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* junta as bordas das células em vez de duplicar */
 }
 
 .alerts-table thead th {
@@ -190,6 +227,7 @@
   color: var(--ink-soft);
 }
 
+/* ---- Selos (badges) genéricos da tabela ---- */
 .badge {
   display: inline-block;
   padding: 3px 10px;
@@ -222,6 +260,7 @@
   color: var(--brand);
 }
 
+/* ---- Botões de ação (editar/excluir) na tabela ---- */
 .actions {
   display: flex;
   gap: 6px;
@@ -246,6 +285,10 @@
   border-color: var(--brand-light);
 }
 
+
+/* ------------------------------------------------------
+   6. FORMULÁRIO (criar alerta / campanha)
+   ------------------------------------------------------ */
 .form-group {
   margin-bottom: 16px;
 }
@@ -258,13 +301,17 @@
   margin-bottom: 6px;
 }
 
+/* A altura, cor de fundo, borda e efeito de foco de
+   .form-input / .form-select / .form-textarea já vêm
+   prontos do base.css. */
+
 .form-select {
   appearance: auto;
   cursor: pointer;
 }
 
 .form-textarea {
-  resize: vertical;
+  resize: vertical; /* só deixa redimensionar pra cima/baixo, não pros lados */
   min-height: 80px;
 }
 
@@ -277,6 +324,7 @@
   flex: 1;
 }
 
+/* ---- Chips (seleção de tipo sanguíneo, por exemplo) ---- */
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -317,10 +365,22 @@
   color: #fff;
 }
 
+
+/* ------------------------------------------------------
+   7. BOTÕES GERAIS DA PÁGINA
+   ------------------------------------------------------
+   .btn-primary e .btn-outline já vêm prontos (cor, altura,
+   hover) do base.css — nada extra pra fazer aqui.
+   ------------------------------------------------------ */
+
 .btn--mt {
   margin-top: 10px;
 }
 
+
+/* ------------------------------------------------------
+   8. SEÇÃO DE CAMPANHAS
+   ------------------------------------------------------ */
 .section-title {
   font-size: 20px;
   font-weight: 700;
@@ -363,6 +423,10 @@
   min-width: 180px;
 }
 
+
+/* ------------------------------------------------------
+   9. CARDS DE CAMPANHA (vitrine)
+   ------------------------------------------------------ */
 .campaign-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -372,7 +436,7 @@
 .campaign-card {
   background: var(--card);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: hidden; /* a imagem respeita as bordas arredondadas do card */
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
@@ -412,6 +476,7 @@
   margin-bottom: 16px;
 }
 
+/* ---- Barra de progresso da campanha ---- */
 .progress-section {
   margin-bottom: 16px;
 }
@@ -445,7 +510,7 @@
   height: 100%;
   background: var(--brand);
   border-radius: 50px;
-  transition: width 0.6s ease;
+  transition: width 0.6s ease; /* anima quando o valor da barra mudar via JS */
 }
 
 .campaign-card-footer {

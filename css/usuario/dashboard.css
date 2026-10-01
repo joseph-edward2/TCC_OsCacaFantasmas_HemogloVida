@@ -1,4 +1,9 @@
+/* ===================================================
+   PÁGINA DASHBOARD (Tela Geral)
+   Estilos exclusivos desta página.
+=================================================== */
 
+/* ---------- CABEÇALHO DE BOAS-VINDAS ---------- */
 .dash-header {
   display: flex;
   align-items: center;
@@ -26,6 +31,7 @@
   font-weight: 800;
 }
 
+/* ---------- ALERTA "VOCÊ JÁ PODE DOAR" ---------- */
 .dash-alert {
   display: flex;
   align-items: center;
@@ -50,6 +56,7 @@
   color: var(--color-primary);
 }
 
+/* ---------- GRID DE ESTATÍSTICAS ---------- */
 .dash-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -78,6 +85,7 @@
   font-weight: 700;
 }
 
+/* Card em destaque (Próxima Doação) */
 .stat-card--highlight {
   background-color: var(--color-primary);
   border-color: var(--color-accent);
@@ -102,6 +110,7 @@
   color: var(--color-white);
 }
 
+/* ---------- GRID PRINCIPAL (2 colunas) ---------- */
 .dash-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -135,6 +144,7 @@
   text-decoration: underline;
 }
 
+/* ---------- CAMPANHAS PRÓXIMAS ---------- */
 .campaign-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -229,7 +239,7 @@
 
 .campaign-card__progress-fill {
   height: 100%;
-  width: 0%;
+  width: 0%; /* preenchido via JS, ver js/dashboard.js */
   background-color: var(--color-primary);
   border-radius: var(--radius-pill);
   transition: width 1s ease;
@@ -251,6 +261,7 @@
   color: var(--color-black);
 }
 
+/* ---------- HEMOCENTROS VISITADOS ---------- */
 .visited-list {
   display: flex;
   flex-direction: column;
@@ -314,6 +325,7 @@
   font-size: 14px;
 }
 
+/* ---------- ALERTAS CRÍTICOS ---------- */
 .alerts-card {
   background-color: var(--color-drop-light);
   border-radius: var(--radius-md);
@@ -372,6 +384,7 @@
   text-decoration: underline;
 }
 
+/* ---------- CARD "DOAR" (agendamento) ---------- */
 .schedule-card {
   background-color: var(--color-white);
   border: 1.5px solid var(--color-card-bg);
@@ -437,6 +450,7 @@
   border-radius: var(--radius-sm);
 }
 
+/* ---------- RESPONSIVO ---------- */
 @media (max-width: 1100px) {
   .dash-stats {
     grid-template-columns: repeat(2, 1fr);

@@ -3,23 +3,28 @@
 
   const TIPOS_SANGUINEOS = ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"];
 
+  // Estado da paginação
   const paginacao = {
-    total: 20,
-    porPagina: 10,
+    total: 0, // calculado dinamicamente a partir das linhas reais do tbody
+    porPagina: 5,
     paginaAtual: 1,
   };
 
-  let elInfoPagina, elBtnAnterior, elBtnProximo;
+  let elInfoPagina, elBtnAnterior, elBtnProximo, elTbody;
 
   document.addEventListener("DOMContentLoaded", () => {
     setupPaginacao();
     setupRegistrarEntrada();
   });
 
+  /* --------------------------------------------------------------------
+     Inventário Detalhado — Paginação
+     -------------------------------------------------------------------- */
   function setupPaginacao() {
     const footer = document.querySelector(".table-footer");
     if (!footer) return;
 
+    elTbody = document.querySelector(".table tbody");
     elInfoPagina = footer.querySelector("span");
     [elBtnAnterior, elBtnProximo] = footer.querySelectorAll(".pagination .btn");
 
@@ -41,13 +46,33 @@
   }
 
   function atualizarPaginacao() {
-    const inicio = (paginacao.paginaAtual - 1) * paginacao.porPagina + 1;
-    const fim = Math.min(paginacao.paginaAtual * paginacao.porPagina, paginacao.total);
-    elInfoPagina.textContent = `Mostrando ${inicio}-${fim} de ${paginacao.total} bolsas em estoque`;
+    if (!elTbody) return;
+
+    const linhas = [...elTbody.querySelectorAll("tr")];
+    paginacao.total = linhas.length;
+
+    // Garante que a página atual não fique "sobrando" caso o total diminua
+    const totalPag = totalPaginas();
+    if (paginacao.paginaAtual > totalPag) paginacao.paginaAtual = totalPag;
+
+    const inicioIndex = (paginacao.paginaAtual - 1) * paginacao.porPagina;
+    const fimIndex = Math.min(inicioIndex + paginacao.porPagina, paginacao.total);
+
+    linhas.forEach((tr, i) => {
+      tr.hidden = !(i >= inicioIndex && i < fimIndex);
+    });
+
+    elInfoPagina.textContent = paginacao.total > 0
+      ? `Mostrando ${inicioIndex + 1}-${fimIndex} de ${paginacao.total} bolsas em estoque`
+      : `Nenhuma bolsa em estoque`;
+
     elBtnAnterior.disabled = paginacao.paginaAtual === 1;
-    elBtnProximo.disabled = paginacao.paginaAtual === totalPaginas();
+    elBtnProximo.disabled = paginacao.paginaAtual === totalPag;
   }
 
+  /* --------------------------------------------------------------------
+     Registrar Entrada (pop-up)
+     -------------------------------------------------------------------- */
   function setupRegistrarEntrada() {
     const btn = document.querySelector(".page-actions .btn-primary");
     if (!btn) return;
@@ -63,7 +88,7 @@
       form.reset();
       const hoje = new Date();
       const validade = new Date(hoje);
-      validade.setDate(validade.getDate() + 35);
+      validade.setDate(validade.getDate() + 35); // validade padrão: 35 dias
       inputColeta.value = paraInputDate(hoje);
       inputValidade.value = paraInputDate(validade);
       modal.hidden = false;
@@ -98,7 +123,8 @@
 
       atualizarStockCard(tipo, quantidade);
 
-      paginacao.total += quantidade;
+      // Volta para a primeira página para exibir as bolsas recém-inseridas
+      // (elas entram no topo do tbody) e recalcula o total real de linhas.
       paginacao.paginaAtual = 1;
       atualizarPaginacao();
 
@@ -115,38 +141,58 @@
     const opcoesTipo = TIPOS_SANGUINEOS.map((t) => `<option value="${t}">${t}</option>`).join("");
 
     overlay.innerHTML = `
-      <div class="modal">
-        <div class="modal-header">
-          <h3>Registrar Entrada</h3>
-          <button type="button" class="modal-close" aria-label="Fechar"><i class="ph ph-x"></i></button>
-        </div>
-        <form class="modal-body" id="entradaForm">
-          <label>Tipo sanguíneo
-            <select name="tipo" required>
-              <option value="">Selecione</option>
-              ${opcoesTipo}
-            </select>
-          </label>
-          <label>Quantidade de bolsas
-            <input type="number" name="quantidade" min="1" value="1" required>
-          </label>
-          <label>Data de coleta
-            <input type="date" name="coleta" required>
-          </label>
-          <label>Data de validade
-            <input type="date" name="validade" required>
-          </label>
-          <div class="modal-actions">
-            <button type="button" class="btn btn-outline" id="entradaCancelar">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Registrar</button>
-          </div>
-        </form>
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Registrar Entrada</h3>
+        <button type="button" class="modal-close" aria-label="Fechar"><i class="ph ph-x"></i></button>
       </div>
+
+      <form class="modal-body" id="entradaForm">
+        <label>Nome do Doador
+          <input type="text" id="entradaNomeDoador" name="nomeDoador" required>
+        </label>
+
+        <label>Caderneta do Doador
+          <input type="text" id="entradaCaderneta" name="caderneta" required>
+        </label>
+
+        <label>Data de coleta
+        <input type="date" id="Coleta" name="coleta" required>
+        </label>
+
+        <label>Data de validade
+          <input type="date" id="Validade" name="validade" required>
+        </label>
+
+        <label>Tipo sanguíneo (ABO/Rh)
+          <select id="Tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            ${opcoesTipo}
+          </select>
+        </label>
+
+        <label>Número de identificação da doação (ISBT 128)
+          <input type="text" id="IdDoacao" name="idDoacao" placeholder="A000 00 000000 00" required>
+        </label>
+
+        <label>Quantidade de bolsas
+          <input type="number" id="Quantidade" name="quantidade" min="1" value="1" required>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" id="entradaCancelar">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+      </form>
+    </div>
     `;
 
     return overlay;
   }
 
+  /* --------------------------------------------------------------------
+     Inserção da nova bolsa no Inventário Detalhado
+     -------------------------------------------------------------------- */
   function adicionarBolsaNoInventario({ tipo, coleta, validade, origem }) {
     const tbody = document.querySelector(".table tbody");
     if (!tbody) return;
@@ -161,7 +207,6 @@
       <td>${paraDataBR(coleta)}</td>
       <td${classeAlerta}>${paraDataBR(validade)}</td>
       <td><span class="status-dot"></span>Disponível</td>
-      <td>${origem}</td>
     `;
     tbody.insertBefore(tr, tbody.firstChild);
   }
@@ -171,6 +216,9 @@
     return `#${tipo}-${numero}`;
   }
 
+  /* --------------------------------------------------------------------
+     Atualização do card de estoque correspondente ao tipo sanguíneo
+     -------------------------------------------------------------------- */
   function atualizarStockCard(tipo, quantidade) {
     const card = [...document.querySelectorAll(".stock-card")].find(
       (c) => c.querySelector(".blood-type").textContent.trim() === tipo
@@ -188,6 +236,9 @@
     card.querySelector(".meta-right").innerHTML = `${percentual}% do<br>ideal`;
   }
 
+  /* --------------------------------------------------------------------
+     Utilitários de data
+     -------------------------------------------------------------------- */
   function paraInputDate(data) {
     const ano = data.getFullYear();
     const mes = String(data.getMonth() + 1).padStart(2, "0");
