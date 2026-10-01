@@ -1,4 +1,3 @@
-
 body {
   display: flex;
   flex-direction: column;
@@ -14,7 +13,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 56px;
+  padding-top: 40px;
 }
 
 .hero {

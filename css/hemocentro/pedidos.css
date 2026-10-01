@@ -23,6 +23,8 @@ body{
   color: var(--ink);
 }
 
+/*--------Header--------*/
+
 header{
   background: var(--brand);
   color: #fff;
@@ -88,6 +90,8 @@ nav a:hover{ color:#fff; }
   object-fit: cover;
 }
 
+/*--------Layout--------*/
+
 .dashboard{
   max-width: 1320px;
   margin: 0 auto;
@@ -116,6 +120,8 @@ nav a:hover{ color:#fff; }
   max-width:480px;
 }
 
+/*--------Buttons--------*/
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -142,6 +148,8 @@ nav a:hover{ color:#fff; }
 
 .btn-ghost-danger{ background:var(--card); border-color:var(--line); color:var(--ink); }
 .btn-ghost-danger:hover{ background:#faf0f1; border-color:#e5b9bf; color:var(--brand); }
+
+/*--------Filters--------*/
 
 .pedidos-filters{
   display:flex;
@@ -179,6 +187,8 @@ nav a:hover{ color:#fff; }
   font-size:13px;
   pointer-events:none;
 }
+
+/*--------Stat cards--------*/
 
 .ped-stats{
   display:grid;
@@ -225,6 +235,8 @@ nav a:hover{ color:#fff; }
 .ped-stat-card.is-success .ped-stat-icon{ color:var(--success); }
 .ped-stat-card.is-critical .ped-stat-icon{ color:#fff; opacity:1; }
 
+/*--------Section title--------*/
+
 .section-title{
   font-size:22px;
   font-weight:800;
@@ -235,6 +247,8 @@ nav a:hover{ color:#fff; }
   margin:0 0 18px 0;
 }
 .section-title i{ color:var(--brand); font-size:20px; }
+
+/*--------Badges / blood pill--------*/
 
 .badge{
   display:inline-flex;
@@ -255,6 +269,8 @@ nav a:hover{ color:#fff; }
   font-size:16px;
   padding:8px 18px;
 }
+
+/*--------Critical order card--------*/
 
 .critical-list{ margin-bottom:44px; }
 
@@ -293,6 +309,8 @@ nav a:hover{ color:#fff; }
   gap:10px;
   justify-self:end;
 }
+
+/*--------Stepper--------*/
 
 .stepper{
   display:flex;
@@ -339,6 +357,8 @@ nav a:hover{ color:#fff; }
   box-shadow:0 0 0 6px var(--brand-light);
 }
 .step.current .label{ color:var(--ink); }
+
+/*--------Recent orders--------*/
 
 .recent-list{ display:flex; flex-direction:column; gap:18px; margin-bottom:16px; }
 
@@ -397,6 +417,8 @@ nav a:hover{ color:#fff; }
 
 .recent-actions{ display:flex; gap:10px; flex-shrink:0; }
 
+/*--------Load more--------*/
+
 .load-more-wrap{ text-align:center; margin:10px 0 30px; }
 .load-more{
   display:inline-flex;
@@ -413,6 +435,8 @@ nav a:hover{ color:#fff; }
 }
 .load-more:hover{ text-decoration:underline; }
 .load-more:disabled{ color:var(--ink-soft); cursor:default; text-decoration:none; opacity:.8; }
+
+/*--------Modal--------*/
 
 .overlay{
   position:fixed;
@@ -471,6 +495,8 @@ nav a:hover{ color:#fff; }
 .details-body .d-row span:first-child{ color:var(--ink-soft); }
 .details-body .d-row span:last-child{ font-weight:700; color:var(--ink); text-align:right; }
 
+/*--------Toast--------*/
+
 .toast{
   position:fixed;
   bottom:26px;
@@ -489,6 +515,8 @@ nav a:hover{ color:#fff; }
   box-shadow:0 8px 24px rgba(0,0,0,.2);
 }
 .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+/*--------Responsive--------*/
 
 @media (max-width:1080px){
   .ped-stats{ grid-template-columns:repeat(2, 1fr); }

@@ -199,7 +199,6 @@ main {
   padding: 0 6px 0 14px;
 }
 
-
 .input-with-btn:has(.btn-alterar) input {
   padding: 0;
 }

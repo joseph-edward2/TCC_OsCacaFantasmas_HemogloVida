@@ -1,4 +1,9 @@
+/* ===================================================
+   PÁGINA PEDIDOS DE DOAÇÃO
+   Estilos exclusivos desta página.
+=================================================== */
 
+/* ---------- CABEÇALHO ---------- */
 .pedidos-header {
   display: flex;
   align-items: flex-end;
@@ -48,6 +53,7 @@
   opacity: 0.5;
 }
 
+/* ---------- BARRA DE ESTATÍSTICAS ---------- */
 .pedidos-stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 220px));
@@ -85,6 +91,7 @@
   font-size: 1.6rem;
 }
 
+/* ---------- GRID DE PEDIDOS ---------- */
 .pedidos-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -211,7 +218,7 @@
 
 .pedido-card__progress-fill {
   height: 100%;
-  width: 0%;
+  width: 0%; /* preenchido via JS, ver js/pedidos.js */
   background-color: var(--color-primary);
   border-radius: var(--radius-pill);
   transition: width 1s ease;
@@ -253,6 +260,7 @@
   color: var(--color-black);
 }
 
+/* ---------- CARREGAR MAIS ---------- */
 .pedidos-load-more {
   display: flex;
   justify-content: center;
@@ -275,6 +283,7 @@
   font-size: 18px;
 }
 
+/* ---------- RESPONSIVO ---------- */
 @media (max-width: 900px) {
   .pedidos-grid {
     grid-template-columns: 1fr;

@@ -1,4 +1,4 @@
-
+// ---------- TOAST ----------
 let toastTimer;
 function showToast(msg){
   const toast = document.getElementById('toast');
@@ -8,12 +8,13 @@ function showToast(msg){
   toastTimer = setTimeout(()=> toast.classList.remove('show'), 2600);
 }
 
+// ---------- CAMPOS "ALTERAR" (email / telefone) ----------
 document.querySelectorAll('.btn-alterar').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     const input = document.getElementById(btn.dataset.target);
     const editing = !input.disabled;
     if(editing){
-
+      // estava editando -> salvar
       input.disabled = true;
       btn.textContent = 'Alterar';
       btn.classList.remove('editing');
@@ -27,6 +28,7 @@ document.querySelectorAll('.btn-alterar').forEach(btn=>{
   });
 });
 
+// ---------- EDITAR FOTO ----------
 function triggerPhotoChange(){
   showToast('Selecione uma nova foto de perfil (funcionalidade de upload simulada).');
 }
@@ -36,7 +38,7 @@ document.getElementById('editPhotoLink').addEventListener('click', (e)=>{
   triggerPhotoChange();
 });
 
-
+// ---------- MODAL ALTERAR SENHA ----------
 const passwordOverlay = document.getElementById('passwordOverlay');
 document.getElementById('changePasswordBtn').addEventListener('click', ()=>{
   document.getElementById('currentPass').value = '';
@@ -68,18 +70,19 @@ document.getElementById('savePasswordBtn').addEventListener('click', ()=>{
   showToast('Senha alterada com sucesso.');
 });
 
-
+// ---------- TOGGLES DE NOTIFICAÇÃO ----------
 document.querySelectorAll('.switch input').forEach(input=>{
   input.addEventListener('change', ()=>{
     showToast(input.checked ? 'Notificação ativada.' : 'Notificação desativada.');
   });
 });
 
-
+// ---------- SALVAR ALTERAÇÕES ----------
 document.getElementById('saveBtn').addEventListener('click', ()=>{
   showToast('Alterações salvas com sucesso!');
 });
 
+// ---------- ENCERRAR CONTA ----------
 const deleteOverlay = document.getElementById('deleteOverlay');
 document.getElementById('deleteAccountBtn').addEventListener('click', ()=> deleteOverlay.classList.add('show'));
 document.getElementById('deleteClose').addEventListener('click', ()=> deleteOverlay.classList.remove('show'));
