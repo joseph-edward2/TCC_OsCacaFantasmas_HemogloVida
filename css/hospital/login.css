@@ -1,48 +1,21 @@
-/* ======================================================
-   HEMOGLOVIDA — TELA DE LOGIN
-   ======================================================
-   Importe DEPOIS do base.css:
-
-   <link rel="stylesheet" href="base.css">
-   <link rel="stylesheet" href="login.css">
-
-   Esta página não usa header/footer completos como as
-   outras — é uma tela mais simples, centralizada, só com
-   a logo, o cartão de login e o rodapé.
-   ====================================================== */
-
-/* A página de login precisa que o <body> vire uma coluna
-   flex para conseguir "empurrar" o footer pro final da
-   tela mesmo quando o conteúdo é pequeno. Por isso
-   sobrescrevemos o body aqui. */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* ------------------------------------------------------
-   HEADER
-   ------------------------------------------------------
-   Toda a estrutura (cor, nav, logo, avatar) já vem do
-   base.css. A única coisa própria desta tela é a altura
-   mínima, pra não ficar baixo demais sem o menu completo. */
 header {
   min-height: 78px;
 }
 
-/* ------------------------------------------------------
-   1. ÁREA CENTRAL DA PÁGINA
-   ------------------------------------------------------ */
 .page {
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 56px;
+  padding-top: 40px;
 }
 
-/* ---- Bloco com a logo grande + nome do sistema ---- */
 .hero {
   display: flex;
   flex-direction: column;
@@ -89,10 +62,6 @@ header {
   line-height: 1;
 }
 
-
-/* ------------------------------------------------------
-   2. CARTÃO DE LOGIN (formulário)
-   ------------------------------------------------------ */
 .card {
   width: 100%;
   max-width: 340px;
@@ -103,16 +72,12 @@ header {
   margin-top: 28px;
 }
 
-/* ---- Campos de formulário (label + input) ---- */
-
 .field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-/* Espaçamento entre um campo e o próximo (não usa o
-   primeiro, só quando existe um .field logo depois de outro) */
 .field + .field {
   margin-top: 18px;
 }
@@ -123,24 +88,19 @@ header {
   color: var(--ink-soft);
 }
 
-/* A altura, cor de fundo, borda e o efeito de foco do
-   .field__input já vêm padronizados do base.css — aqui só
-   fica o que é específico desta tela. */
-
-/* ---- Campo de senha com botão de "mostrar/ocultar" ---- */
 .field__wrapper {
-  position: relative; /* serve de referência pro botão posicionado dentro do input */
+  position: relative;
 }
 
 .field__input--password {
-  padding-right: 40px; /* abre espaço pro ícone do olho não ficar em cima do texto */
+  padding-right: 40px;
 }
 
 .field__toggle {
   position: absolute;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%); /* centraliza verticalmente o ícone */
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
@@ -164,32 +124,12 @@ header {
   text-decoration: none;
   margin-top: 6px;
 }
-/* ------------------------------------------------------
-   3. BOTÃO DE ENTRAR
-   ------------------------------------------------------
-   O visual do botão (cor, altura, hover, o "clique" ao
-   pressionar) já vem do base.css — aqui só ajustamos pra
-   ocupar 100% da largura do cartão e ter um respiro acima. */
+
 .btn {
   width: 100%;
   margin-top: 22px;
 }
 
-
-/* ------------------------------------------------------
-   4. MENSAGENS DE ERRO / SUCESSO
-   ------------------------------------------------------
-   Use .msg.msg--error para "senha incorreta", por exemplo,
-   ou .msg.msg--success para "login realizado com sucesso".
-   ------------------------------------------------------ */
-
-
-
-/* ------------------------------------------------------
-   5. RESPONSIVO (telas pequenas / celular)
-   ------------------------------------------------------
-   O responsivo do header já vem do base.css. Aqui fica só
-   o que é específico desta página. */
 @media (max-width: 420px) {
   .page {
     padding-top: 36px;

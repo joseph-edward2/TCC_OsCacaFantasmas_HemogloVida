@@ -1,28 +1,6 @@
-/* ======================================================
-   HEMOGLOVIDA — TELA DE ESTOQUE (HOSPITAL)
-   ======================================================
-   Importe DEPOIS do base.css:
-
-   <link rel="stylesheet" href="../base.css">
-   <link rel="stylesheet" href="css/estoque.css">
-
-   (Lembrete do que já vimos antes: o número de "../" muda
-   conforme a profundidade da pasta do seu index.html em
-   relação ao base.css — confira a estrutura de pastas!)
-   ====================================================== */
-
-
-/* Header, nav, logo, avatar e o responsivo do header já
-   vêm prontos do base.css — nada específico pra ajustar
-   aqui nesta página. */
-
-
-/* ------------------------------------------------------
-   1. ÁREA PRINCIPAL / CABEÇALHO DA PÁGINA
-   ------------------------------------------------------ */
 .page-content {
   max-width: 1280px;
-  margin: 0 auto; /* centraliza o conteúdo */
+  margin: 0 auto;
   padding: 40px 32px 60px;
 }
 
@@ -44,7 +22,6 @@
   margin-top: 8px;
 }
 
-/* Bolinha verde indicando que os dados estão "ao vivo" */
 .updated-dot {
   width: 8px;
   height: 8px;
@@ -52,17 +29,6 @@
   background-color: #16a34a;
 }
 
-
-/* ------------------------------------------------------
-   2. BOTÃO GENÉRICO (usado no alerta e em outros lugares)
-   ------------------------------------------------------ */
-/* O visual do botão (.btn) já vem pronto do base.css —
-   nada específico pra ajustar aqui nesta página. */
-
-
-/* ------------------------------------------------------
-   3. BANNER DE ALERTA CRÍTICO
-   ------------------------------------------------------ */
 .alert-banner {
   display: flex;
   align-items: center;
@@ -81,7 +47,6 @@
   gap: 16px;
 }
 
-/* Círculo com o "!" de aviso — sem ícone, só um caractere mesmo */
 .alert-banner__icon {
   width: 48px;
   height: 48px;
@@ -107,13 +72,6 @@
   color: var(--ink-soft);
 }
 
-
-/* ------------------------------------------------------
-   4. GRADE DE CARTÕES POR TIPO SANGUÍNEO
-   ------------------------------------------------------
-   "repeat(4, 1fr)" = 4 colunas iguais. Em telas menores
-   isso é reduzido lá embaixo, na seção de responsivo.
-   ------------------------------------------------------ */
 .stock-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -128,7 +86,6 @@
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-/* Destaque na lateral esquerda para os tipos em estado crítico */
 .stock-card--critical {
   border-left: 4px solid var(--brand);
 }
@@ -172,7 +129,6 @@
   color: var(--ink-soft);
 }
 
-/* Barra de progresso: quanto do estoque ideal já foi atingido */
 .stock-card__bar {
   height: 8px;
   background-color: var(--input-bg);
@@ -202,21 +158,11 @@
   border-top: 1px solid #eee;
 }
 
-/* Quando existem bolsas vencendo em breve, o texto fica destacado */
 .stock-card__expiry--warning {
   color: var(--brand);
   font-weight: 600;
 }
 
-
-/* ------------------------------------------------------
-   5. GRÁFICO DE CONSUMO (versão simples, sem JS)
-   ------------------------------------------------------
-   Este é um gráfico "mock": as alturas das barras estão
-   fixas no HTML (via style="height: ...px"), só pra dar a
-   ideia visual. Quando conectar com dados reais, o ideal é
-   gerar essas alturas com JavaScript ou uma lib de gráficos.
-   ------------------------------------------------------ */
 .chart-card {
   background-color: var(--card);
   border-radius: 10px;
@@ -294,7 +240,7 @@
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  height: 160px; /* altura máxima disponível para as barras */
+  height: 160px;
 }
 
 .bar-chart__bar {
@@ -316,15 +262,11 @@
   color: var(--ink-soft);
 }
 
-
-/* ------------------------------------------------------
-   6. TABELA DE INVENTÁRIO DETALHADO
-   ------------------------------------------------------ */
 .table-card {
   background-color: var(--card);
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
-  overflow: hidden; /* mantém a tabela dentro das bordas arredondadas */
+  overflow: hidden;
   margin-bottom: 24px;
 }
 
@@ -348,9 +290,6 @@
   gap: 8px;
 }
 
-/* Tamanho e formato do .btn-outline-sm já vêm do base.css;
-   aqui só definimos a cor/hover, que é igual à de outras
-   páginas com botões pequenos dentro de cards. */
 .btn-outline-sm {
   background: none;
   border: 1px solid #ddd;
@@ -363,8 +302,6 @@
   border-color: var(--brand-light);
 }
 
-/* overflow-x garante rolagem lateral em telas estreitas,
-   em vez de espremer a tabela até ficar ilegível */
 .table-scroll {
   overflow-x: auto;
 }
@@ -446,10 +383,6 @@
   color: var(--brand);
 }
 
-
-/* ------------------------------------------------------
-   7. RODAPÉ DA TABELA / PAGINAÇÃO
-   ------------------------------------------------------ */
 .table-footer {
   display: flex;
   align-items: center;
@@ -464,9 +397,6 @@
   color: var(--ink-soft);
 }
 
-/* ------------------------------------------------------
-   1. OVERLAY + CARTÃO DO MODAL
-   ------------------------------------------------------ */
 .overlay {
   position: fixed;
   inset: 0;
@@ -525,10 +455,6 @@
   padding: 28px 32px;
 }
 
-
-/* ------------------------------------------------------
-   2. SEÇÕES ("Controle Interno" e "Informações da Bolsa")
-   ------------------------------------------------------ */
 .modal__section-title {
   font-size: 16px;
   font-weight: 800;
@@ -548,12 +474,6 @@
   margin: -10px 0 20px;
 }
 
-
-/* ------------------------------------------------------
-   3. CAMPOS (mesma grade de 2 colunas do formulário de
-   Pedidos — .form-input/.form-select vêm prontos do base.css,
-   aqui só definimos o label e o espaçamento da grade)
-   ------------------------------------------------------ */
 .modal__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -573,42 +493,23 @@
   color: var(--ink-soft);
 }
 
-/* Campos de "Informações da Bolsa" são só leitura — mesma
-   altura/aparência do .form-input do base.css, mas com uma
-   pista visual de que não dá pra editar */
 .field__input[readonly] {
   cursor: default;
   color: var(--ink-soft);
 }
 
-
-/* ------------------------------------------------------
-   4. RODAPÉ DO MODAL
-   ------------------------------------------------------ */
 .modal__footer {
   display: flex;
   justify-content: flex-end;
   padding: 20px 32px 28px;
 }
 
-
-/* ------------------------------------------------------
-   5. RESPONSIVO
-   ------------------------------------------------------ */
 @media (max-width: 640px) {
   .modal__grid {
     grid-template-columns: 1fr;
   }
 }
 
-
-/* O visual da paginação (.paginacao, .paginacao__botao)
-   já vem pronto do base.css. */
-
-
-/* ------------------------------------------------------
-   8. RESPONSIVO
-   ------------------------------------------------------ */
 @media (max-width: 1100px) {
   .stock-grid {
     grid-template-columns: repeat(2, 1fr);
