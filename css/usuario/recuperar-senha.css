@@ -1,12 +1,4 @@
-/* ===================================================
-   PÁGINA REDEFINIR SENHA (recuperar-senha.html)
-   Estilo exclusivo desta página: o botão desabilitado
-   (cinza) depois do envio e o bloco de reenvio com timer.
-=================================================== */
 
-/* Qualquer botão do projeto (.btn) fica cinza quando desabilitado,
-   usando cores que já existem no projeto (--color-card-bg e
-   --color-gray-text, as mesmas dos campos de formulário). */
 .btn:disabled {
   background-color: var(--color-card-bg);
   color: var(--color-gray-text);
@@ -23,7 +15,6 @@
   color: var(--color-gray-text);
 }
 
-/* Bloco do timer + botão de reenvio */
 .resend-section {
   text-align: center;
   margin-top: var(--space-md);

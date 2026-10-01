@@ -3,9 +3,8 @@
 
   const TIPOS_SANGUINEOS = ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"];
 
-  // Estado da paginação
   const paginacao = {
-    total: 0, // calculado dinamicamente a partir das linhas reais do tbody
+    total: 0,
     porPagina: 5,
     paginaAtual: 1,
   };
@@ -17,9 +16,6 @@
     setupRegistrarEntrada();
   });
 
-  /* --------------------------------------------------------------------
-     Inventário Detalhado — Paginação
-     -------------------------------------------------------------------- */
   function setupPaginacao() {
     const footer = document.querySelector(".table-footer");
     if (!footer) return;
@@ -51,7 +47,6 @@
     const linhas = [...elTbody.querySelectorAll("tr")];
     paginacao.total = linhas.length;
 
-    // Garante que a página atual não fique "sobrando" caso o total diminua
     const totalPag = totalPaginas();
     if (paginacao.paginaAtual > totalPag) paginacao.paginaAtual = totalPag;
 
@@ -70,9 +65,6 @@
     elBtnProximo.disabled = paginacao.paginaAtual === totalPag;
   }
 
-  /* --------------------------------------------------------------------
-     Registrar Entrada (pop-up)
-     -------------------------------------------------------------------- */
   function setupRegistrarEntrada() {
     const btn = document.querySelector(".page-actions .btn-primary");
     if (!btn) return;
@@ -88,7 +80,7 @@
       form.reset();
       const hoje = new Date();
       const validade = new Date(hoje);
-      validade.setDate(validade.getDate() + 35); // validade padrão: 35 dias
+      validade.setDate(validade.getDate() + 35);
       inputColeta.value = paraInputDate(hoje);
       inputValidade.value = paraInputDate(validade);
       modal.hidden = false;
@@ -123,8 +115,6 @@
 
       atualizarStockCard(tipo, quantidade);
 
-      // Volta para a primeira página para exibir as bolsas recém-inseridas
-      // (elas entram no topo do tbody) e recalcula o total real de linhas.
       paginacao.paginaAtual = 1;
       atualizarPaginacao();
 
@@ -190,9 +180,6 @@
     return overlay;
   }
 
-  /* --------------------------------------------------------------------
-     Inserção da nova bolsa no Inventário Detalhado
-     -------------------------------------------------------------------- */
   function adicionarBolsaNoInventario({ tipo, coleta, validade, origem }) {
     const tbody = document.querySelector(".table tbody");
     if (!tbody) return;
@@ -216,9 +203,6 @@
     return `#${tipo}-${numero}`;
   }
 
-  /* --------------------------------------------------------------------
-     Atualização do card de estoque correspondente ao tipo sanguíneo
-     -------------------------------------------------------------------- */
   function atualizarStockCard(tipo, quantidade) {
     const card = [...document.querySelectorAll(".stock-card")].find(
       (c) => c.querySelector(".blood-type").textContent.trim() === tipo
@@ -236,9 +220,6 @@
     card.querySelector(".meta-right").innerHTML = `${percentual}% do<br>ideal`;
   }
 
-  /* --------------------------------------------------------------------
-     Utilitários de data
-     -------------------------------------------------------------------- */
   function paraInputDate(data) {
     const ano = data.getFullYear();
     const mes = String(data.getMonth() + 1).padStart(2, "0");

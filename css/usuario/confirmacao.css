@@ -1,13 +1,4 @@
-/* ===================================================
-   PÁGINA CÓDIGO DE CONFIRMAÇÃO
-   Estilos exclusivos desta página. O layout de duas
-   colunas e o card genérico vêm de css/auth.css
-   (compartilhado com Login e Cadastro).
-=================================================== */
 
-/* Envolve o link "Voltar" + o card, mantendo os dois
-   alinhados à esquerda com a mesma largura do card
-   (no Figma o "Voltar" fica acima do card, não centralizado). */
 .confirm-wrapper {
   width: 100%;
   max-width: 460px;
@@ -31,7 +22,6 @@
   color: var(--color-black);
 }
 
-/* ---------- INPUTS DO CÓDIGO (6 dígitos) ---------- */
 .code-inputs {
   display: flex;
   gap: var(--space-sm);
@@ -41,7 +31,7 @@
 .code-input {
   flex: 1;
   min-width: 0;
-  aspect-ratio: 84 / 96; /* mesma proporção do Figma (mais alto que largo) */
+  aspect-ratio: 84 / 96;
   text-align: center;
   font-family: var(--font-main);
   font-size: 1.4rem;
@@ -59,15 +49,10 @@
   box-shadow: 0 0 0 3px rgba(161, 0, 35, 0.12);
 }
 
-/* Botão "Confirmar": no Figma ele é 100% arredondado (pill),
-   diferente do botão padrão do projeto (que usa --radius-lg).
-   Sobrescrevemos só aqui, sem mexer na regra geral do .btn. */
 .btn-pill {
   border-radius: var(--radius-pill);
 }
 
-/* "Reenviar código" é um <button>, mas deve parecer um link
-   (mesmo estilo do link dentro de .auth-card__footer) */
 .auth-card__footer .link-button {
   background: none;
   border: none;

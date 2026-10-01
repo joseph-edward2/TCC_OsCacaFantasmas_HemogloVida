@@ -1,8 +1,3 @@
-/* ===================================================
-   CADERNETA.JS
-   Comportamentos que só existem na página Caderneta de
-   Doação.
-=================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-action]").forEach((button) => {
