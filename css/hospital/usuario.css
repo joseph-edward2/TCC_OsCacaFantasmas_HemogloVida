@@ -23,7 +23,6 @@ main {
   margin: 0 auto;
 }
 
-/* PROFILE HEAD */
 .profile-head {
   display: flex;
   align-items: center;
@@ -92,7 +91,6 @@ main {
   text-decoration: underline;
 }
 
-/* PANELS */
 .panel {
   background: #fff;
   border-radius: 14px;
@@ -137,7 +135,7 @@ main {
 
 .field input {
   height: 46px;
-  padding: 0 14px; /* só horizontal agora — a altura já é fixa */
+  padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 10px;
   font-size: 15px;
@@ -201,7 +199,6 @@ main {
   padding: 0 6px 0 14px;
 }
 
-
 .input-with-btn:has(.btn-alterar) input {
   padding: 0;
 }
@@ -226,7 +223,6 @@ main {
   background: #2E9E4F;
 }
 
-/* BOTTOM ACTIONS */
 .bottom-actions {
   display: flex;
   align-items: center;
@@ -278,7 +274,6 @@ main {
   background: var(--brand-light);
 }
 
-/* MODAL */
 .overlay {
   position: fixed;
   inset: 0;
@@ -391,7 +386,6 @@ main {
   background: var(--brand-dark);
 }
 
-/* TOAST */
 .toast {
   position: fixed;
   bottom: 26px;
@@ -415,7 +409,6 @@ main {
   transform: translateX(-50%) translateY(0);
 }
 
-/* RESPONSIVO */
 @media (max-width: 680px) {
   main {
     padding: 20px;
