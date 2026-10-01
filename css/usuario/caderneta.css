@@ -1,13 +1,8 @@
-/* ===================================================
-   PÁGINA CADERNETA DE DOAÇÃO
-   Estilos exclusivos desta página.
-=================================================== */
 
 .caderneta-header {
   margin-bottom: var(--space-xl);
 }
 
-/* ---------- SEÇÃO DA CARTEIRINHA ---------- */
 .id-card-section {
   display: flex;
   flex-direction: column;
@@ -15,7 +10,6 @@
   gap: var(--space-xl);
 }
 
-/* ---------- CARTEIRINHA (cartão premium) ---------- */
 .id-card {
   position: relative;
   width: 100%;
@@ -31,7 +25,6 @@
   justify-content: space-between;
 }
 
-/* Círculos decorativos desfocados, só um detalhe visual (igual ao Figma) */
 .id-card__decoration {
   position: absolute;
   border-radius: 50%;
@@ -56,7 +49,6 @@
   filter: blur(20px);
 }
 
-/* ---------- TOPO: LOGO + TIPO SANGUÍNEO ---------- */
 .id-card__top {
   position: relative;
   display: flex;
@@ -131,7 +123,6 @@
   margin-top: 2px;
 }
 
-/* ---------- MEIO: FOTO + DADOS DO DOADOR ---------- */
 .id-card__middle {
   position: relative;
   display: flex;
@@ -174,7 +165,6 @@
   font-size: 0.95rem;
 }
 
-/* ---------- BASE: ESTATÍSTICAS + QR CODE ---------- */
 .id-card__bottom {
   position: relative;
   display: flex;
@@ -233,7 +223,6 @@
   height: 64px;
 }
 
-/* ---------- BOTÕES DE AÇÃO ---------- */
 .id-card-actions {
   display: flex;
   gap: var(--space-md);
@@ -261,7 +250,6 @@
   font-size: 18px;
 }
 
-/* ---------- RESPONSIVO ---------- */
 @media (max-width: 640px) {
   .id-card {
     aspect-ratio: auto;

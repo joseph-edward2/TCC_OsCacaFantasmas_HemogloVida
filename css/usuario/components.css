@@ -1,10 +1,4 @@
-/* ===================================================
-   COMPONENTES COMPARTILHADOS: NAVBAR e FOOTER
-   O HTML desses dois componentes é injetado via
-   js/components.js, então aqui só cuidamos do estilo.
-=================================================== */
 
-/* ---------- NAVBAR ---------- */
 header{
   background: var( --color-primary);
   color: #fff;
@@ -46,7 +40,6 @@ nav a:hover{ color:#fff; }
   font-size: 22px;
 }
 
-/*Força o tamanho da imagem da logo*/
 .logo img, .logo-icon {
   width: 28px;
   height: 28px;
@@ -54,32 +47,23 @@ nav a:hover{ color:#fff; }
   flex-shrink: 0;
 }
 
-/*Ícone do usuário*/
 .avatar {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  overflow: hidden; /* Corta a imagem no formato do círculo */
-  flex-shrink: 0;   /* Impede que o Flexbox estique a div */
+  overflow: hidden;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/*Força a foto de perfil a caber exata dentro dos 42px da div*/
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* ===================================================
-   MODAL / OVERLAY (compartilhado)
-   Padrão usado pelas telas Agendamentos e Minha Conta.
-   Cada página ainda pode sobrescrever detalhes pontuais
-   (padding, alinhamento do texto) no próprio CSS, mas o
-   comportamento base fica só aqui, sem repetição.
-=================================================== */
 .overlay {
   position: fixed;
   inset: 0;
@@ -128,8 +112,6 @@ nav a:hover{ color:#fff; }
   cursor: pointer;
 }
 
-/* Notificação flutuante temporária (toast), usada em Encontrar Hemocentro
-   e Minha Conta pra confirmar ações rápidas ("E-mail alterado", etc). */
 .toast {
   position: fixed;
   bottom: var(--space-lg);
@@ -153,9 +135,6 @@ nav a:hover{ color:#fff; }
   transform: translateX(-50%) translateY(0);
 }
 
-/* Cartão branco com borda, usado como base de vários blocos nas páginas
-   internas (calendário e resumo em Agendamentos, seções em Minha Conta).
-   Cada página pode ajustar detalhes extras (como margem) no próprio CSS. */
 .panel {
   background: var(--color-white);
   border: 1.5px solid var(--color-card-bg);
@@ -163,7 +142,6 @@ nav a:hover{ color:#fff; }
   padding: var(--space-lg);
 }
 
-/* ---------- FOOTER ---------- */
 footer {
   background: var(--color-primary);
   color: #ffffff;
@@ -184,19 +162,14 @@ footer {
 .foot-grid a { display: block; color: rgba(255,255,255,.85); text-decoration: none; font-size: 14px; margin-bottom: 9px; }
 .foot-brand { font-size: 22px; font-weight: bold; margin-bottom: 8px; }
 
-/* ---------------------------------------------------
-   SESSÃO DE ÍCONES SOCIAIS
---------------------------------------------------- */
 
-/* Container que garante a sequência horizontal dos botões */
 .social-links {
   display: flex;
-  flex-direction: row; /* Mantém os itens um ao lado do outro */
+  flex-direction: row;
   gap: 16px;
   margin-top: 12px;
 }
 
-/* Seletor super específico para sobrescrever o comportamento padrão do .foot-grid a */
 .foot-grid .social-links a.social-btn {
   width: 48px;
   height: 48px;
@@ -212,7 +185,6 @@ footer {
   margin-bottom: 0; 
 }
 
-/* Garante que o ícone em si não tenha margens indesejadas */
 .foot-grid .social-links a.social-btn i, 
 .foot-grid .social-links a.social-btn svg {
   margin: 0;

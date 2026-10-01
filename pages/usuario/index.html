@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Ícones: biblioteca Phosphor (única fonte de ícones usada no projeto) -->
   <script src="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2"></script>
 
   <link rel="stylesheet" href="../../css/usuario/variables.css" />
@@ -19,12 +18,10 @@
 </head>
 <body>
 
-  <!-- O navbar é injetado aqui via JS (../../js/usuario/components.js) -->
   <div id="navbar-placeholder" data-variant="public"></div>
 
   <main>
 
-    <!-- ===================== HERO ===================== -->
     <section class="hero">
       <div class="hero__bg"></div>
       <div class="hero__overlay"></div>
@@ -49,7 +46,6 @@
       </div>
     </section>
 
-    <!-- ===================== ESTOQUE ===================== -->
     <section class="stock" id="estoque">
       <div class="container">
         <div class="stock__header">
@@ -64,8 +60,6 @@
         </div>
 
         <div class="stock__grid">
-          <!-- Cada card já vem com data-percent, usado pelo JS pra
-               preencher a gota e pra animar a entrada -->
           <article class="stock-card" data-percent="35">
             <div class="stock-card__icon">
               <div class="stock-card__icon-bg"></div>
@@ -119,7 +113,6 @@
       </div>
     </section>
 
-    <!-- ===================== HEMOCENTROS DISPONÍVEIS ===================== -->
     <section class="centers">
       <div class="container">
         <h2 class="section-title">Hemocentros Disponíveis</h2>
@@ -185,7 +178,6 @@
       </div>
     </section>
 
-    <!-- ===================== CARROSSEL "VOCÊ SABIA?" ===================== -->
     <section class="info-banner">
       <div class="info-carousel">
         <div class="info-carousel__decoration"></div>
@@ -285,7 +277,6 @@
 
   </main>
 
-  <!-- O footer é injetado aqui via JS (../../js/usuario/components.js) -->
   <div id="footer-placeholder"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
