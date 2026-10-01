@@ -1,0 +1,166 @@
+.page{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 56px;
+  
+}
+
+/*--------Bloco de identidade--------*/
+
+.hero{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__row{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero__badge{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__logo{
+  width: 65px;
+  height: 65px;
+  padding: 8px;
+  object-fit: fill;
+}
+
+.hero__name{
+  margin: 0;
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--brand);
+  line-height: 1;
+}
+
+.hero__subtitle{
+  margin: 10px 0 0;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--ink);
+  line-height: 1;
+}
+
+/*--------Cartão de login--------*/
+/* Nome próprio (login-card) para não colidir com o .card do Atendimento */
+
+.login-card{
+  width: 100%;
+  max-width: 340px;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 6px 18px -6px rgba(30, 20, 20, 0.15);
+  padding: 22px;
+  margin-top: 28px;
+}
+
+/* Botão de envio reaproveita .btn/.btn-primary; aqui só o deixamos full-width */
+.login-card .btn{
+  width: 100%;
+  justify-content: center;
+  margin-top: 22px;
+}
+
+/*--------Campos--------*/
+
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field + .field{ margin-top: 18px; }
+
+.field__label{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.field__input{
+  width: 100%;
+  background: var(--input-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--ink);
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.field__input::placeholder{
+  color: var(--ink-soft);
+  opacity: 0.6;
+}
+
+.field__input:focus{
+  box-shadow: 0 0 0 2px var(--brand);
+}
+
+/* Campo de senha com ícone */
+.field__wrapper{ position: relative; }
+
+.field__input--password{ padding-right: 40px; }
+
+.field__toggle{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  line-height: 0;
+}
+
+.field__toggle:hover{ color: var(--ink); }
+
+/*--------Mensagem de erro/sucesso--------*/
+
+.msg{
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.msg--error{
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.msg--success{
+  background: #e6f9ed;
+  color: #1a7a3a;
+}
+
+/*--------Responsivo--------*/
+
+@media (max-width: 420px){
+  .page{ padding-top: 36px; }
+  .login-card{ margin: 28px 16px 0; }
+}
