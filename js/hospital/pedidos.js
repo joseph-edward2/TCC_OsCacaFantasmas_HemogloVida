@@ -1,5 +1,3 @@
-
-
 const btnNovaRequisicao = document.getElementById('btnNovaRequisicao');
 const formNovaRequisicao = document.getElementById('formNovaRequisicao');
 
@@ -18,13 +16,11 @@ const metaArquivo = document.getElementById('metaArquivo');
 const formRequisicao = document.getElementById('formRequisicao');
 const msgEl = document.getElementById('msg');
 
-
 if (btnNovaRequisicao) {
   btnNovaRequisicao.addEventListener('click', function () {
     formNovaRequisicao.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
-
 
 if (tipoSanguineoEl) {
   tipoSanguineoEl.addEventListener('click', function (e) {
@@ -40,7 +36,6 @@ if (tipoSanguineoEl) {
   });
 }
 
-
 if (qtyMenos && qtyMais && qtyInput) {
   qtyMenos.addEventListener('click', function () {
     const valorAtual = Number(qtyInput.value) || 1;
@@ -52,7 +47,6 @@ if (qtyMenos && qtyMais && qtyInput) {
     qtyInput.value = valorAtual + 1;
   });
 }
-
 
 if (btnTrocarArquivo) {
   btnTrocarArquivo.addEventListener('click', function () {
@@ -71,7 +65,6 @@ if (inputArquivo) {
     btnTrocarArquivo.textContent = 'Trocar arquivo';
   });
 }
-
 
 if (formRequisicao) {
   formRequisicao.addEventListener('submit', async function (e) {
@@ -102,5 +95,23 @@ if (formRequisicao) {
     } finally {
       restaurar();
     }
+  });
+}
+
+const tabelaRequisicoes = document.querySelector('.requests-table');
+
+if (tabelaRequisicoes) {
+  tabelaRequisicoes.addEventListener('click', function (e) {
+    const botao = e.target.closest('.btn-confirm-sm');
+    if (!botao) return;
+
+    const linha = botao.closest('tr');
+    const rotulo = linha.querySelector('.timeline__label');
+
+    if (rotulo) rotulo.textContent = 'Entregue';
+
+    botao.classList.remove('btn-confirm-sm');
+    botao.classList.add('btn-outline-sm');
+    botao.textContent = 'Ver PDF';
   });
 }

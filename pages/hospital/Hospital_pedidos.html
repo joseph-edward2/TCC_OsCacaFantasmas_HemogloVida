@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedidos — Hospital | Hemoglovida</title>
 
-  <link rel="stylesheet" href="../../css/hospital/base.css">
+
+  <link rel="stylesheet" href="../../css//hospital/base.css">
   <link rel="stylesheet" href="../../css/hospital/pedidos.css">
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 </head>
@@ -18,6 +19,7 @@
         <img src="https://i.ibb.co/SwCGm0fj/Hemoglovida-Logo.png" alt="Logo Hemoglovida" class="logo-icon">
         Hemoglovida
       </div>
+
 
       <nav>
         <a href="Hospital_estoque.html">Estoque</a>
@@ -34,6 +36,7 @@
       </a>
     </div>
   </header>
+
 
   <main class="page-content">
 
@@ -78,7 +81,6 @@
 
           <div class="form-section">
             <label class="form-section__label">Tipo Sanguíneo Requerido</label>
-
             <div class="blood-select" id="tipoSanguineo">
               <button type="button" class="blood-select__btn">O-</button>
               <button type="button" class="blood-select__btn">O+</button>
@@ -88,12 +90,10 @@
               <button type="button" class="blood-select__btn">B+</button>
               <button type="button" class="blood-select__btn">AB-</button>
             </div>
-
             <input type="hidden" name="tipo_sanguineo" id="tipoSanguineoValor">
           </div>
 
           <div class="form-row">
-
             <div class="form-section">
               <label class="form-section__label">Quantidade de bolsas</label>
               <div class="qty-stepper">
@@ -179,7 +179,6 @@
                 </tr>
               </thead>
               <tbody>
-
                 <tr>
                   <td><span class="blood-tag">O-</span></td>
                   <td>04 unid.</td>
@@ -187,13 +186,14 @@
                   <td>
                     <div class="timeline">
                       <span class="timeline__dot timeline__dot--done"></span>
-                      <span class="timeline__line timeline__line"></span>
-                      <span class="timeline__dot timeline__dot"></span>
+                      <span class="timeline__line timeline__line--done"></span>
+                      <span class="timeline__dot timeline__dot--current"></span>
                       <span class="timeline__line"></span>
                       <span class="timeline__dot"></span>
-
+                      <span class="timeline__line"></span>
+                      <span class="timeline__dot"></span>
                     </div>
-                    <span class="timeline__label">Em análise</span>
+                    <span class="timeline__label">Em Separação</span>
                   </td>
                   <td><button class="btn-outline-sm">Ver PDF</button></td>
                 </tr>
@@ -210,9 +210,9 @@
                       <span class="timeline__line timeline__line--done"></span>
                       <span class="timeline__dot timeline__dot--done"></span>
                     </div>
-                    <span class="timeline__label">Entregue</span>
+                    <span class="timeline__label">Aguardando confirmação</span>
                   </td>
-                  <td><button class="btn-outline-sm">Ver PDF</button></td>
+                  <td><button type="button" class="btn-confirm-sm">Confirmar entrega</button></td>
                 </tr>
 
                 <tr>
@@ -252,6 +252,7 @@
     </div>
 
   </main>
+
 
   <script src="../../js/hospital/base.js"></script>
   <script src="../../js/hospital/pedidos.js"></script>

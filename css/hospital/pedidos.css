@@ -160,7 +160,6 @@
   font-weight: 700;
   font-family: inherit;
   color: var(--ink);
-
   -moz-appearance: textfield;
 }
 
@@ -440,6 +439,25 @@
   background-color: var(--brand-light);
   color: var(--brand);
   border-color: var(--brand-light);
+}
+
+.btn-confirm-sm {
+  display: inline-block;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--brand);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.btn-confirm-sm:hover {
+  filter: brightness(0.9);
 }
 
 .info-banner {
