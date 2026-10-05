@@ -1,5 +1,3 @@
-
-
 const form = document.getElementById('cadastroFuncionarioForm');
 const toggleBtn = document.getElementById('toggleSenha');
 const senhaInput = document.getElementById('senha_funcionario');
