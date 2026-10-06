@@ -65,14 +65,14 @@
         <label>Cargo</label>
         <input type="text" id="role" value="Médico-chefe" disabled>
      </div>
-
       <div class="field">
         <label>E-mail</label>
         <div class="input-with-btn">
             <span class="ic">
                 <i class="ph ph-envelope-simple"></i>
             </span>
-            <input type="email" id="emailField" value="renatao@email.com" disabled>
+            <!-- o problema estava aqui, o disabled com value dado e usado em sites de phising dai a ia da microsoft acha que e virus, so foi tirar o disabled que parou  -->
+            <input type="email" id="emailField" value="renatao@email.com"  > 
             <button class="btn-alterar" data-target="emailField">
                 Alterar
             </button>
